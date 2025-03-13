@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmacn54cnpjq3"]
 
-[ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_manager.gd" id="1_x7p8l"]
-[ext_resource type="PackedScene" uid="uid://bvy8ymvq7op" path="res://Scenes/Objects/level_plant.tscn" id="2_pqip5"]
+[ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_x7p8l"]
+[ext_resource type="PackedScene" uid="uid://bvy8ymvq7op" path="res://Scenes/Objects/lab_plant.tscn" id="2_pqip5"]
 
 [node name="LevelNode" type="Node2D"]
 
