@@ -72,18 +72,18 @@ func _register_song(files_array : PackedStringArray, files_path : String) -> boo
 			events_file_path = files_path + "/" + file
 			events_file_name = _get_file_name(file)
 		if(song_file_found and events_file_found):
-			# refactor llamar al método add song
-			# /////////////////////////////////////////////////////////////////
-			var new_level_plant : LevelPlant = plantLevelClass.instantiate()
-			add_child(new_level_plant)
-			new_level_plant.position = Vector2(200 *spawnedPlants, 0)
-			spawnedPlants += 1
-			new_level_plant.displayName = song_file_name
-			new_level_plant.song_file_path = song_file_path
-			new_level_plant.events_file_path = events_file_path
+			_add_song(song_file_name, 999, song_file_path, events_file_path)
 			return true
 	return false
 
-func _add_song(song_name : String, last_score : int) -> bool:
-	
-	return true
+# Crea un objeto de tipo planta, que sirve como botón para acceder a un nivel.
+# La planta guarda la ruta a los archivos necesarios para iniciar un nuevo nivel
+func _add_song(song_name : String, last_score : int, song_path : String, events_path : String):
+	var new_level_plant : LevelPlant = plantLevelClass.instantiate()
+	add_child(new_level_plant)
+	new_level_plant.position = Vector2(200 *spawnedPlants, 0)
+	spawnedPlants += 1
+	new_level_plant.displayName = song_name
+	new_level_plant.lastScore = str(999)
+	new_level_plant.song_file_path = song_path
+	new_level_plant.events_file_path = events_path

@@ -7,16 +7,19 @@ script = ExtResource("1_u11gg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="SongNameLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Button" type="Button" parent="."]
+offset_right = 97.0
+offset_bottom = 40.0
 text = "Song Name"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="LastScoreLabel" type="Label" parent="SongNameLabel"]
+[node name="LastScoreLabel" type="Label" parent="Button"]
 layout_mode = 0
-offset_top = 21.0
-offset_right = 80.0
-offset_bottom = 44.0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 88.0
+offset_bottom = 63.0
 text = "Last score"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
