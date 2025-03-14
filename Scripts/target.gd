@@ -13,7 +13,7 @@ var score = 0
 var distance = 0
 var cursorOn = false
 @export var scoreMultiplier = 1.0
-@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var collision_shape_2d: CollisionShape2D = $AnimationNode/Area2D/CollisionShape2D
 
 func setTimers(timeOpened, timeToBeOpened, timeClosed):
 	timer.stop()
@@ -46,15 +46,15 @@ func pressed(distanceNormalized, cursor) -> bool:
 			print("Closed")
 			return false
 		State.OPENING:
-			score = (timeToOpen - timer.time_left) *  scoreMultiplier * distanceNormalized
+			score = (timeToOpen - timer.time_left) *  scoreMultiplier
 			print("Opening")
 			
 		State.OPEN:
-			score = timeOpen *  scoreMultiplier * distanceNormalized
+			score = timeOpen *  scoreMultiplier
 			print("Open")
 			
 		State.CLOSING:
-			score = timer.time_left *  scoreMultiplier * distanceNormalized
+			score = timer.time_left *  scoreMultiplier
 			print("Closing")
 			
 	print("Score: " + str(score))
@@ -91,5 +91,6 @@ func reset():
 	
 # Cosas especificas del target
 func _click():
+	score = score * distance
 	queue_free()
 	

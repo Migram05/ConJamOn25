@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvhl43sp7mnys"]
+
+[ext_resource type="Script" uid="uid://up85yi24m455" path="res://Scripts/target_drag.gd" id="1_3y70s"]
+[ext_resource type="Texture2D" uid="uid://c4t4mvslc6xqn" path="res://Assets/Sprites/Cursor.png" id="2_4pv4o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
+radius = 79.0759
+
+[sub_resource type="Animation" id="Animation_c36h4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s0ws0"]
+resource_name = "Test"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(377, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ag3pf"]
+_data = {
+&"RESET": SubResource("Animation_c36h4"),
+&"Test": SubResource("Animation_s0ws0")
+}
+
+[node name="TargetDrag" type="Node2D"]
+script = ExtResource("1_3y70s")
+
+[node name="AnimationNode" type="Node2D" parent="."]
+scale = Vector2(2.45313, 2.45313)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationNode"]
+modulate = Color(0.316964, 0.624572, 0, 1)
+texture = ExtResource("2_4pv4o")
+
+[node name="Area2D" type="Area2D" parent="AnimationNode"]
+scale = Vector2(0.407642, 0.407642)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationNode/Area2D"]
+shape = SubResource("CircleShape2D_t2jmu")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ag3pf")
+}
+
+[connection signal="body_entered" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

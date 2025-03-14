@@ -52,8 +52,8 @@ func _input(event):
 func get_radius() -> float:
 	return collision_shape_2d.shape.get_rect().size.x
 	
-func check_distance(node) -> float:
-	var distance = ((node.position - position).length() + get_radius()) / node.get_radius()
+func check_distance(node : Target) -> float:
+	var distance = ((node.get_node("AnimationNode").global_position - global_position).length() + get_radius()) / node.get_radius()
 	distance = clamp(distance, 1, 2)
 	distance = 1 / distance
 	return distance
