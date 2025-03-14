@@ -16,6 +16,8 @@ var player2Ready : bool =false
 func _ready() -> void:
 	if(GameManager != null):
 		texto = GameManager._speech
+		$Narrador.texture = GameManager._narrator_image
+		$Narrador.scale = Vector2(150,150) / $Narrador.texture.get_size()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

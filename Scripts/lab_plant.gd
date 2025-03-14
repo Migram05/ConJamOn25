@@ -42,6 +42,8 @@ func _on_button_pressed() -> void:
 		if moded_level:
 			GameManager._song = AudioStreamOggVorbis.load_from_file(song_file_path)
 			GameManager._narrator_image = Image.load_from_file(narrator_image_path)
+			if(GameManager._narrator_image == null):
+				print("NULL IMG!!!")
 		else:
 			GameManager._song = load(song_file_path)
 			GameManager._narrator_image = load(narrator_image_path)

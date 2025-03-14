@@ -5,10 +5,10 @@ var spawnedPlants : int = 0
 @export var defaultNarratorImage : Resource
 #region ModedLevelsRegion
 const VALID_MOD_AUDIO_EXTENSION : String = "ogg"
-const VALID_MOD_IMAGE_EXTENSION : Array[String] = ["png", "jpg"]
+const NARRATOR_IMAGE_NAME : String = "narrator.png"
 const EVENTS_FILE_NAME : String = "events.txt"
 const SPEECH_FILE_NAME : String = "speech.txt"
-const MODS_FOLDER_NAME : String = "/GodotMods/"
+const MODS_FOLDER_NAME : String = "/GodotMods"
 #endregion
 
 func _ready() -> void:
@@ -71,24 +71,20 @@ func _register_moded_song(files_array : PackedStringArray, files_path : String) 
 		elif(!events_file_found and file.to_lower() == EVENTS_FILE_NAME.to_lower()):
 			events_file_found = true
 			events_file_path = files_path + "/" + file
-		elif(!narrator_image_file_found and VALID_MOD_IMAGE_EXTENSION.has(_get_file_extension(file).to_lower())):
+		elif(!narrator_image_file_found and file.to_lower() == NARRATOR_IMAGE_NAME.to_lower()):
 			narrator_image_file_found = true
 			narrator_image_path = files_path + "/" + file
 		elif (!speech_file_found and file.to_lower() == SPEECH_FILE_NAME.to_lower()):
 			speech_file_found = true
 			speech_file_path = files_path + "/"+ file
-		if(song_file_found and events_file_found):
-			if(!speech_file_found):
-				speech_file_path = ""
-			if(!narrator_image_file_found):
-				if(defaultNarratorImage == null):
-					return false
-				else:
-					narrator_image_path = defaultNarratorImage.resource_path
-			if(!speech_file_found):
-				speech_file_path = ""
-			_add_song(song_file_name, 999, song_file_path, events_file_path, narrator_image_path, speech_file_path,true)
-			return true
+	if(song_file_found and events_file_found):
+		if(!narrator_image_file_found):
+			if(defaultNarratorImage != null):
+				narrator_image_path = defaultNarratorImage.resource_path
+		if(!speech_file_found):
+			speech_file_path = ""
+		_add_song(song_file_name, 999, song_file_path, events_file_path, narrator_image_path, speech_file_path,true)
+		return true	
 	return false
 
 # Crea un objeto de tipo planta, que sirve como botón para acceder a un nivel.

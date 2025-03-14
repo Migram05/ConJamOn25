@@ -84,6 +84,11 @@ self_modulate = Color(1, 1, 1, 0.313726)
 position = Vector2(62, 60)
 texture = ExtResource("2_8hl7x")
 
+[node name="Narrador" type="Sprite2D" parent="."]
+position = Vector2(-476, 39)
+scale = Vector2(1.24219, 1.22656)
+texture = ExtResource("2_8hl7x")
+
 [connection signal="button_up" from="Button" to="." method="GoBack"]
 [connection signal="button_up" from="Button2" to="." method="Play"]
 [connection signal="button_up" from="Matamoscas" to="." method="Player2Ready"]
