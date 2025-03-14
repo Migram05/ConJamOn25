@@ -29,7 +29,7 @@ var _pauseSceneInGame : Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	loadScene(SceneManager._SCENES_.SELECTION_MENU)
+	loadScene(SceneManager._SCENES_.MAIN_MENU)
 	
 func loadScene(_nextSceneID : _SCENES_) -> int:
 	if(_nextSceneID >= allScenes.size() || !allScenes[_nextSceneID].can_instantiate()):

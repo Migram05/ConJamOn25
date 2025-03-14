@@ -16,11 +16,3 @@ theme_override_font_sizes/font_size = 30
 text = "A JUGAAA"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GoToLab" type="Button" parent="."]
-offset_left = -538.0
-offset_top = 242.0
-offset_right = -475.0
-offset_bottom = 294.0
-
-[connection signal="button_up" from="GoToLab" to="." method="GoToLab"]

@@ -31,6 +31,7 @@ func Continue() -> void:
 func GoBackToLab() -> void:
 	SceneManager.loadScene(SceneManager._SCENES_.LAB_MENU)
 	SceneManager.pauseScene(false)
+	GameManager._stop_song()
 	self.queue_free()
 
 
