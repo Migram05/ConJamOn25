@@ -18,7 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://Scripts/SceneManager.gd"
+GameManager="*res://Scripts/GameManager.gd"
 
-[rendering]
+[display]
 
-textures/canvas_textures/default_texture_filter=0
+window/size/mode=3
+window/stretch/mode="viewport"

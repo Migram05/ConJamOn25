@@ -21,13 +21,22 @@ var moded_level : bool = false
 func _on_button_pressed() -> void:
 	if moded_level:
 		$AudioStreamPlayer2D.stream = AudioStreamOggVorbis.load_from_file(song_file_path)
+		if GameManager._volume<1:
+				$AudioStreamPlayer2D.volume_db = -1000
+			else:
+				$AudioStreamPlayer2D.volume_db = -40 + GameManager._volume * 40 /100
 		$AudioStreamPlayer2D.play()
 	else:
 		var sample := load(song_file_path)
 		if(sample != null):
 			$AudioStreamPlayer2D.stream = sample
+			if GameManager._volume<1:
+				$AudioStreamPlayer2D.volume_db = -1000
+			else:
+				$AudioStreamPlayer2D.volume_db = -40 + GameManager._volume * 40 /100
 			$AudioStreamPlayer2D.play()
 			print("Starting song " + displayName)
+			
 
 
 func GoToHistorial() -> void:
