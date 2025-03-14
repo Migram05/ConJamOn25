@@ -14,12 +14,20 @@ var lastScore : String:
 var song_file_path : String
 var events_file_path : String
 
+# Permite indicar si el nivel que queremos cargar es un mod o no
+# Dependiendo de eso, la carga de archivos se realiza de manera diferente
+var moded_level : bool = false
+
 func _on_button_pressed() -> void:
-	var sample := load(song_file_path)
-	if(sample != null):
-		$AudioStreamPlayer2D.stream = sample
+	if moded_level:
+		$AudioStreamPlayer2D.stream = AudioStreamOggVorbis.load_from_file(song_file_path)
 		$AudioStreamPlayer2D.play()
-	print("Starting song " + displayName)
+	else:
+		var sample := load(song_file_path)
+		if(sample != null):
+			$AudioStreamPlayer2D.stream = sample
+			$AudioStreamPlayer2D.play()
+			print("Starting song " + displayName)
 
 
 func GoToHistorial() -> void:

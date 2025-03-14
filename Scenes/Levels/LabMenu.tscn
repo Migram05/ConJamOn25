@@ -14,7 +14,6 @@ script = ExtResource("1_is7h6")
 unique_name_in_owner = true
 script = ExtResource("1_tsnl6")
 plantLevelClass = ExtResource("2_is7h6")
-levelsDirectory = "res://Songs/"
 defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
