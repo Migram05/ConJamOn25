@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://safdpstmcfuw"]
+[gd_scene load_steps=8 format=3 uid="uid://safdpstmcfuw"]
 
 [ext_resource type="Script" uid="uid://cawequgkyd2oo" path="res://Scripts/main_menu.gd" id="1_hqtmt"]
 [ext_resource type="Texture2D" uid="uid://b3qvtvwvpipa1" path="res://Assets/Sprites/Buttonv2.png" id="2_tfrft"]
 [ext_resource type="Texture2D" uid="uid://cqnn216qtyef1" path="res://Assets/Sprites/ButtonClickv2.png" id="3_uv623"]
 [ext_resource type="Texture2D" uid="uid://dodpgae5dqewf" path="res://Assets/Sprites/ButtonHoverv2.png" id="4_mc63j"]
 [ext_resource type="FontFile" uid="uid://da2s077s5pm3t" path="res://Assets/Fonts/Hello Note.otf" id="5_uv623"]
+[ext_resource type="Texture2D" uid="uid://y87t7dd2xa1s" path="res://Assets/Sprites/Exit.png" id="6_mc63j"]
+[ext_resource type="Texture2D" uid="uid://df8diw470t0kq" path="res://Assets/Sprites/config.png" id="6_q15nq"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hqtmt")
@@ -22,11 +24,25 @@ texture_hover = ExtResource("4_mc63j")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="."]
-offset_left = -535.0
-offset_top = -187.0
-offset_right = 537.0
-offset_bottom = -47.0
+[node name="Label2" type="Label" parent="."]
+offset_left = -534.0
+offset_top = -188.0
+offset_right = 538.0
+offset_bottom = -48.0
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_uv623")
+theme_override_font_sizes/font_size = 70
+text = "Riega la nota o aplasta la bichota"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Label2"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 6.0
+offset_right = 1067.0
+offset_bottom = 146.0
 size_flags_stretch_ratio = 0.0
 theme_override_colors/font_color = Color(0.52412, 0.44469, 0.926153, 1)
 theme_override_fonts/font = ExtResource("5_uv623")
@@ -35,22 +51,32 @@ text = "Riega la nota o aplasta la bichota"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 405.0
-offset_top = -261.0
-offset_right = 492.0
-offset_bottom = -202.0
+[node name="Button" type="TextureButton" parent="."]
+offset_left = 450.0
+offset_top = -299.0
+offset_right = 548.0
+offset_bottom = -201.0
+texture_normal = ExtResource("6_q15nq")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Exit" type="Button" parent="."]
+[node name="Exit" type="TextureButton" parent="."]
 offset_left = 452.0
-offset_top = 236.0
-offset_right = 539.0
+offset_top = 202.0
+offset_right = 540.0
 offset_bottom = 302.0
+texture_normal = ExtResource("6_mc63j")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="Exit"]
 layout_mode = 0
-offset_right = 83.0
-offset_bottom = 64.0
+offset_left = 3.0
+offset_top = 68.0
+offset_right = 86.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0.176471, 0.164706, 0.313726, 1)
+theme_override_fonts/font = ExtResource("5_uv623")
 text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
