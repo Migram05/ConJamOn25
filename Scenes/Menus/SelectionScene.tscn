@@ -70,6 +70,7 @@ offset_right = 362.0
 offset_bottom = -29.0
 
 [node name="Label2" type="Label" parent="Matamoscas"]
+layout_mode = 0
 offset_left = 27.0
 offset_top = -49.0
 offset_right = 108.0
