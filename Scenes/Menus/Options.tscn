@@ -60,6 +60,6 @@ offset_right = -79.0
 offset_bottom = 67.0
 scale = Vector2(3, 3)
 
-[connection signal="button_up" from="Button" to="." method="GoBackToMenu"]
+[connection signal="button_up" from="Button" to="." method="GoBack"]
 [connection signal="value_changed" from="Volume/VolumeSlider" to="." method="ChangeVolume"]
 [connection signal="button_up" from="FullScreen/CheckBox" to="." method="FullScreen"]

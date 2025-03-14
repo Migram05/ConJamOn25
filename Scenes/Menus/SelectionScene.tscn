@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqsu1ob7778dh"]
+[gd_scene load_steps=3 format=3 uid="uid://dqsu1ob7778dh"]
 
 [ext_resource type="Script" uid="uid://erqm3a6aewq0" path="res://Scripts/selection_scene.gd" id="1_4jnrq"]
+[ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="2_8hl7x"]
 
 [node name="SelectionScene" type="Node2D"]
 script = ExtResource("1_4jnrq")
@@ -28,6 +29,22 @@ offset_bottom = 91.0
 text = "A Jugaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(2, 199.75)
+scale = Vector2(6.25781, 1.58984)
+texture = ExtResource("2_8hl7x")
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -366.0
+offset_top = 115.0
+offset_right = 382.0
+offset_bottom = 292.0
+text = "
+"
+autowrap_mode = 2
 
 [connection signal="button_up" from="Button" to="." method="GoBack"]
 [connection signal="button_up" from="Button2" to="." method="Play"]

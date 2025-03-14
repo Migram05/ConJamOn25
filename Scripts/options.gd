@@ -10,8 +10,11 @@ func _process(delta: float) -> void:
 	pass
 
 
-func GoBackToMenu() -> void:
-	SceneManager.loadScene(SceneManager._SCENES_.MAIN_MENU);
+func GoBack() -> void:
+	if(!SceneManager._isPaused):
+		SceneManager.loadScene(SceneManager._SCENES_.MAIN_MENU);
+	else:
+		self.queue_free()
 
 
 func ChangeVolume(value: float) -> void:
