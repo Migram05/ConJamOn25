@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://ygwova4vr4y8"]
+[gd_scene load_steps=5 format=3 uid="uid://ygwova4vr4y8"]
 
 [ext_resource type="Script" uid="uid://ddnsqst0avk11" path="res://Scripts/Notes&Keys/NoteController.gd" id="1_yjfqu"]
+[ext_resource type="PackedScene" uid="uid://b4rostgky67hl" path="res://Scenes/Objects/SpontaneousText.tscn" id="2_4gqja"]
 [ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="2_s26px"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27gvm"]
 size = Vector2(45.0355, 46.0993)
 
 [node name="Nota" type="Area2D"]
+collision_mask = 6
 script = ExtResource("1_yjfqu")
+speed = 400
+distanceLabels = Array[float]([170.0, 130.0, 100.0, 25.0])
+labelTexts = Array[String](["MISS", "BAD", "GOOD", "PERFECT"])
+floatingText = ExtResource("2_4gqja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.82, 2.82)

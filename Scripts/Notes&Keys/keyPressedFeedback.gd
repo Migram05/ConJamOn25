@@ -3,11 +3,9 @@ class_name PressedKeyFeedback
 
 @export var time_to_live : float
 
-var key_rotation : float = 0
-
 @export var sprite : Sprite2D
 
-func _ready():
+func _ready():	
 	# Add a timer to this node
 	get_tree().create_timer(time_to_live, false, true, false).timeout.connect(queue_free)
 	fade_out()
@@ -18,3 +16,9 @@ func fade_out():
 	tween.play()
 	await tween.finished
 	tween.kill()
+
+#func kill_rigidbody():
+	#print("kill rigidbody")
+	#collision_mask = 0
+	#collision_layer = 0
+	#freeze_mode = RigidBody2D.FREEZE_MODE_STATIC

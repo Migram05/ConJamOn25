@@ -1,24 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://defja54tn6vq8"]
+[gd_scene load_steps=6 format=3 uid="uid://defja54tn6vq8"]
 
 [ext_resource type="Script" uid="uid://dupbf1tiyurgc" path="res://Scripts/Notes&Keys/NoteSpawner.gd" id="1_kwh5s"]
-[ext_resource type="PackedScene" uid="uid://cblwij4xngnpr" path="res://Scenes/Objects/note.tscn" id="1_s8wu0"]
+[ext_resource type="PackedScene" uid="uid://ygwova4vr4y8" path="res://Scenes/Objects/note.tscn" id="1_s8wu0"]
 [ext_resource type="Script" uid="uid://da4fnc1v6cvrv" path="res://Scripts/StringButton.gd" id="3_dx1av"]
+[ext_resource type="Script" uid="uid://dlopf5ff3pjn8" path="res://Scripts/Notes&Keys/rail.gd" id="3_f4lo2"]
 [ext_resource type="PackedScene" uid="uid://b7t760d2wvgj2" path="res://Scenes/Objects/tecla.tscn" id="4_w5lp1"]
 
-[node name="MinijuegoPianoTiles" type="Node2D" node_paths=PackedStringArray("spawnPoints")]
+[node name="MinijuegoPianoTiles" type="Node2D" node_paths=PackedStringArray("spawnPoints", "limits", "rails")]
 script = ExtResource("1_kwh5s")
-spawnPoints = [NodePath("Carril1/SpawnPoint"), NodePath("Carril2/SpawnPoint"), NodePath("Carril3/SpawnPoint"), NodePath("Carril4/SpawnPoint")]
+spawnPoints = [NodePath("Carril1/Spawnpoint"), NodePath("Carril2/Spawnpoint"), NodePath("Carril3/Spawnpoint"), NodePath("Carril4/Spawnpoint")]
 notes = Array[int]([1, 3, 5])
-noteStamps = Array[float]([3.0, 5.0, 7.0])
+noteStamps = Array[float]([1.0, 2.0, 3.0])
+nota = ExtResource("1_s8wu0")
+limits = NodePath("NoteLimits")
+rails = [NodePath("Carril1"), NodePath("Carril2"), NodePath("Carril3"), NodePath("Carril4")]
 
 [node name="Carril1" type="Line2D" parent="."]
 position = Vector2(250, -41)
 points = PackedVector2Array(0, 0, 0, 750)
 width = 40.0
+script = ExtResource("3_f4lo2")
 
-[node name="SpawnPoint" type="Marker2D" parent="Carril1"]
+[node name="Spawnpoint" type="Marker2D" parent="Carril1" node_paths=PackedStringArray("limits")]
+position = Vector2(0, 41)
 script = ExtResource("3_dx1av")
 nota = ExtResource("1_s8wu0")
+limits = NodePath("../../NoteLimits")
 
 [node name="Tecla" parent="Carril1" instance=ExtResource("4_w5lp1")]
 position = Vector2(0, 723)
@@ -28,36 +35,45 @@ position = Vector2(400, -41)
 points = PackedVector2Array(0, 0, 0, 750)
 width = 40.0
 
-[node name="Tecla" parent="Carril2" instance=ExtResource("4_w5lp1")]
-position = Vector2(0, 723)
-buttonPosition = 1
-
-[node name="SpawnPoint" type="Marker2D" parent="Carril2"]
+[node name="Spawnpoint" type="Marker2D" parent="Carril2" node_paths=PackedStringArray("limits")]
+position = Vector2(0, 41)
 script = ExtResource("3_dx1av")
 nota = ExtResource("1_s8wu0")
+limits = NodePath("../../NoteLimits")
+
+[node name="Tecla" parent="Carril2" instance=ExtResource("4_w5lp1")]
+position = Vector2(0, 723)
+buttonPosition = 2
 
 [node name="Carril3" type="Line2D" parent="."]
 position = Vector2(550, -41)
 points = PackedVector2Array(0, 0, 0, 750)
 width = 40.0
 
-[node name="SpawnPoint" type="Marker2D" parent="Carril3"]
+[node name="Spawnpoint" type="Marker2D" parent="Carril3" node_paths=PackedStringArray("limits")]
+position = Vector2(0, 41)
 script = ExtResource("3_dx1av")
 nota = ExtResource("1_s8wu0")
+limits = NodePath("../../NoteLimits")
 
 [node name="Tecla" parent="Carril3" instance=ExtResource("4_w5lp1")]
 position = Vector2(0, 723)
-buttonPosition = 2
+buttonPosition = 1
 
 [node name="Carril4" type="Line2D" parent="."]
 position = Vector2(700, -41)
 points = PackedVector2Array(0, 0, 0, 750)
 width = 40.0
 
-[node name="SpawnPoint" type="Marker2D" parent="Carril4"]
+[node name="Spawnpoint" type="Marker2D" parent="Carril4" node_paths=PackedStringArray("limits")]
+position = Vector2(0, 41)
 script = ExtResource("3_dx1av")
 nota = ExtResource("1_s8wu0")
+limits = NodePath("../../NoteLimits")
 
 [node name="Tecla" parent="Carril4" instance=ExtResource("4_w5lp1")]
 position = Vector2(0, 723)
 buttonPosition = 3
+
+[node name="NoteLimits" type="Node2D" parent="."]
+position = Vector2(0, 798)

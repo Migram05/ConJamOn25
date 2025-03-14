@@ -28,6 +28,4 @@ func _input(event: InputEvent) -> void:
 			_:
 				key_rotation = 0
 		
-		instance.set_rotation(key_rotation)
-		
-		print(key_rotation)
+		instance.get_child(0).set_rotation(key_rotation)

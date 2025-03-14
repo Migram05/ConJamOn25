@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cyoovb37pce0b" path="res://Assets/Sprites/arrow_up.png" id="2_5dooo"]
 [ext_resource type="Script" uid="uid://6fp771i7u2md" path="res://Scripts/Notes&Keys/keyPressedFeedback.gd" id="2_fwrhj"]
+[ext_resource type="Script" uid="uid://02tb86efif7o" path="res://Scripts/Notes&Keys/key_raycast.gd" id="3_5dooo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fwrhj"]
-
-[node name="PressedKeyFeedback" type="RigidBody2D" node_paths=PackedStringArray("sprite")]
+[node name="PressedKeyFeedback" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_fwrhj")
 time_to_live = 0.2
 sprite = NodePath("Sprite2D")
@@ -14,6 +13,10 @@ sprite = NodePath("Sprite2D")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_5dooo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(7, 7)
-shape = SubResource("CircleShape2D_fwrhj")
+[node name="RayCast2D" type="RayCast2D" parent="." node_paths=PackedStringArray("raycast")]
+position = Vector2(0, 256)
+target_position = Vector2(0, -1500)
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("3_5dooo")
+raycast = NodePath(".")
