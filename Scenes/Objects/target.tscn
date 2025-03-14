@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgj4dyxppp6dh"]
 
-[ext_resource type="Script" path="res://Scripts/target.gd" id="1_ulev0"]
+[ext_resource type="Script" uid="uid://5vrd4toxa3js" path="res://Scripts/target.gd" id="1_ulev0"]
 [ext_resource type="Texture2D" uid="uid://c4t4mvslc6xqn" path="res://Assets/Sprites/Cursor.png" id="2_4c8h7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
@@ -9,19 +9,21 @@ radius = 79.0759
 [node name="Target" type="Node2D"]
 script = ExtResource("1_ulev0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationNode" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationNode"]
 modulate = Color(0.316964, 0.624572, 0, 1)
 scale = Vector2(2.45313, 2.45313)
 texture = ExtResource("2_4c8h7")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="AnimationNode"]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationNode/Area2D"]
 shape = SubResource("CircleShape2D_t2jmu")
 
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_exited"]

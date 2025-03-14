@@ -26,8 +26,11 @@ func _on_button_pressed() -> void:
 		else:
 			$AudioStreamPlayer2D.volume_db = -40 + GameManager._volume * 40 /100
 		$AudioStreamPlayer2D.play()
+		var file = FileAccess.open(events_file_path, FileAccess.READ)
+		var content = file.get_as_text()
+		print(content)
 	else:
-		var sample := load(song_file_path)
+		var sample : Resource = load(song_file_path)
 		if(sample != null):
 			$AudioStreamPlayer2D.stream = sample
 			if GameManager._volume<1:
@@ -36,7 +39,9 @@ func _on_button_pressed() -> void:
 				$AudioStreamPlayer2D.volume_db = -40 + GameManager._volume * 40 /100
 			$AudioStreamPlayer2D.play()
 			print("Starting song " + displayName)
-			
+			var file = FileAccess.open(events_file_path, FileAccess.READ)
+			var content = file.get_as_text()
+			print(content)
 
 
 func GoToHistorial() -> void:
