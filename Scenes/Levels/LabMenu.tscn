@@ -1,17 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmacn54cnpjq3"]
+[gd_scene load_steps=7 format=3 uid="uid://dmacn54cnpjq3"]
 
 [ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
 [ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
 [ext_resource type="PackedScene" uid="uid://bvy8ymvq7op" path="res://Scenes/Objects/lab_plant.tscn" id="2_is7h6"]
+[ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="4_7a7og"]
+[ext_resource type="PackedScene" uid="uid://c7l237d8v22af" path="res://Scenes/Objects/SongAsset.tscn" id="5_085gp"]
+[ext_resource type="AudioStream" uid="uid://bn2o2p8wjcccc" path="res://Songs/Megalovania/megalovania.mp3" id="6_gn372"]
 
 [node name="LabMenu" type="Node2D"]
 script = ExtResource("1_is7h6")
 
-[node name="SongManager" type="Node" parent="."]
+[node name="SongLoader" type="Node" parent="." node_paths=PackedStringArray("defaultLevels")]
 unique_name_in_owner = true
 script = ExtResource("1_tsnl6")
 plantLevelClass = ExtResource("2_is7h6")
 levelsDirectory = "res://Songs/"
+defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -20,5 +24,14 @@ offset_left = -532.0
 offset_top = 239.0
 offset_right = -464.0
 offset_bottom = 294.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_7a7og")
+
+[node name="SongHolder" type="Node" parent="."]
+
+[node name="MegalovaniaSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("6_gn372")
+events_file = "res://Songs/Megalovania/events.txt"
 
 [connection signal="button_up" from="Button" to="." method="GoBackToMenu"]

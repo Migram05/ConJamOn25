@@ -3,19 +3,30 @@ extends Node
 @export var levelsDirectory : String
 const VALID_AUDIO_EXTENSIONS : Array[String] = ["wav", "mp3", "ogg"]
 const EVENTS_FILE_NAME : String = "events.txt"
-
 var spawnedPlants : int = 0
+const MODS_FOLDER_NAME : String = "/GodotMods/"
+
+@export var defaultLevels : Array[SongAsset]
 
 func _ready() -> void:
 	if plantLevelClass != null:
-		scan_directories(levelsDirectory)
+		load_file()
+		_load_default_levels()
+		#_scan_directories(levelsDirectory)
 		print("NUM found: " + str(spawnedPlants))
 	else:
 		printerr("SongManager: No plant level selector class chosen")
 
+# Carga los niveles por defecto del juego, estos niveles se tienen que especificar como archivos de tipo escena "Song Asset"
+# Estos archivos tienen una referencia a cada archivo necesario para lanzar un nivel
+func _load_default_levels():
+	for asset in defaultLevels:
+		if asset._is_valid():
+			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.events_file)
+
 # Navega por todos los directorios y archivos de la ruta dada.
 # Este es el método encargado de guardar las canciones válidas en el contenedor correspondiente
-func scan_directories(path : String):
+func _scan_directories(path : String):
 	var dir = DirAccess.open(path)
 	if dir:
 		var dir_array = DirAccess.get_directories_at(path)
@@ -87,3 +98,9 @@ func _add_song(song_name : String, last_score : int, song_path : String, events_
 	new_level_plant.lastScore = str(999)
 	new_level_plant.song_file_path = song_path
 	new_level_plant.events_file_path = events_path
+	
+func load_file():
+	var modLoadPath: String = OS.get_executable_path().get_base_dir() + "/GodotMods/"
+	if !modLoadPath.is_empty():
+		print(modLoadPath)
+		var file = FileAccess.open(modLoadPath, FileAccess.READ)
