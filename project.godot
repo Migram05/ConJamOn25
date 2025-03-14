@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="ConJamOn25"
-run/main_scene="uid://dmacn54cnpjq3"
+run/main_scene="uid://bntwu0c6dm6hs"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://Scripts/SceneManager.gd"

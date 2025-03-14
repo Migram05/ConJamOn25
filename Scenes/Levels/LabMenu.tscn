@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmacn54cnpjq3"]
+
+[ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
+[ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
+[ext_resource type="PackedScene" uid="uid://bvy8ymvq7op" path="res://Scenes/Objects/lab_plant.tscn" id="2_is7h6"]
+
+[node name="LabMenu" type="Node2D"]
+script = ExtResource("1_is7h6")
+
+[node name="SongManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_tsnl6")
+plantLevelClass = ExtResource("2_is7h6")
+levelsDirectory = "res://Songs/"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = -532.0
+offset_top = 239.0
+offset_right = -464.0
+offset_bottom = 294.0
+
+[connection signal="button_up" from="Button" to="." method="GoBackToMenu"]
