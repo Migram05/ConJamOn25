@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq6ffyu507ahx"]
+
+[ext_resource type="Script" uid="uid://dpkuq5g6iqn6w" path="res://cursor.gd" id="1_80nbo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2o6t"]
+load_path = "res://.godot/imported/Cursor.png-94a07d035f5e3e59d4291f25b17216dd.ctex"
+
+[node name="Game" type="Node2D"]
+
+[node name="GameScene" type="Node2D" parent="."]
+
+[node name="Cursor" type="Node2D" parent="GameScene"]
+position = Vector2(0, 1)
+script = ExtResource("1_80nbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameScene/Cursor"]
+scale = Vector2(3.25, 3.25)
+texture = SubResource("CompressedTexture2D_e2o6t")
+
+[node name="Camera2D" type="Camera2D" parent="GameScene"]

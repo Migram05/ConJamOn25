@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqpg45puihhp"]
+
+[ext_resource type="PackedScene" uid="uid://6t1b00ii5wpw" path="res://cursor.tscn" id="1_gm21n"]
+[ext_resource type="PackedScene" uid="uid://dgj4dyxppp6dh" path="res://target.tscn" id="2_3iwo8"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cursor" parent="." instance=ExtResource("1_gm21n")]
+
+[node name="Target" parent="." instance=ExtResource("2_3iwo8")]
+z_index = 1
+position = Vector2(-226, -122)
+
+[node name="Target2" parent="." instance=ExtResource("2_3iwo8")]
+z_index = 2
+position = Vector2(-255, -146)
+
+[node name="Target3" parent="." instance=ExtResource("2_3iwo8")]
+z_index = 3
+position = Vector2(-184, -161)

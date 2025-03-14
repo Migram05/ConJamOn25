@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://6t1b00ii5wpw"]
+
+[ext_resource type="Script" uid="uid://dpkuq5g6iqn6w" path="res://cursor.gd" id="1_fsq4c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsq4c"]
+radius = 41.1947
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2o6t"]
+load_path = "res://.godot/imported/Cursor.png-94a07d035f5e3e59d4291f25b17216dd.ctex"
+
+[node name="Cursor" type="RigidBody2D"]
+z_index = 100
+collision_mask = 2
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_fsq4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fsq4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(1.28125, 1.28125)
+texture = SubResource("CompressedTexture2D_e2o6t")
