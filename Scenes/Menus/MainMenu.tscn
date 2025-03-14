@@ -41,5 +41,20 @@ offset_top = -261.0
 offset_right = 492.0
 offset_bottom = -202.0
 
+[node name="Exit" type="Button" parent="."]
+offset_left = 452.0
+offset_top = 236.0
+offset_right = 539.0
+offset_bottom = 302.0
+
+[node name="Label" type="Label" parent="Exit"]
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 64.0
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="button_up" from="TextureButton" to="." method="GoToLab"]
 [connection signal="button_up" from="Button" to="." method="GoToOptions"]
+[connection signal="button_up" from="Exit" to="." method="Exit"]

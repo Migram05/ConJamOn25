@@ -40,7 +40,7 @@ func _on_button_pressed() -> void:
 		else:
 			GameManager._song = load(song_file_path)
 		GameManager._events = FileAccess.open(events_file_path, FileAccess.READ).get_as_text()
-		SceneManager.loadScene(SceneManager._SCENES_.GAME_LEVEL);
+		SceneManager.loadScene(SceneManager._SCENES_.SELECTION_MENU);
 
 func GoToHistorial() -> void:
 	SceneManager.loadScene(SceneManager._SCENES_.HISTORIAL_MENU);

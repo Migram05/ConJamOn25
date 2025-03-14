@@ -17,3 +17,7 @@ func GoToLab() -> void:
 
 func GoToOptions() -> void:
 	SceneManager.loadScene(SceneManager._SCENES_.OPTIONS);
+
+
+func Exit() -> void:
+	get_tree().quit()

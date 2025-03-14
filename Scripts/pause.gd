@@ -2,6 +2,7 @@ extends Node2D
 
 var _optionsMenu : Node = null
 var exit : bool = false
+var isInOptions : bool =false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,6 +13,8 @@ func _process(delta: float) -> void:
 	if exit:
 		var num : int = $Timer.time_left+1
 		$CountDown.text = str(num)
+	if isInOptions && _optionsMenu==null:
+		isInOptions=false
 	
 
 func _input(event: InputEvent) -> void: 
@@ -20,7 +23,7 @@ func _input(event: InputEvent) -> void:
 		
 
 func Continue() -> void:
-	if !exit:
+	if !exit && !isInOptions:
 		exit = true
 		$Continue.visible = false
 		$Options.visible = false
@@ -36,8 +39,10 @@ func GoBackToLab() -> void:
 
 
 func options() -> void:
-	_optionsMenu = preload("res://Scenes/Menus/Options.tscn").instantiate()
-	add_child(_optionsMenu)
+	if !isInOptions:
+		_optionsMenu = preload("res://Scenes/Menus/Options.tscn").instantiate()
+		add_child(_optionsMenu)
+		isInOptions = true
 
 
 func StartAgain() -> void:
