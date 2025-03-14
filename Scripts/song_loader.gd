@@ -73,6 +73,7 @@ func _register_moded_song(files_array : PackedStringArray, files_path : String) 
 # Crea un objeto de tipo planta, que sirve como botón para acceder a un nivel.
 # La planta guarda la ruta a los archivos necesarios para iniciar un nuevo nivel
 func _add_song(song_name : String, last_score : int, song_path : String, events_path : String, moded : bool = false):
+	print("New song info: " + song_name + " Path: " + song_path + " Events: " + events_path)
 	var new_level_plant : LevelPlant = plantLevelClass.instantiate()
 	add_child(new_level_plant)
 	new_level_plant.position = Vector2(200 *spawnedPlants, 0)
