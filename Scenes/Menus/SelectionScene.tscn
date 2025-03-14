@@ -15,6 +15,7 @@ offset_right = -494.0
 offset_bottom = -254.0
 
 [node name="Button2" type="Button" parent="."]
+visible = false
 offset_left = -95.0
 offset_top = -44.0
 offset_right = 130.0
@@ -30,7 +31,7 @@ text = "A Jugaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Dialog" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(2, 199.75)
 scale = Vector2(6.25781, 1.58984)
@@ -46,5 +47,42 @@ text = "
 "
 autowrap_mode = 2
 
+[node name="Regadera" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(-277, -105)
+texture = ExtResource("2_8hl7x")
+
+[node name="Label" type="Label" parent="Regadera"]
+offset_left = -68.0
+offset_top = -107.0
+offset_right = 72.0
+offset_bottom = -74.0
+text = "Press the keys:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Matamoscas" type="TextureButton" parent="."]
+visible = false
+offset_left = 234.0
+offset_top = -157.0
+offset_right = 362.0
+offset_bottom = -29.0
+
+[node name="Label2" type="Label" parent="Matamoscas"]
+offset_left = 27.0
+offset_top = -49.0
+offset_right = 108.0
+offset_bottom = -26.0
+text = "Click here:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MatamoscasImg" type="Sprite2D" parent="Matamoscas"]
+self_modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(62, 60)
+texture = ExtResource("2_8hl7x")
+
 [connection signal="button_up" from="Button" to="." method="GoBack"]
 [connection signal="button_up" from="Button2" to="." method="Play"]
+[connection signal="button_up" from="Matamoscas" to="." method="Player2Ready"]
