@@ -4,3 +4,5 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_murru")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
