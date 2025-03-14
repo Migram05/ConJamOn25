@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgj4dyxppp6dh"]
+[gd_scene load_steps=10 format=3 uid="uid://dgj4dyxppp6dh"]
 
 [ext_resource type="Script" uid="uid://5vrd4toxa3js" path="res://Scripts/target.gd" id="1_ulev0"]
 [ext_resource type="Texture2D" uid="uid://c4t4mvslc6xqn" path="res://Assets/Sprites/Cursor.png" id="2_4c8h7"]
+[ext_resource type="Script" uid="uid://cv8khkbps4scv" path="res://Scripts/flyBehaviour.gd" id="3_3jsu4"]
+[ext_resource type="Script" uid="uid://qmyqxjn0dm01" path="res://Scripts/flyWander.gd" id="4_chdgc"]
+[ext_resource type="Script" uid="uid://brocivvyxhd3v" path="res://Scripts/flyNote.gd" id="5_3wso7"]
+[ext_resource type="Script" uid="uid://dyuwewuh5qjs6" path="res://Scripts/flyPlant.gd" id="6_ul0ko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
 radius = 79.0759
+
+[sub_resource type="GDScript" id="GDScript_3wso7"]
+script/source = "extends Area2D
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ul0ko"]
+radius = 74.0
 
 [node name="Target" type="Node2D"]
 script = ExtResource("1_ulev0")
@@ -24,6 +36,28 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationNode/Area2D"]
 shape = SubResource("CircleShape2D_t2jmu")
 
+[node name="Behaviour" type="Node2D" parent="."]
+script = ExtResource("3_3jsu4")
+
+[node name="Wander" type="Node2D" parent="Behaviour"]
+script = ExtResource("4_chdgc")
+forwardSpeed = 250.0
+amplitude = 500.0
+randomTargetRadio = 50.0
+
+[node name="Note" type="Node2D" parent="Behaviour"]
+script = ExtResource("5_3wso7")
+
+[node name="Plant" type="Node2D" parent="Behaviour"]
+script = ExtResource("6_ul0ko")
+
+[node name="NoteDetector" type="Area2D" parent="Behaviour"]
+script = SubResource("GDScript_3wso7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Behaviour/NoteDetector"]
+shape = SubResource("CircleShape2D_ul0ko")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Behaviour/NoteDetector" to="Behaviour" method="onNoteCollision"]
