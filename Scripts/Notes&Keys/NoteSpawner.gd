@@ -4,7 +4,7 @@ extends Node
 #Contador de tiempo
 var timer = 0
 #Indice del array actual
-var currentIndex = 0
+var currentIndex : int  = 0
 #Indice maximo de puntos de spawn
 var maxIndex = 0
 
@@ -23,6 +23,7 @@ func _ready():
 func _process(delta):
 	timer += delta
 	if(noteStamps[currentIndex] < timer):
+		print("Entramos gente")
 		var chosen = randi_range(0,maxIndex)
 		spawnPoints[chosen].spawnNote(notes[currentIndex])
 		if(currentIndex + 1 == noteStamps.size() || currentIndex + 1 == notes.size()):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmacn54cnpjq3"]
+[gd_scene load_steps=8 format=3 uid="uid://dmacn54cnpjq3"]
 
 [ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
 [ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="4_7a7og"]
 [ext_resource type="PackedScene" uid="uid://c7l237d8v22af" path="res://Scenes/Objects/SongAsset.tscn" id="5_085gp"]
 [ext_resource type="AudioStream" uid="uid://bn2o2p8wjcccc" path="res://Songs/Megalovania/megalovania.mp3" id="6_gn372"]
+[ext_resource type="PackedScene" uid="uid://defja54tn6vq8" path="res://Scenes/Objects/MinijuegoPianoTiles.tscn" id="7_v0y0e"]
 
 [node name="LabMenu" type="Node2D"]
 script = ExtResource("1_is7h6")
@@ -32,5 +33,9 @@ texture = ExtResource("4_7a7og")
 [node name="MegalovaniaSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("6_gn372")
 events_file = "res://Songs/Megalovania/events.txt"
+
+[node name="MinijuegoPianoTiles" parent="." instance=ExtResource("7_v0y0e")]
+position = Vector2(-355, -249)
+scale = Vector2(0.75, 0.75)
 
 [connection signal="button_up" from="Button" to="." method="GoBackToMenu"]

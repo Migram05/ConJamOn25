@@ -22,9 +22,9 @@ func _on_button_pressed() -> void:
 	if moded_level:
 		$AudioStreamPlayer2D.stream = AudioStreamOggVorbis.load_from_file(song_file_path)
 		if GameManager._volume<1:
-				$AudioStreamPlayer2D.volume_db = -1000
-			else:
-				$AudioStreamPlayer2D.volume_db = -40 + GameManager._volume * 40 /100
+			$AudioStreamPlayer2D.volume_db = -1000
+		else:
+			$AudioStreamPlayer2D.volume_db = -40 + GameManager._volume * 40 /100
 		$AudioStreamPlayer2D.play()
 	else:
 		var sample := load(song_file_path)

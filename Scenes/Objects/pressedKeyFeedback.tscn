@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://535ykwrgf0gm"]
+
+[ext_resource type="Texture2D" uid="uid://cyoovb37pce0b" path="res://Assets/Sprites/arrow_up.png" id="2_5dooo"]
+[ext_resource type="Script" uid="uid://6fp771i7u2md" path="res://Scripts/Notes&Keys/keyPressedFeedback.gd" id="2_fwrhj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwrhj"]
+
+[node name="PressedKeyFeedback" type="RigidBody2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_fwrhj")
+time_to_live = 0.2
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_5dooo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_fwrhj")
