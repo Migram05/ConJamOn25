@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 	if dragging:
 		if not cursorOn:
 			dragging = false
+			animation_player.stop()
 			reset()
 			initialPos = position
 		else:
@@ -38,5 +39,6 @@ func _input(event):
 	if dragging and event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			dragging = false
+			animation_player.stop()
 			reset()
 			initialPos = position
