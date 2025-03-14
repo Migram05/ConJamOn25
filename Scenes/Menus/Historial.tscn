@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsgxwpnhh7hqw"]
+
+[ext_resource type="Script" uid="uid://yffs11yoqmjh" path="res://Scripts/historial.gd" id="1_n22as"]
+
+[node name="Historial" type="Node2D"]
+script = ExtResource("1_n22as")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -54.0
+offset_top = -85.0
+offset_right = 69.0
+offset_bottom = -36.0
+text = "Historial
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoBack" type="Button" parent="."]
+offset_left = -529.0
+offset_top = -282.0
+offset_right = -411.0
+offset_bottom = -199.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="button_up" from="GoBack" to="." method="GoBack"]

@@ -20,3 +20,11 @@ func _on_button_pressed() -> void:
 		$AudioStreamPlayer2D.stream = sample
 		$AudioStreamPlayer2D.play()
 	print("Starting song " + displayName)
+
+
+func GoToHistorial() -> void:
+	SceneManager.loadScene(SceneManager._SCENES_.HISTORIAL_MENU);
+
+
+func GoToSelection() -> void:
+	SceneManager.loadScene(SceneManager._SCENES_.SELECTION_MENU);
