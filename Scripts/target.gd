@@ -8,9 +8,12 @@ var timeOpen = 0.2
 var timeToOpen = 0.4
 var timeClose = 1
 var enemyState : Target.State = State.CLOSED
+var gameCursor : GameCursor
+var score = 0
+var distance = 0
+var cursorOn = false
 @export var scoreMultiplier = 1.0
-
-
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
 func setTimers(timeOpened, timeToBeOpened, timeClosed):
 	timer.stop()
@@ -28,36 +31,36 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("Enter")
 	var cursor : GameCursor = body
 	cursor.insert_element($".")
+	cursorOn = true
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	print("Exit")
 	var cursor : GameCursor = body
 	cursor.remove_element($".")
+	cursorOn = false
 	
-func pressed() -> bool:
-	var score = 0
+func pressed(distanceNormalized, cursor) -> bool:
+	gameCursor = cursor
 	match enemyState:
 		State.CLOSED:
-			score = 0
 			print("Closed")
 			return false
 		State.OPENING:
-			score = (timeToOpen - timer.time_left) *  scoreMultiplier
+			score = (timeToOpen - timer.time_left) *  scoreMultiplier * distanceNormalized
 			print("Opening")
-			queue_free()
 			
 		State.OPEN:
-			score = timeOpen *  scoreMultiplier
+			score = timeOpen *  scoreMultiplier * distanceNormalized
 			print("Open")
-			queue_free()
 			
 		State.CLOSING:
-			score = timer.time_left *  scoreMultiplier
+			score = timer.time_left *  scoreMultiplier * distanceNormalized
 			print("Closing")
-			queue_free()
 			
 	print("Score: " + str(score))
+	distance = distanceNormalized
 	timer.stop()
+	_click()
 	return true
 
 
@@ -76,4 +79,17 @@ func _on_timer_timeout() -> void:
 			enemyState = State.CLOSED
 			timer.wait_time = timeClose
 	timer.start()
+	
+	
+func get_radius() -> float:
+	return collision_shape_2d.shape.get_rect().size.x
+	
+func reset():
+	timer.wait_time = timeClose
+	enemyState = Target.State.CLOSED
+	timer.start()
+	
+# Cosas especificas del target
+func _click():
+	queue_free()
 	

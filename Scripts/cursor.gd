@@ -4,6 +4,7 @@ extends RigidBody2D
 const MAX_ELEMENTS = 5
 var currentTargets : Array[Node2D]
 var cont : int = 0
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready():
 	currentTargets.resize(MAX_ELEMENTS)
@@ -44,6 +45,15 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and cont > 0:
 			var node : Target = currentTargets[cont - 1]
-			if node.pressed():
+			var distanceNormalized = check_distance(node)
+			if node.pressed(distanceNormalized, $"."):
 				remove_element(node)
 			
+func get_radius() -> float:
+	return collision_shape_2d.shape.get_rect().size.x
+	
+func check_distance(node) -> float:
+	var distance = ((node.position - position).length() + get_radius()) / node.get_radius()
+	distance = clamp(distance, 1, 2)
+	distance = 1 / distance
+	return distance
