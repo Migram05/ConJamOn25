@@ -2,9 +2,12 @@ extends Node
 @export var plantLevelClass : PackedScene
 var spawnedPlants : int = 0
 @export var defaultLevels : Array[SongAsset]
+@export var defaultNarratorImage : Resource
 #region ModedLevelsRegion
 const VALID_MOD_AUDIO_EXTENSION : String = "ogg"
+const VALID_MOD_IMAGE_EXTENSION : Array[String] = ["png", "jpg"]
 const EVENTS_FILE_NAME : String = "events.txt"
+const SPEECH_FILE_NAME : String = "speech.txt"
 const MODS_FOLDER_NAME : String = "/GodotMods/"
 #endregion
 
@@ -22,7 +25,7 @@ func _ready() -> void:
 func _load_default_levels():
 	for asset in defaultLevels:
 		if asset._is_valid():
-			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.events_file)
+			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.events_file, asset.narrator_image_file.resource_path, asset.speech_file)
 
 # Carga los archivos que se encuentren en la carpeta designada para los mods
 # La carpeta de mods tiene que estar creada en el mismo directorio que el ejecutable
@@ -49,13 +52,17 @@ func _scan_directories(path : String):
 
 # Registra la canción dado su directorio: busca los archivos necesarios para poder lanzar un nivel
 # Devuelve true en caso de encontrar todos los archivos, false en caso contrario
+# Por si a alguien le apetece refactorizar este código es un poco feo
 func _register_moded_song(files_array : PackedStringArray, files_path : String) -> bool:
 	var song_file_found : bool = false
 	var events_file_found : bool = false
+	var speech_file_found : bool = false
+	var narrator_image_file_found : bool = false
 	var song_file_path : String
 	var events_file_path : String
 	var song_file_name : String
-	var events_file_name : String
+	var narrator_image_path : String
+	var speech_file_path : String
 	for file in files_array:
 		if(!song_file_found and VALID_MOD_AUDIO_EXTENSION == _get_file_extension(file).to_lower()):
 			song_file_found = true
@@ -64,15 +71,29 @@ func _register_moded_song(files_array : PackedStringArray, files_path : String) 
 		elif(!events_file_found and file.to_lower() == EVENTS_FILE_NAME.to_lower()):
 			events_file_found = true
 			events_file_path = files_path + "/" + file
-			events_file_name = _get_file_name(file)
+		elif(!narrator_image_file_found and VALID_MOD_IMAGE_EXTENSION.has(_get_file_extension(file).to_lower())):
+			narrator_image_file_found = true
+			narrator_image_path = files_path + "/" + file
+		elif (!speech_file_found and file.to_lower() == SPEECH_FILE_NAME.to_lower()):
+			speech_file_found = true
+			speech_file_path = files_path + "/"+ file
 		if(song_file_found and events_file_found):
-			_add_song(song_file_name, 999, song_file_path, events_file_path, true)
+			if(!speech_file_found):
+				speech_file_path = ""
+			if(!narrator_image_file_found):
+				if(defaultNarratorImage == null):
+					return false
+				else:
+					narrator_image_path = defaultNarratorImage.resource_path
+			if(!speech_file_found):
+				speech_file_path = ""
+			_add_song(song_file_name, 999, song_file_path, events_file_path, narrator_image_path, speech_file_path,true)
 			return true
 	return false
 
 # Crea un objeto de tipo planta, que sirve como botón para acceder a un nivel.
 # La planta guarda la ruta a los archivos necesarios para iniciar un nuevo nivel
-func _add_song(song_name : String, last_score : int, song_path : String, events_path : String, moded : bool = false):
+func _add_song(song_name : String, last_score : int, song_path : String, events_path : String, narrator_image_path : String, speech_path : String , moded : bool = false):
 	print("New song info: " + song_name + " Path: " + song_path + " Events: " + events_path)
 	var new_level_plant : LevelPlant = plantLevelClass.instantiate()
 	add_child(new_level_plant)
@@ -82,6 +103,8 @@ func _add_song(song_name : String, last_score : int, song_path : String, events_
 	new_level_plant.lastScore = str(999)
 	new_level_plant.song_file_path = song_path
 	new_level_plant.events_file_path = events_path
+	new_level_plant.narrator_image_path = narrator_image_path
+	new_level_plant.speech_file_path = speech_path
 	new_level_plant.moded_level = moded
 
 # Devuelve la extensión del archivo pasado como argumento, este método se encarga de hacer el split del string y coger la primera extensión encontrada

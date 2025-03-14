@@ -14,7 +14,8 @@ var player2Ready : bool =false
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if(GameManager != null):
+		texto = GameManager._speech
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

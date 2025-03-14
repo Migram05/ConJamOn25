@@ -23,6 +23,8 @@ var _song : Resource:
 	set(new_file):
 		_audioPlayer.stream = new_file
 var _events : String
+var _speech : String
+var _narrator_image : Resource
 
 func _play_song():
 	if _audioPlayer.stream  != null:
