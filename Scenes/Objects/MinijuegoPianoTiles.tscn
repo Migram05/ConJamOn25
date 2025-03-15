@@ -6,6 +6,7 @@
 
 [node name="MinijuegoPianoTiles" type="Node2D" node_paths=PackedStringArray("spawnPoints", "rails")]
 script = ExtResource("1_kwh5s")
+note_speed = 400.0
 spawnPoints = [null, null, null, null]
 noteStamps = Array[float]([1.0, 2.0, 3.0])
 nota = ExtResource("1_s8wu0")

@@ -2,39 +2,40 @@ extends Area2D
 class_name NoteController
 
 #Velocidad de la nota bajando por el carril
-@export var speed = 100
-
 @export var distanceLabels : Array[float]
-
 @export var labelTexts : Array[String]
-
 @export var floatingText : PackedScene
 
-var rail_id : int
-
+var rail : Rail
 var limit : Node2D
+var speed : float
 
 #Posicion y en la que va a desaparecer la nota y fallarse
 func _process(delta):
 	position.y += delta * speed
 	
 	if limit.position.y < position.y:
-		queue_free()
+		delete_note()
 
 func set_limits(limits : Node2D):
 	limit = limits
 	
-func set_rail_id(id : int):
-	rail_id = id
+func set_rail(_rail : Rail):
+	rail = _rail
+
+func set_speed(_speed : float):
+	speed = _speed
 
 func player_hits_key(otherNode : Node2D):
+	if otherNode.button_type != rail.button_position:
+		return
+	
 	var instance : Label = floatingText.instantiate()
 	var diff : Vector2 = otherNode.global_position - global_position
 	var distance : float = diff.length()
 	
 	var category : int = 0
 	
-	print(distance)
 	for n : int in distanceLabels.size():
 		if distance <= distanceLabels[n]:
 			category = n
@@ -44,25 +45,11 @@ func player_hits_key(otherNode : Node2D):
 	otherNode.get_parent().add_child(instance)
 	instance.rotation = 0
 	
+	delete_note()
+
+func delete_note():
+	rail.remove_note(self)
 	queue_free()
 
-#func _on_body_entered(body: Node2D) -> void:
-	#var instance : Label = floatingText.instantiate()
-	#
-	#var diff : Vector2 = body.global_position - global_position
-	#var distance : float = diff.length()
-	#
-	#var category : int = 0
-	#
-	#for n : int in distanceLabels.size():
-		#if distance <= distanceLabels[n]:
-			#category = n
-	#
-	#instance.text = labelTexts[category]
-	#
-	#body.get_parent().add_child(instance)
-	#instance.rotation = 0
-	#
-	## body.kill_rigidbody()
-	#
-	#queue_free()
+func block():
+	return

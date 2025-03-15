@@ -8,13 +8,12 @@ var currentIndex : int  = 0
 #Indice maximo de puntos de spawn
 var maxIndex = 0
 
+@export var note_speed : float
 #Puntos de spawn de las notas
 @export var spawnPoints: Array[Marker2D] = []
 #Tiempo en el que van a aparecer las notas
 @export var noteStamps : Array[float] = []
-
 @export var nota: PackedScene 
-
 @export var rails : Array[Node2D]
 
 func _ready():
@@ -26,7 +25,7 @@ func _process(delta):
 	timer += delta
 	if(noteStamps[currentIndex] < timer):
 		var chosen_rail = randi_range(0,maxIndex)
-		spawnNote(chosen_rail)
+		spawnNote(chosen_rail, note_speed)
 		if(currentIndex + 1 == noteStamps.size()):
 			currentIndex = 0
 			timer = 0
@@ -34,5 +33,5 @@ func _process(delta):
 			currentIndex += 1
 
 # Spawnea la nota en el punto de spawn y conecta la senial del boton a la funcion de la nota
-func spawnNote(chosen_rail):
-	rails[chosen_rail].add_note(nota.instantiate())
+func spawnNote(chosen_rail, speed):
+	rails[chosen_rail].add_note(nota.instantiate(), speed)
