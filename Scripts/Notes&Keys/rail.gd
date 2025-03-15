@@ -3,7 +3,7 @@ class_name Rail
 
 var Notes : Array[NoteController]
 
-enum NoteButtonType {FIRST, SECOND, THIRD, FORTH }
+enum NoteButtonType { FIRST, SECOND, THIRD, FORTH }
 @export var button_position : NoteButtonType
 
 @export var rail_id : int
@@ -14,13 +14,19 @@ func _ready() -> void:
 	var button : NoteButton = get_child(0)
 	button.set_button_position(button_position)
 
-func add_note(note : NoteController):
+func add_note(note : NoteController, speed : float):
+	
+	add_child(note)
+	
 	# aquí tienes que hacer que se spawnee la nota, porque
 	# desde el otro script se está mandando un int,
 	# lo cual tampoco entiendo qué es.
-	
-	add_child(note)
+	note.set_rail(self)
+	note.set_speed(speed)
 	note.set_limits(limits)
+	
+	Notes.append(note)
+	
 	# Hay que refactorizar esto
 	
 	# Notas para mañana:
@@ -29,6 +35,6 @@ func add_note(note : NoteController):
 	# "spawnNote" y lo genere en un carril aleatorio.
 	# - Esa nota la debería gestionar el propio carril y todo eso.
 	
-	
-	Notes.append(note)
-	note.set_rail_id(rail_id)
+
+func remove_note(note : NoteController):
+	Notes.erase(note)

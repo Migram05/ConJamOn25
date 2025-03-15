@@ -30,3 +30,4 @@ func _input(event: InputEvent) -> void:
 				key_rotation = 0
 		
 		instance.get_child(0).set_rotation(key_rotation)
+		instance.button_type = button_position
