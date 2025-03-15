@@ -4,12 +4,12 @@ class_name LevelPlant
 var displayName : String:
 	set(new_text):
 		displayName = new_text
-		$Button.text = new_text.to_upper()
+		$Panel/Song/Button.text = new_text.to_upper()
 		
 var lastScore : String:
 	set(new_text):
 		lastScore = new_text
-		$Button/LastScoreLabel.text = "Last Score: " + new_text
+		$Panel/Song/Button/LastScoreLabel.text = "Last Score: " + new_text
 
 var song_file_path : String
 var enemies_file_path : String
@@ -29,9 +29,11 @@ func setScale(scale : float):
 	$Maceta.scale = Vector2(125,125) / $Maceta.texture.get_size()*scale
 	
 func showPanel(show : bool):
-	$Historial.visible=show
-	$Button.visible=show
-	$Banner.visible=show
+	$Panel/Historial.visible=show
+	$Panel/Banner.visible=show
+	$Panel/Song/Button.visible=show
+	if show:
+		$Panel/AnimationPlayer.play("Grow")
 
 func setColorGradient(red : float, green : float, blue : float, alpha : float):
 	if red > 0:
@@ -100,8 +102,10 @@ func _on_button_mouse_entered() -> void:
 	preview_sound_volume = preview_sound_volume_start
 	$AudioStreamPlayer2D.volume_db = preview_sound_volume
 	$AudioStreamPlayer2D.play()
+	$Panel/Song/AnimationPlayer.play("Song")
 
 func _on_button_mouse_exited() -> void:
 	preview_sound_volume = 0
 	preview_max_sound_volume = -1
 	$AudioStreamPlayer2D.stop()
+	$Panel/Song/AnimationPlayer.stop()

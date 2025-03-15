@@ -27,8 +27,7 @@ func _process(delta: float) -> void:
 		if $Narrador.self_modulate.a >0:
 			$Narrador.self_modulate.a = $Narrador.self_modulate.a-1.25*delta
 		elif !setReady:
-			$Regadera.visible=true
-			$Matamoscas.visible=true
+			$Items/AnimationPlayer.play("showItems")
 			setReady=true
 		elif !isReady:
 			if player1Ready && player2Ready:
@@ -52,9 +51,9 @@ func _input(event: InputEvent) -> void:
 	for b in player1ReadyArray:
 		ready = ready && b
 	if ready:
-		$Regadera/Sprite2D.visible=false
+		$Items/Regadera/Sprite2D.visible=false
 		player1Ready=true		
-		$Regadera/Label.text = "READY!"
+		$Items/Regadera/Label.text = "READY!"
 
 func showText(delta : float) -> void:
 	if index < texto.length():
@@ -75,6 +74,6 @@ func Play() -> void:
 
 
 func Player2Ready() -> void:
-	$Matamoscas/Sprite2D.visible=false
+	$Items/Matamoscas/Sprite2D.visible=false
 	player2Ready=true
-	$Matamoscas/Label2.text = "READY!"
+	$Items/Matamoscas/Label2.text = "READY!"
