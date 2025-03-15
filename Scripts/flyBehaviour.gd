@@ -34,6 +34,7 @@ func transition_to_tree() -> bool:
 func _process(delta):
 	timeWandering += delta;
 	if (wandering && transition_to_tree()):
+			wandering = false;
 			wander.stop();
 			attatchedToTree = true;
 			if (plantNode != null):
@@ -45,6 +46,7 @@ func _process(delta):
 
 func onNoteCollision(note):
 	if (wandering && rng.randf_range(0.0, 1.0) < attachToNoteProbability):
+		wandering = false;
 		wander.stop();
 		noteColliding = true;
 		note.fly_block();
