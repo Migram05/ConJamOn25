@@ -2,15 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsl286duwulk6" path="res://Scripts/SpontaneousText.gd" id="1_jbpt8"]
 
-[node name="Label" type="Label" node_paths=PackedStringArray("label")]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0.929419, 0.64665, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Texto de prueba"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Label" type="Sprite2D"]
 script = ExtResource("1_jbpt8")
 time_to_live = 0.8
 speed = 25.0
-label = NodePath(".")

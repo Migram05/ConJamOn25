@@ -9,15 +9,13 @@ var currentIndex : int  = 0
 var maxIndex = 0
 
 @export var note_speed : float
-#Puntos de spawn de las notas
-@export var spawnPoints: Array[Marker2D] = []
 #Tiempo en el que van a aparecer las notas
 @export var noteStamps : Array[float] = []
 @export var nota: PackedScene 
 @export var rails : Array[Node2D]
 
 func _ready():
-	maxIndex = spawnPoints.size()-1
+	maxIndex = rails.size()-1
 
 # Avanza un timer que recorre noteStamps y las va spawneando en las cuerdas de forma aleatoria
 # en su tiempo correspondiente al llegar al final vuelve al inicio de las notas

@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsey81y31w4g8"]
 
-[ext_resource type="Script" path="res://Scripts/Notes&Keys/rail.gd" id="1_stxn0"]
+[ext_resource type="Script" uid="uid://dlopf5ff3pjn8" path="res://Scripts/Notes&Keys/rail.gd" id="1_stxn0"]
 [ext_resource type="PackedScene" uid="uid://ygwova4vr4y8" path="res://Scenes/Objects/note.tscn" id="2_lj31s"]
 [ext_resource type="Script" uid="uid://da4fnc1v6cvrv" path="res://Scripts/StringButton.gd" id="3_yry46"]
 [ext_resource type="PackedScene" uid="uid://c8tsylhwmk8sr" path="res://Scenes/Objects/tecla.tscn" id="4_2bk7j"]
 
 [node name="Carril" type="Line2D" node_paths=PackedStringArray("limits")]
 points = PackedVector2Array(0, 0, 0, 750)
-width = 40.0
+default_color = Color(1, 1, 1, 0.25)
 script = ExtResource("1_stxn0")
+note_scale = 0.5
 note_scene = ExtResource("2_lj31s")
 limits = NodePath("Limits")
 

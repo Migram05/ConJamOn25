@@ -83,7 +83,7 @@ pause={
 
 2d_physics/layer_1="Notes"
 2d_physics/layer_2="Keys"
-2d_physics/layer_3="NoteLimit"
+2d_physics/layer_3="Notes"
 
 [rendering]
 

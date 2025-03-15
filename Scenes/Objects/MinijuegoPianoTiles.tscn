@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://ygwova4vr4y8" path="res://Scenes/Objects/note.tscn" id="1_s8wu0"]
 [ext_resource type="PackedScene" uid="uid://dsey81y31w4g8" path="res://Scenes/Objects/rail.tscn" id="3_f4lo2"]
 
-[node name="MinijuegoPianoTiles" type="Node2D" node_paths=PackedStringArray("spawnPoints", "rails")]
+[node name="MinijuegoPianoTiles" type="Node2D" node_paths=PackedStringArray("rails")]
 script = ExtResource("1_kwh5s")
 note_speed = 400.0
-spawnPoints = [null, null, null, null]
 noteStamps = Array[float]([1.0, 2.0, 3.0])
 nota = ExtResource("1_s8wu0")
 rails = [NodePath("Carril1"), NodePath("Carril2"), NodePath("Carril3"), NodePath("Carril4")]
+metadata/_edit_group_ = true
 
 [node name="Carril1" parent="." instance=ExtResource("3_f4lo2")]
 position = Vector2(250, -41)

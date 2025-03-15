@@ -1,8 +1,7 @@
-extends Label
+extends Sprite2D
 
 @export var time_to_live : float
 @export var speed : float
-@export var label : Label
 
 func _ready():
 	# Add a timer to this node
@@ -11,7 +10,7 @@ func _ready():
 
 func fade_out():
 	var tween = get_tree().create_tween()
-	tween.tween_property(label, "modulate:a", 0, time_to_live)
+	tween.tween_property(self, "modulate:a", 0, time_to_live)
 	tween.play()
 	await tween.finished
 	tween.kill()

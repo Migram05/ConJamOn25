@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ygwova4vr4y8"]
+[gd_scene load_steps=9 format=3 uid="uid://ygwova4vr4y8"]
 
 [ext_resource type="Script" uid="uid://ddnsqst0avk11" path="res://Scripts/Notes&Keys/NoteController.gd" id="1_yjfqu"]
 [ext_resource type="PackedScene" uid="uid://b4rostgky67hl" path="res://Scenes/Objects/SpontaneousText.tscn" id="2_4gqja"]
+[ext_resource type="Texture2D" uid="uid://fxyt4hcoxwe" path="res://Assets/Sprites/note_feedback/bad.png" id="2_enql0"]
+[ext_resource type="Texture2D" uid="uid://cv83aqy67qevf" path="res://Assets/Sprites/note_feedback/good.png" id="2_h1yvu"]
 [ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="2_s26px"]
+[ext_resource type="Texture2D" uid="uid://5kp8byxjntx8" path="res://Assets/Sprites/note_feedback/perfect_nosparks.png" id="3_enql0"]
+[ext_resource type="Texture2D" uid="uid://cns10dyp1l1do" path="res://Assets/Sprites/note_feedback/missed.png" id="5_4vjvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27gvm"]
 size = Vector2(45.0355, 46.0993)
@@ -11,7 +15,8 @@ size = Vector2(45.0355, 46.0993)
 collision_mask = 6
 script = ExtResource("1_yjfqu")
 distanceLabels = Array[float]([130.0, 100.0, 25.0])
-labelTexts = Array[String](["BAD", "GOOD", "PERFECT"])
+feedbackSprites = Array[Texture2D]([ExtResource("2_enql0"), ExtResource("2_h1yvu"), ExtResource("3_enql0")])
+missSprite = ExtResource("5_4vjvx")
 floatingText = ExtResource("2_4gqja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,3 +25,5 @@ shape = SubResource("RectangleShape2D_27gvm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_s26px")
+
+[connection signal="note_clicked" from="." to="." method="_on_note_clicked"]
