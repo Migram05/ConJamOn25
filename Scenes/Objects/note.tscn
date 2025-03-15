@@ -11,8 +11,8 @@ size = Vector2(45.0355, 46.0993)
 collision_mask = 6
 script = ExtResource("1_yjfqu")
 speed = 400
-distanceLabels = Array[float]([170.0, 130.0, 100.0, 25.0])
-labelTexts = Array[String](["MISS", "BAD", "GOOD", "PERFECT"])
+distanceLabels = Array[float]([130.0, 100.0, 25.0])
+labelTexts = Array[String](["BAD", "GOOD", "PERFECT"])
 floatingText = ExtResource("2_4gqja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

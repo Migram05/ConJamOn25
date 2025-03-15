@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://doubp0cns4pua"]
+[gd_scene load_steps=3 format=3 uid="uid://doubp0cns4pua"]
 
 [ext_resource type="Script" uid="uid://c6ble6fx0j4up" path="res://Scripts/game_level.gd" id="1_ep2aj"]
+[ext_resource type="PackedScene" uid="uid://defja54tn6vq8" path="res://Scenes/Objects/MinijuegoPianoTiles.tscn" id="2_dy3oa"]
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_ep2aj")
@@ -16,3 +17,8 @@ theme_override_font_sizes/font_size = 30
 text = "A JUGAAA"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MinijuegoPianoTiles" parent="." instance=ExtResource("2_dy3oa")]
+position = Vector2(-393, -267)
+scale = Vector2(0.825, 0.825)
+noteStamps = Array[float]([0.25, 0.6, 1.0])

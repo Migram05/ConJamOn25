@@ -10,6 +10,8 @@ class_name NoteController
 
 @export var floatingText : PackedScene
 
+var rail_id : int
+
 var limit : Node2D
 
 #Posicion y en la que va a desaparecer la nota y fallarse
@@ -21,6 +23,9 @@ func _process(delta):
 
 func set_limits(limits : Node2D):
 	limit = limits
+	
+func set_rail_id(id : int):
+	rail_id = id
 
 func player_hits_key(otherNode : Node2D):
 	var instance : Label = floatingText.instantiate()
