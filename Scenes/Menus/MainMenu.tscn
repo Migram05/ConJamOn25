@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyhgew2do3do5" path="res://Assets/Sprites/ButtonClickv3.png" id="3_mb40c"]
 [ext_resource type="Texture2D" uid="uid://fhi2kkglyi7l" path="res://Assets/Sprites/ButtonHoverv3.png" id="4_mdbg0"]
 [ext_resource type="FontFile" uid="uid://da2s077s5pm3t" path="res://Assets/Fonts/Hello Note.otf" id="5_uv623"]
-[ext_resource type="Texture2D" uid="uid://b18h5wl6ir12k" path="res://Assets/Sprites/Config.png" id="6_7r21k"]
+[ext_resource type="Texture2D" uid="uid://b18h5wl6ir12k" path="res://Assets/Sprites/config.png" id="6_7r21k"]
 [ext_resource type="Texture2D" uid="uid://dm0dj7lgep60x" path="res://Assets/Sprites/Exit.png" id="6_mc63j"]
 [ext_resource type="Texture2D" uid="uid://c8oykpxh4mwwt" path="res://Assets/Sprites/ConfigClick.png" id="7_c638u"]
 [ext_resource type="Texture2D" uid="uid://dpgg57c8cn115" path="res://Assets/Sprites/ConfigHover.png" id="8_5re3m"]

@@ -16,6 +16,14 @@ var events_file_path : String
 var notes_file_path : String
 var speech_file_path : String
 var narrator_image_path : String
+var icon_image_path : String:
+	set(path):
+		icon_image_path = path
+		$Image.texture = load(icon_image_path)
+		$Image.scale = Vector2(250,250) / $Image.texture.get_size()
+
+func setScale(scale : float):
+	$Image.scale = (Vector2(250,250) / $Image.texture.get_size())*scale
 
 # Cómo de rápido aumenta el volumen de la preview cuando se está reproduciendo
 @export var preview_sound_volume_increase : float = 25

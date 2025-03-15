@@ -17,21 +17,23 @@ func _ready() -> void:
 	if(GameManager != null):
 		texto = GameManager._speech
 		$Narrador.texture = GameManager._narrator_image
-		$Narrador.scale = Vector2(150,150) / $Narrador.texture.get_size()
+		$Narrador.scale = Vector2(600,600) / $Narrador.texture.get_size()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if !done:
 		showText(delta)
 	else:
-		if !setReady:
+		if $Narrador.self_modulate.a >0:
+			$Narrador.self_modulate.a = $Narrador.self_modulate.a-1.5*delta
+		elif !setReady:
 			$Regadera.visible=true
 			$Matamoscas.visible=true
 			setReady=true
 		elif !isReady:
 			if player1Ready && player2Ready:
-				$Button2.visible=true
 				isReady=true
+				$Timer.start()
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("note_button_first"):
@@ -42,13 +44,14 @@ func _input(event: InputEvent) -> void:
 		player1ReadyArray[2]=true
 	elif event.is_action_pressed("note_button_forth"):
 		player1ReadyArray[3]=true
+		
 	var ready : bool = true 	
 	for b in player1ReadyArray:
 		ready = ready && b
 	if ready:
-		$Regadera.self_modulate.a=255
+		$Regadera/Sprite2D.visible=false
 		player1Ready=true		
-		
+		$Regadera/Label.text = "READY!"
 
 func showText(delta : float) -> void:
 	if index < texto.length():
@@ -69,5 +72,6 @@ func Play() -> void:
 
 
 func Player2Ready() -> void:
-	$Matamoscas/MatamoscasImg.self_modulate.a=255
+	$Matamoscas/Sprite2D.visible=false
 	player2Ready=true
+	$Matamoscas/Label2.text = "READY!"

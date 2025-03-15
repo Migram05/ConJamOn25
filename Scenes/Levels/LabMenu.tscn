@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmacn54cnpjq3"]
+[gd_scene load_steps=16 format=3 uid="uid://dl8rdqabkv7s3"]
 
 [ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
 [ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
@@ -6,36 +6,62 @@
 [ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="4_7a7og"]
 [ext_resource type="PackedScene" uid="uid://c7l237d8v22af" path="res://Scenes/Objects/SongAsset.tscn" id="5_085gp"]
 [ext_resource type="AudioStream" uid="uid://bn2o2p8wjcccc" path="res://Songs/Megalovania/megalovania.mp3" id="6_gn372"]
-[ext_resource type="Texture2D" uid="uid://b7ni5cdgs6gul" path="res://Songs/Megalovania/sans.png" id="7_v0y0e"]
+[ext_resource type="AudioStream" uid="uid://dhw6d3qkqm1vw" path="res://Songs/Monster2/Monster2.mp3" id="6_mtvoj"]
+[ext_resource type="Texture2D" uid="uid://br5ln7g8bl3hq" path="res://Songs/Monster2/caracolGalllegoSmall.png" id="7_mtvoj"]
+[ext_resource type="Texture2D" uid="uid://1q0otn7s8m1m" path="res://Songs/Monster2/caracolGalllego.png" id="8_hbtht"]
+[ext_resource type="AudioStream" uid="uid://cape2tknhq54f" path="res://Songs/Monster/Monster.mp3" id="8_nsvov"]
+[ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/Megalovania/caracolCatalanSmall.png" id="9_kknh8"]
+[ext_resource type="Texture2D" uid="uid://c6qrc2w4c60g" path="res://Songs/Megalovania/caracolCatalan.png" id="11_25ioh"]
+[ext_resource type="Texture2D" uid="uid://cjr70umdvi04l" path="res://Songs/Monster/caracolVascoSmall.png" id="11_kknh8"]
+[ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="12_mtvoj"]
+[ext_resource type="Texture2D" uid="uid://bym43ujlvvdvt" path="res://Songs/Monster/caracolVasco.png" id="14_b135w"]
 
 [node name="LabMenu" type="Node2D"]
 script = ExtResource("1_is7h6")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.602)
+texture = ExtResource("12_mtvoj")
 
 [node name="SongLoader" type="Node" parent="." node_paths=PackedStringArray("defaultLevels")]
 unique_name_in_owner = true
 script = ExtResource("1_tsnl6")
 plantLevelClass = ExtResource("3_gn372")
-defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset")]
+defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset"), NodePath("../SongHolder/MonsterSongAsset"), NodePath("../SongHolder/Prueba3")]
 defaultNarratorImage = ExtResource("4_7a7og")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Button" type="Button" parent="."]
-offset_left = -532.0
-offset_top = 239.0
-offset_right = -464.0
-offset_bottom = 294.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_7a7og")
+offset_left = -567.0
+offset_top = -299.0
+offset_right = -499.0
+offset_bottom = -244.0
 
 [node name="SongHolder" type="Node" parent="."]
 
+[node name="Prueba3" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("6_mtvoj")
+icon_image_file = ExtResource("7_mtvoj")
+narrator_image_file = ExtResource("8_hbtht")
+events_file = "res://Songs/Monster2/events.txt"
+notes_file = "res://Songs/Megalovania/notes.txt"
+speech_file = "res://Songs/Monster2/speech.txt"
+
 [node name="MegalovaniaSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("6_gn372")
-narrator_image_file = ExtResource("7_v0y0e")
+icon_image_file = ExtResource("9_kknh8")
+narrator_image_file = ExtResource("11_25ioh")
 events_file = "res://Songs/Megalovania/events.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Megalovania/speech.txt"
+
+[node name="MonsterSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("8_nsvov")
+icon_image_file = ExtResource("11_kknh8")
+narrator_image_file = ExtResource("14_b135w")
+events_file = "res://Songs/Monster/events.txt"
+notes_file = "res://Songs/Megalovania/notes.txt"
+speech_file = "res://Songs/Monster/speech.txt"
 
 [connection signal="button_up" from="Button" to="." method="GoBackToMenu"]

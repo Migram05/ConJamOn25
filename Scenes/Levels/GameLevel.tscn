@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://defja54tn6vq8" path="res://Scenes/Objects/MinijuegoPianoTiles.tscn" id="2_dy3oa"]
 [ext_resource type="PackedScene" uid="uid://njqeha6xttwb" path="res://Scenes/Objects/Plant.tscn" id="3_17xrb"]
 [ext_resource type="PackedScene" uid="uid://dgj4dyxppp6dh" path="res://Scenes/Objects/target.tscn" id="4_0eh1h"]
-[ext_resource type="PackedScene" uid="uid://6t1b00ii5wpw" path="res://Scenes/Objects/cursor.tscn" id="5_r4v18"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/cursor.tscn" id="5_r4v18"]
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_ep2aj")
