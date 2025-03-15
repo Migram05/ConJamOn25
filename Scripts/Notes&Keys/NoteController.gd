@@ -6,22 +6,27 @@ class_name NoteController
 @export var feedbackSprites : Array[Texture2D]
 @export var missSprite : Texture2D
 @export var floatingText : PackedScene
+@export var perfect_particles : PackedScene
+@export var note_fade_out_time : float = 0.2
 
 var rail : Rail
 var limit : Node2D
 var speed : float
 var blocked_by_fly : bool
+var move : bool = true
 
-enum NotePrecision { MISSED, BAD, GOOD, PERFECT }
+enum NotePrecision { MISSED = 0, BAD = 1, GOOD = 2, PERFECT = 3 }
 signal note_clicked(precision : NotePrecision)
 @onready var timer: Timer = $Timer
 
 #Posicion y en la que va a desaparecer la nota y fallarse
 func _process(delta):
-	global_position.y += delta * speed
+	if move:
+		global_position.y += delta * speed
 	
 	if limit.position.y < position.y:
-		delete_note(-1)
+		delete_note(0)
+		print("webo")
 
 func set_limits(limits : Node2D):
 	limit = limits
@@ -43,24 +48,43 @@ func player_hits_key(otherNode : Node2D):
 	
 	for n : int in distanceLabels.size():
 		if distance <= distanceLabels[n]:
-			category = n
+			category = n + 1
 	
 	delete_note(category)
 
 func delete_note(category : int):
-	var instance : Sprite2D = floatingText.instantiate()
+	move = false
 	
-	if category < 0:
+	var instance : Sprite2D = floatingText.instantiate()
+	rail.precisionLabelSpawnpoint.add_child(instance)
+	
+	if category == 0:
 		instance.texture = missSprite
 	else:
-		instance.texture = feedbackSprites[category]
+		instance.texture = feedbackSprites[category - 1]
+		if category == NotePrecision.PERFECT:
+			var particles_instance = perfect_particles.instantiate()
+			instance.add_child(particles_instance)
+			var particles : GPUParticles2D = particles_instance
+			particles.emitting = true
 
 	var precision : NotePrecision = category
 	note_clicked.emit(precision)
-	rail.precisionLabelSpawnpoint.add_child(instance)
+	 
+	$CollisionShape2D.set_deferred("disabled", true)
 	
 	rail.remove_note(self)
+	$GPUParticles2D.emitting
+	fade_out(note_fade_out_time)
+
+func fade_out(time_to_live):
+	var tween = get_tree().create_tween()
+	tween.tween_property($Sprite2D, "modulate:a", 0, time_to_live)
+	tween.play()
+	await tween.finished
+	tween.kill()
 	queue_free()
+
 
 func fly_block():
 	blocked_by_fly = true

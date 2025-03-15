@@ -1,5 +1,5 @@
-class_name NoteSpawner
 extends Node
+class_name NoteSpawner
 
 #Contador de tiempo
 var timer = 0
@@ -10,7 +10,6 @@ var maxIndex = 0
 
 @export var note_speed : float
 #Tiempo en el que van a aparecer las notas
-@export var noteStamps : Array[float] = []
 @export var nota: PackedScene 
 @export var rails : Array[Node2D]
 

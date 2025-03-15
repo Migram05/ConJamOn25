@@ -1,5 +1,5 @@
-class_name NoteButton
 extends Node2D
+class_name NoteButton
 
 @export var pressedFeedback : PackedScene
 
@@ -17,17 +17,4 @@ func _input(event: InputEvent) -> void:
 		add_child(instance)
 		var key_rotation : float = 0
 		
-		match button_position:
-			Rail.NoteButtonType.FIRST:
-				key_rotation = 3 * PI / 2
-			Rail.NoteButtonType.SECOND:
-				key_rotation = 0
-			Rail.NoteButtonType.THIRD:
-				key_rotation = PI
-			Rail.NoteButtonType.FORTH:
-				key_rotation = PI / 2
-			_:
-				key_rotation = 0
-		
-		instance.get_child(0).set_rotation(key_rotation)
 		instance.button_type = button_position
