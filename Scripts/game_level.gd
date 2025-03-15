@@ -11,10 +11,10 @@ var timeUntilPerfect = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if GameManager != null:
-		var distance = minijuego_piano_tiles.rails[0].get_node("Spawnpoint").global_position.y - minijuego_piano_tiles.rails[0].get_node("Tecla").global_position.y
-		timeUntilPerfect = abs(distance) / minijuego_piano_tiles.note_speed
+		var distance = minijuego_piano_tiles.rails[0].get_node("Tecla").global_position.y - minijuego_piano_tiles.rails[0].get_node("Spawnpoint").global_position.y 
+		timeUntilPerfect = distance / minijuego_piano_tiles.note_speed
 		_process_notes()
-		spawn_timer.wait_time = initial_timer.wait_time + (timesNotes[0] - timeUntilPerfect)
+		spawn_timer.wait_time = initial_timer.wait_time + timesNotes[0] - timeUntilPerfect
 		print(spawn_timer.wait_time)
 		spawn_timer.start()
 		
