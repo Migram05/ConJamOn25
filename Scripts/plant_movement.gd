@@ -35,7 +35,7 @@ func addFly():
 func removeFly():
 	--currentFlies;
 
-func _on_note_clicked(precision : NotePrecision):
+func _on_minijuego_piano_tiles_note_clicked(precision: NoteSpawner.NotePrecision) -> void:
 	var flyGrowth = 1 - currentFlies * flyGrowthDecrement; 
 	match(precision):
 		NotePrecision.BAD:
@@ -44,4 +44,3 @@ func _on_note_clicked(precision : NotePrecision):
 			targetPosition += goodGrowth * noteGrowth * flyGrowth;
 		NotePrecision.PERFECT:
 			targetPosition += perfectGrowth * noteGrowth * flyGrowth;
-		
