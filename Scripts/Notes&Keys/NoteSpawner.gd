@@ -35,10 +35,11 @@ func _process(delta):
 			#currentIndex += 1
 
 # Spawnea la nota en el punto de spawn y conecta la senial del boton a la funcion de la nota
-func spawnNote(chosen_rail, speed):
+func spawnNote(chosen_rail, speed) -> Node2D:
 	var inst = nota.instantiate()
 	inst.note_clicked.connect(_on_note_clicked)
 	rails[chosen_rail].add_note(inst, speed)
+	return inst
 
 func _on_note_clicked(precision : NotePrecision):
 	note_clicked.emit(precision);
