@@ -30,6 +30,7 @@ perfectGrowth = 10.0
 goodGrowth = 5.0
 badGrowth = 1.0
 upSpeed = 0.02
+maxPlantScroll = 500.0
 
 [node name="Target" parent="." instance=ExtResource("4_0eh1h")]
 position = Vector2(542, -16)
