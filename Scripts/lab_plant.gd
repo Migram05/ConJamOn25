@@ -12,10 +12,11 @@ var lastScore : String:
 		$Button/LastScoreLabel.text = "Last Score: " + new_text
 
 var song_file_path : String
-var events_file_path : String
+var enemies_file_path : String
 var notes_file_path : String
 var speech_file_path : String
 var narrator_image_path : String
+		
 var icon_image_path : String:
 	set(path):
 		icon_image_path = path
@@ -71,13 +72,10 @@ func _on_button_pressed() -> void:
 		$AudioStreamPlayer2D.stop()
 		if moded_level:
 			GameManager._song = AudioStreamOggVorbis.load_from_file(song_file_path)
-			GameManager._narrator_image = Image.load_from_file(narrator_image_path)
-			if(GameManager._narrator_image == null):
-				print("NULL IMG!!!")
 		else:
 			GameManager._song = load(song_file_path)
-			GameManager._narrator_image = load(narrator_image_path)
-		GameManager._enemies = FileAccess.open(events_file_path, FileAccess.READ).get_as_text()
+		GameManager._narrator_image = load(narrator_image_path)
+		GameManager._enemies = FileAccess.open(enemies_file_path, FileAccess.READ).get_as_text()
 		GameManager._notes = FileAccess.open(notes_file_path, FileAccess.READ).get_as_text()
 		if(!speech_file_path.is_empty()):
 			GameManager._speech = FileAccess.open(speech_file_path, FileAccess.READ).get_as_text()

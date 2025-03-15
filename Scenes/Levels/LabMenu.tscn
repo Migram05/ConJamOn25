@@ -28,7 +28,7 @@ unique_name_in_owner = true
 script = ExtResource("1_tsnl6")
 plantLevelClass = ExtResource("3_gn372")
 defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset"), NodePath("../SongHolder/MonsterSongAsset"), NodePath("../SongHolder/Prueba3")]
-defaultNarratorImage = ExtResource("4_7a7og")
+placeholderImage = ExtResource("4_7a7og")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -44,7 +44,7 @@ offset_bottom = -244.0
 song_file = ExtResource("6_mtvoj")
 icon_image_file = ExtResource("7_mtvoj")
 narrator_image_file = ExtResource("8_hbtht")
-events_file = "res://Songs/Monster2/events.txt"
+enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Monster2/speech.txt"
 
@@ -52,7 +52,7 @@ speech_file = "res://Songs/Monster2/speech.txt"
 song_file = ExtResource("6_gn372")
 icon_image_file = ExtResource("9_kknh8")
 narrator_image_file = ExtResource("11_25ioh")
-events_file = "res://Songs/Megalovania/events.txt"
+enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Megalovania/speech.txt"
 
@@ -60,7 +60,7 @@ speech_file = "res://Songs/Megalovania/speech.txt"
 song_file = ExtResource("8_nsvov")
 icon_image_file = ExtResource("11_kknh8")
 narrator_image_file = ExtResource("14_b135w")
-events_file = "res://Songs/Monster/events.txt"
+enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Monster/speech.txt"
 

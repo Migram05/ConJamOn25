@@ -1,12 +1,10 @@
 extends Node
 @export var plantLevelClass : PackedScene
 @export var defaultLevels : Array[SongAsset]
-@export var defaultNarratorImage : Resource
+@export var placeholderImage : Resource
 #region ModedLevelsRegion
 const VALID_MOD_AUDIO_EXTENSION : String = "ogg"
-const ICON_IMAGE_NAME : String = "icon.png"
-const NARRATOR_IMAGE_NAME : String = "narrator.png"
-const EVENTS_FILE_NAME : String = "events.txt"
+const ENEMIES_FILE_NAME : String = "enemies.txt"
 const NOTES_FILE_NAME : String = "notes.txt"
 const SPEECH_FILE_NAME : String = "speech.txt"
 const MODS_FOLDER_NAME : String = "/GodotMods"
@@ -16,11 +14,11 @@ class Plant:
 	var song_name : String
 	var last_score : int
 	var song_path : String
-	var events_path : String
+	var enemies_file_path : String
 	var notes_file_path : String
+	var speech_path : String 
 	var icon_image_path : String
 	var narrator_image_path : String
-	var speech_path : String 
 	var moded : bool = false
 var _listPlants : Array[Plant]
 var _inGamePlants : Array[LevelPlant]
@@ -40,7 +38,7 @@ func _ready() -> void:
 func _load_default_levels():
 	for asset in defaultLevels:
 		if asset._is_valid():
-			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.events_file, asset.notes_file, asset.icon_image_file.resource_path, asset.narrator_image_file.resource_path, asset.speech_file)
+			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.enemies_file, asset.notes_file, asset.icon_image_file.resource_path, asset.narrator_image_file.resource_path, asset.speech_file)
 
 # Carga los archivos que se encuentren en la carpeta designada para los mods
 # La carpeta de mods tiene que estar creada en el mismo directorio que el ejecutable
@@ -70,58 +68,49 @@ func _scan_directories(path : String):
 # Por si a alguien le apetece refactorizar este código es un poco feo
 func _register_moded_song(files_array : PackedStringArray, files_path : String) -> bool:
 	var song_file_found : bool = false
-	var events_file_found : bool = false
+	var enemies_file_found : bool = false
 	var notes_file_found : bool = false
 	var speech_file_found : bool = false
-	var icon_image_file_found : bool = false
-	var narrator_image_file_found : bool = false
 	var song_file_path : String
-	var events_file_path : String
+	var enemies_file_path : String
 	var notes_file_path : String
 	var song_file_name : String
+	var speech_file_path : String
 	var icon_image_path : String
 	var narrator_image_path : String
-	var speech_file_path : String
 	for file in files_array:
 		if(!song_file_found and VALID_MOD_AUDIO_EXTENSION == _get_file_extension(file).to_lower()):
 			song_file_found = true
 			song_file_path = files_path + "/" + file
 			song_file_name = _get_file_name(file)
-		elif(!events_file_found and file.to_lower() == EVENTS_FILE_NAME.to_lower()):
-			events_file_found = true
-			events_file_path = files_path + "/" + file
+		elif(!enemies_file_found and file.to_lower() == ENEMIES_FILE_NAME.to_lower()):
+			enemies_file_found = true
+			enemies_file_path = files_path + "/" + file
 		elif(!notes_file_found and file.to_lower() == NOTES_FILE_NAME.to_lower()):
 			notes_file_found = true
 			notes_file_path = files_path + "/" + file
-		elif(!narrator_image_file_found and file.to_lower() == NARRATOR_IMAGE_NAME.to_lower()):
-			narrator_image_file_found = true
-			narrator_image_path = files_path + "/" + file
-		elif(!icon_image_file_found and file.to_lower() == ICON_IMAGE_NAME.to_lower()):
-			icon_image_file_found = true
-			icon_image_path = files_path + "/" + file
 		elif (!speech_file_found and file.to_lower() == SPEECH_FILE_NAME.to_lower()):
 			speech_file_found = true
 			speech_file_path = files_path + "/"+ file
-	if(song_file_found and events_file_found and notes_file_found):
-		if(!narrator_image_file_found):
-			if(defaultNarratorImage != null):
-				narrator_image_path = defaultNarratorImage.resource_path
-				icon_image_path = defaultNarratorImage.resource_path
+	if(song_file_found and enemies_file_found and notes_file_found):
+		if(placeholderImage != null):
+			icon_image_path = placeholderImage.resource_path
+			narrator_image_path = placeholderImage.resource_path
 		if(!speech_file_found):
 			speech_file_path = ""
-		_add_song(song_file_name, 999, song_file_path, events_file_path, notes_file_path, icon_image_path, narrator_image_path, speech_file_path,true)
+		_add_song(song_file_name, 999, song_file_path, enemies_file_path, notes_file_path, icon_image_path, narrator_image_path, speech_file_path,true)
 		return true	
 	return false
 
 # Crea un objeto de tipo planta, que sirve como botón para acceder a un nivel.
 # La planta guarda la ruta a los archivos necesarios para iniciar un nuevo nivel
-func _add_song(song_name : String, last_score : int, song_path : String, events_path : String, notes_path : String, icon_image_path : String, narrator_image_path : String, speech_path : String , moded : bool = false):
-	print("New song info: " + song_name + " Path: " + song_path + " Events: " + events_path)
+func _add_song(song_name : String, last_score : int, song_path : String, enemies_file_path : String, notes_path : String, icon_image_path : String, narrator_image_path : String, speech_path : String , moded : bool = false):
+	print("New song info: " + song_name + " Path: " + song_path + " Enemies: " + enemies_file_path + " Icon: " + icon_image_path + " Narrator: " + narrator_image_path)
 	var newPlant : Plant = Plant.new()
 	newPlant.song_name = song_name
 	newPlant.last_score = int(last_score)
 	newPlant.song_path = song_path
-	newPlant.events_path = events_path
+	newPlant.enemies_file_path = enemies_file_path
 	newPlant.notes_file_path = notes_path
 	newPlant.icon_image_path = icon_image_path
 	newPlant.narrator_image_path = narrator_image_path
@@ -150,7 +139,7 @@ func showPlants():
 		new_level_plant.displayName = _listPlants[aux].song_name
 		new_level_plant.lastScore = str(_listPlants[aux].last_score)
 		new_level_plant.song_file_path = _listPlants[aux].song_path
-		new_level_plant.events_file_path = _listPlants[aux].events_path
+		new_level_plant.enemies_file_path = _listPlants[aux].enemies_file_path
 		new_level_plant.notes_file_path = _listPlants[aux].notes_file_path
 		new_level_plant.icon_image_path =_listPlants[aux].icon_image_path
 		new_level_plant.narrator_image_path = _listPlants[aux].narrator_image_path

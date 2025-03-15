@@ -1,5 +1,2 @@
-Hola esto es una prueba, voy a escribir un texto muy largo para que se muestre gradualmente durante la pantalla de carga de un nivel.
-Salto de linea
-
-Doble salto de linea.
-¿Por qué no hay un caracol de Castilla y León? 
+Y esta es la canción de Monster... La segunda
+La canción era tan buena que hicieron una segunda parte
