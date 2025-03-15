@@ -1,5 +1,5 @@
-extends Node2D
 class_name NoteButton
+extends Node2D
 
 @export var pressedFeedback : PackedScene
 
