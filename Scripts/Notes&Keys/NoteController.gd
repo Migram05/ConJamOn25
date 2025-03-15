@@ -14,6 +14,7 @@ var blocked_by_fly : bool
 
 enum NotePrecision { MISSED, BAD, GOOD, PERFECT }
 signal note_clicked(precision : NotePrecision)
+@onready var timer: Timer = $Timer
 
 #Posicion y en la que va a desaparecer la nota y fallarse
 func _process(delta):

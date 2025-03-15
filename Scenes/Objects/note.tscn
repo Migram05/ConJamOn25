@@ -39,4 +39,6 @@ shape = SubResource("RectangleShape2D_27gvm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_s26px")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="note_clicked" from="." to="." method="_on_note_clicked"]

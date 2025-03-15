@@ -18,14 +18,6 @@ texture = ExtResource("2_htr12")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="InitialTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
-
-[node name="SpawnTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="MinijuegoPianoTiles" parent="." instance=ExtResource("2_dy3oa")]
 position = Vector2(-343, -252)
 scale = Vector2(0.775, 0.775)
@@ -45,6 +37,4 @@ position = Vector2(542, -16)
 [node name="Cursor" parent="." instance=ExtResource("5_r4v18")]
 position = Vector2(300, 78)
 
-[connection signal="timeout" from="InitialTimer" to="." method="_on_initial_timer_timeout"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="note_clicked" from="MinijuegoPianoTiles" to="Plant" method="_on_note_clicked"]
