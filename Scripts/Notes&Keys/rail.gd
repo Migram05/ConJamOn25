@@ -9,6 +9,7 @@ enum NoteButtonType { FIRST, SECOND, THIRD, FORTH, NONE }
 
 @export var note_scene : PackedScene
 @export var limits : Node2D
+@export var precisionLabelSpawnpoint : Node2D
 
 func _ready() -> void:
 	var button : NoteButton = get_child(0)

@@ -3,15 +3,16 @@
 [ext_resource type="Script" uid="uid://dlopf5ff3pjn8" path="res://Scripts/Notes&Keys/rail.gd" id="1_stxn0"]
 [ext_resource type="PackedScene" uid="uid://ygwova4vr4y8" path="res://Scenes/Objects/note.tscn" id="2_lj31s"]
 [ext_resource type="Script" uid="uid://da4fnc1v6cvrv" path="res://Scripts/StringButton.gd" id="3_yry46"]
-[ext_resource type="PackedScene" uid="uid://c8tsylhwmk8sr" path="res://Scenes/Objects/tecla.tscn" id="4_2bk7j"]
+[ext_resource type="PackedScene" uid="uid://b7t760d2wvgj2" path="res://Scenes/Objects/tecla.tscn" id="4_2bk7j"]
 
-[node name="Carril" type="Line2D" node_paths=PackedStringArray("limits")]
+[node name="Carril" type="Line2D" node_paths=PackedStringArray("limits", "precisionLabelSpawnpoint")]
 points = PackedVector2Array(0, 0, 0, 750)
 default_color = Color(1, 1, 1, 0.25)
 script = ExtResource("1_stxn0")
 note_scale = 0.5
 note_scene = ExtResource("2_lj31s")
 limits = NodePath("Limits")
+precisionLabelSpawnpoint = NodePath("PrecisionFeedbackSpawnpoint")
 
 [node name="Tecla" parent="." instance=ExtResource("4_2bk7j")]
 position = Vector2(0, 723)
@@ -23,3 +24,8 @@ nota = ExtResource("2_lj31s")
 
 [node name="Limits" type="Node2D" parent="."]
 position = Vector2(0, 807)
+
+[node name="PrecisionFeedbackSpawnpoint" type="Node2D" parent="."]
+position = Vector2(72, 675)
+rotation = 0.354103
+scale = Vector2(0.6, 0.6)

@@ -3,6 +3,8 @@ extends Sprite2D
 @export var time_to_live : float
 @export var speed : float
 
+@export var maxRotation : float
+
 func _ready():
 	# Add a timer to this node
 	get_tree().create_timer(time_to_live, false, true, false).timeout.connect(queue_free)
@@ -16,4 +18,4 @@ func fade_out():
 	tween.kill()
 
 func _process(delta: float) -> void:
-	position.y += delta * speed
+	global_position.y += delta * speed

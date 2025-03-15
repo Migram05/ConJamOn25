@@ -14,27 +14,15 @@ metadata/_edit_group_ = true
 
 [node name="Carril1" parent="." instance=ExtResource("3_f4lo2")]
 position = Vector2(250, -41)
-width = 40.0
-default_color = Color(1, 1, 1, 1)
-note_scale = 0.0
 
 [node name="Carril2" parent="." instance=ExtResource("3_f4lo2")]
 position = Vector2(380, -39)
-width = 40.0
-default_color = Color(1, 1, 1, 1)
 button_position = 2
-note_scale = 0.0
 
 [node name="Carril3" parent="." instance=ExtResource("3_f4lo2")]
 position = Vector2(500, -41)
-width = 40.0
-default_color = Color(1, 1, 1, 1)
 button_position = 1
-note_scale = 0.0
 
 [node name="Carril4" parent="." instance=ExtResource("3_f4lo2")]
 position = Vector2(623, -43)
-width = 40.0
-default_color = Color(1, 1, 1, 1)
 button_position = 3
-note_scale = 0.0

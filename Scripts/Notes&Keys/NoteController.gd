@@ -56,7 +56,7 @@ func delete_note(category : int):
 
 	var precision : NotePrecision = category
 	note_clicked.emit(precision)
-	get_parent().add_child(instance)
+	rail.precisionLabelSpawnpoint.add_child(instance)
 	
 	rail.remove_note(self)
 	queue_free()

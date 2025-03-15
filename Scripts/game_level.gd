@@ -51,6 +51,11 @@ func _next_note():
 		spawn_timer.wait_time = timesNotes[index] - last_note
 		last_note = timesNotes[index]
 		spawn_timer.start()
+		#timer.wait_time = timesNotes[index] - current_time
+		# index += 1
+		#current_time += timer.wait_time
+		#timer.start()
+
 
 func _on_initial_timer_timeout() -> void:
 	GameManager._play_song()

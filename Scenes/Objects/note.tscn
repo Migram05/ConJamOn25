@@ -1,12 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://ygwova4vr4y8"]
+[gd_scene load_steps=10 format=3 uid="uid://ygwova4vr4y8"]
 
 [ext_resource type="Script" uid="uid://ddnsqst0avk11" path="res://Scripts/Notes&Keys/NoteController.gd" id="1_yjfqu"]
-[ext_resource type="PackedScene" uid="uid://b4rostgky67hl" path="res://Scenes/Objects/SpontaneousText.tscn" id="2_4gqja"]
 [ext_resource type="Texture2D" uid="uid://fxyt4hcoxwe" path="res://Assets/Sprites/note_feedback/bad.png" id="2_enql0"]
 [ext_resource type="Texture2D" uid="uid://cv83aqy67qevf" path="res://Assets/Sprites/note_feedback/good.png" id="2_h1yvu"]
 [ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="2_s26px"]
 [ext_resource type="Texture2D" uid="uid://5kp8byxjntx8" path="res://Assets/Sprites/note_feedback/perfect_nosparks.png" id="3_enql0"]
 [ext_resource type="Texture2D" uid="uid://cns10dyp1l1do" path="res://Assets/Sprites/note_feedback/missed.png" id="5_4vjvx"]
+[ext_resource type="Script" uid="uid://bsl286duwulk6" path="res://Scripts/SpontaneousText.gd" id="6_enql0"]
+
+[sub_resource type="PackedScene" id="PackedScene_4vjvx"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Sprite", "script", "time_to_live", "speed", "spawnPos", "Sprite2D", "Node2D", "position", "rotation"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 2, 1073741828, 3, 0, 0, 0, 6, 6, -1, 2, 7, 4, 8, 5, 0),
+"variants": [ExtResource("6_enql0"), 0.8, 25.0, NodePath("Node2D"), Vector2(162, -128), 0.389849],
+"version": 3
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27gvm"]
 size = Vector2(45.0355, 46.0993)
@@ -17,7 +30,7 @@ script = ExtResource("1_yjfqu")
 distanceLabels = Array[float]([130.0, 100.0, 25.0])
 feedbackSprites = Array[Texture2D]([ExtResource("2_enql0"), ExtResource("2_h1yvu"), ExtResource("3_enql0")])
 missSprite = ExtResource("5_4vjvx")
-floatingText = ExtResource("2_4gqja")
+floatingText = SubResource("PackedScene_4vjvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.82, 2.82)
