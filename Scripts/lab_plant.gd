@@ -13,6 +13,7 @@ var lastScore : String:
 
 var song_file_path : String
 var events_file_path : String
+var notes_file_path : String
 var speech_file_path : String
 var narrator_image_path : String
 
@@ -47,7 +48,8 @@ func _on_button_pressed() -> void:
 		else:
 			GameManager._song = load(song_file_path)
 			GameManager._narrator_image = load(narrator_image_path)
-		GameManager._events = FileAccess.open(events_file_path, FileAccess.READ).get_as_text()
+		GameManager._enemies = FileAccess.open(events_file_path, FileAccess.READ).get_as_text()
+		GameManager._notes = FileAccess.open(notes_file_path, FileAccess.READ).get_as_text()
 		if(!speech_file_path.is_empty()):
 			GameManager._speech = FileAccess.open(speech_file_path, FileAccess.READ).get_as_text()
 		else:

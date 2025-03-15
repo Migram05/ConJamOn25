@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cyoovb37pce0b" path="res://Assets/Sprites/arrow_up.png" id="2_5dooo"]
 [ext_resource type="Script" uid="uid://6fp771i7u2md" path="res://Scripts/Notes&Keys/keyPressedFeedback.gd" id="2_fwrhj"]
-[ext_resource type="Script" uid="uid://02tb86efif7o" path="res://Scripts/Notes&Keys/key_raycast.gd" id="3_5dooo"]
+[ext_resource type="Script" path="res://Scripts/Notes&Keys/key_raycast.gd" id="3_5dooo"]
 
 [node name="PressedKeyFeedback" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_fwrhj")

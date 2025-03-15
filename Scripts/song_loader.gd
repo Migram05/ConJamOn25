@@ -7,6 +7,7 @@ var spawnedPlants : int = 0
 const VALID_MOD_AUDIO_EXTENSION : String = "ogg"
 const NARRATOR_IMAGE_NAME : String = "narrator.png"
 const EVENTS_FILE_NAME : String = "events.txt"
+const NOTES_FILE_NAME : String = "notes.txt"
 const SPEECH_FILE_NAME : String = "speech.txt"
 const MODS_FOLDER_NAME : String = "/GodotMods"
 #endregion
@@ -25,7 +26,7 @@ func _ready() -> void:
 func _load_default_levels():
 	for asset in defaultLevels:
 		if asset._is_valid():
-			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.events_file, asset.narrator_image_file.resource_path, asset.speech_file)
+			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.events_file, asset.notes_file, asset.narrator_image_file.resource_path, asset.speech_file)
 
 # Carga los archivos que se encuentren en la carpeta designada para los mods
 # La carpeta de mods tiene que estar creada en el mismo directorio que el ejecutable
@@ -56,10 +57,12 @@ func _scan_directories(path : String):
 func _register_moded_song(files_array : PackedStringArray, files_path : String) -> bool:
 	var song_file_found : bool = false
 	var events_file_found : bool = false
+	var notes_file_found : bool = false
 	var speech_file_found : bool = false
 	var narrator_image_file_found : bool = false
 	var song_file_path : String
 	var events_file_path : String
+	var notes_file_path : String
 	var song_file_name : String
 	var narrator_image_path : String
 	var speech_file_path : String
@@ -71,25 +74,28 @@ func _register_moded_song(files_array : PackedStringArray, files_path : String) 
 		elif(!events_file_found and file.to_lower() == EVENTS_FILE_NAME.to_lower()):
 			events_file_found = true
 			events_file_path = files_path + "/" + file
+		elif(!notes_file_found and file.to_lower() == NOTES_FILE_NAME.to_lower()):
+			notes_file_found = true
+			notes_file_path = files_path + "/" + file
 		elif(!narrator_image_file_found and file.to_lower() == NARRATOR_IMAGE_NAME.to_lower()):
 			narrator_image_file_found = true
 			narrator_image_path = files_path + "/" + file
 		elif (!speech_file_found and file.to_lower() == SPEECH_FILE_NAME.to_lower()):
 			speech_file_found = true
 			speech_file_path = files_path + "/"+ file
-	if(song_file_found and events_file_found):
+	if(song_file_found and events_file_found and notes_file_found):
 		if(!narrator_image_file_found):
 			if(defaultNarratorImage != null):
 				narrator_image_path = defaultNarratorImage.resource_path
 		if(!speech_file_found):
 			speech_file_path = ""
-		_add_song(song_file_name, 999, song_file_path, events_file_path, narrator_image_path, speech_file_path,true)
+		_add_song(song_file_name, 999, song_file_path, events_file_path, notes_file_path, narrator_image_path, speech_file_path,true)
 		return true	
 	return false
 
 # Crea un objeto de tipo planta, que sirve como botón para acceder a un nivel.
 # La planta guarda la ruta a los archivos necesarios para iniciar un nuevo nivel
-func _add_song(song_name : String, last_score : int, song_path : String, events_path : String, narrator_image_path : String, speech_path : String , moded : bool = false):
+func _add_song(song_name : String, last_score : int, song_path : String, events_path : String, notes_path : String, narrator_image_path : String, speech_path : String , moded : bool = false):
 	print("New song info: " + song_name + " Path: " + song_path + " Events: " + events_path)
 	var new_level_plant : LevelPlant = plantLevelClass.instantiate()
 	add_child(new_level_plant)
@@ -99,6 +105,7 @@ func _add_song(song_name : String, last_score : int, song_path : String, events_
 	new_level_plant.lastScore = str(999)
 	new_level_plant.song_file_path = song_path
 	new_level_plant.events_file_path = events_path
+	new_level_plant.notes_file_path = notes_path
 	new_level_plant.narrator_image_path = narrator_image_path
 	new_level_plant.speech_file_path = speech_path
 	new_level_plant.moded_level = moded

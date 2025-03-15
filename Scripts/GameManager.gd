@@ -22,7 +22,8 @@ var _fullScreen : bool
 var _song : Resource:
 	set(new_file):
 		_audioPlayer.stream = new_file
-var _events : String
+var _notes : String
+var _enemies : String
 var _speech : String
 var _narrator_image : Resource
 

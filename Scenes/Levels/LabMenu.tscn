@@ -35,6 +35,7 @@ texture = ExtResource("4_7a7og")
 song_file = ExtResource("6_gn372")
 narrator_image_file = ExtResource("7_v0y0e")
 events_file = "res://Songs/Megalovania/events.txt"
+notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Megalovania/speech.txt"
 
 [connection signal="button_up" from="Button" to="." method="GoBackToMenu"]
