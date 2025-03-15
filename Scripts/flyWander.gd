@@ -41,6 +41,8 @@ func updateRandomAmplitude():
 	if (abs(s) < 0.1 || abs(s) > 0.9):
 		amplitudeRandomization = rng.randf_range(amplitudeRandomRange.x, amplitudeRandomRange.y);
 
+var total_speed : Vector2
+
 func _process(delta):
 	if (paused):
 		return;
@@ -49,6 +51,7 @@ func _process(delta):
 	updateRandomAmplitude();
 	totalTime += delta;
 	var forward_speed := Vector2.RIGHT.rotated(self.rotation) * forwardSpeed;
-	var perpendicular_speed := Vector2.UP.rotated(self.rotation) * amplitude * sin(totalTime * oscilationFrequency) * amplitudeRandomization;
-	owner.position += (forward_speed + perpendicular_speed) * delta;
+	var perpendicular_speed = Vector2.UP.rotated(self.rotation) * amplitude * sin(totalTime * oscilationFrequency) * amplitudeRandomization;
+	total_speed = (forward_speed + perpendicular_speed);
+	owner.position += total_speed * delta;
 	return;

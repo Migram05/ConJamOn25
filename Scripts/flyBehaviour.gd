@@ -10,6 +10,8 @@ var wandering := true;
 @export var plantPosition : Vector2;
 @export var attachToNoteProbability := 0.25;
 @export var timeToAttatchToTree := 1.0;
+@export var sprite : Sprite2D;
+
 
 @onready var plantNode = owner.get_parent().get_node("Plant");
 
@@ -36,8 +38,7 @@ func _process(delta):
 			attatchedToTree = true;
 			if (plantNode != null):
 				plantNode.addFly();
-	#elif (noteAttatched != null):
-		#owner.global_position = noteAttatched.global_position;
+	sprite.rotation = lerpf(sprite.rotation, wander.total_speed.angle(), 0.01);
 	
 	noteColliding = false;
 	return;
