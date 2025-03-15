@@ -2,16 +2,15 @@ extends Node2D
 
 var node := get_parent();
 
-var wander := find_child("Wander", false, true);
-var plant := find_child("Plant", false, true);
+@onready var wander := find_child("Wander", false, true);
 
 var wandering := true;
-
-var currentState := wander;
 
 @export var plantPosition : Vector2;
 @export var attachToNoteProbability := 0.25;
 @export var timeToAttatchToTree := 1.0;
+
+@onready var plantNode = owner.get_parent().get_node("Plant");
 
 var timeWandering := 0.0;
 
@@ -19,18 +18,11 @@ var noteColliding := false;
 var rng = RandomNumberGenerator.new();
 
 var noteAttatched : Area2D = null;
-
-func changeState(state: Node2D):
-	currentState.stop();
-	currentState = state;
-	currentState.play();
+var attatchedToTree := false;
 
 func _ready():
-	wander = find_child("Wander", false, true);
-	plant = find_child("Plant", false, true);
 	wander.setPlantPosition(plantPosition);
-	currentState = wander;
-	currentState.play();
+	wander.play();
 
 func transition_to_tree() -> bool:
 	return timeWandering >= timeToAttatchToTree;
@@ -39,22 +31,27 @@ func transition_to_tree() -> bool:
 func _process(delta):
 	timeWandering += delta;
 	if (wandering && transition_to_tree()):
-			changeState(plant);
+			wander.stop();
+			attatchedToTree = true;
+			if (plantNode != null):
+				plantNode.addFly();
 	
 	noteColliding = false;
 	return;
 
 func onNoteCollision(note):
 	if(rng.randf_range(0.0, 1.0) > attachToNoteProbability):
-		changeState(note);
+		wander.stop();
 		noteColliding = true;
 		note.fly_block();
 		noteAttatched = note;
 
 func onFlyDestroyed():
 	if (noteAttatched != null):
-		noteAttatched.fly_unblock();
-	return
+		noteAttatched.fly_free();
+	if (attatchedToTree && plantNode != null):
+		plantNode.removeFly();
+	return;
 
 func _exit_tree():
 	onFlyDestroyed();

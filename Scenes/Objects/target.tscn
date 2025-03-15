@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgj4dyxppp6dh"]
+[gd_scene load_steps=8 format=3 uid="uid://dgj4dyxppp6dh"]
 
 [ext_resource type="Script" uid="uid://5vrd4toxa3js" path="res://Scripts/target.gd" id="1_ulev0"]
 [ext_resource type="Texture2D" uid="uid://c4t4mvslc6xqn" path="res://Assets/Sprites/Cursor.png" id="2_4c8h7"]
 [ext_resource type="Script" uid="uid://cv8khkbps4scv" path="res://Scripts/flyBehaviour.gd" id="3_3jsu4"]
 [ext_resource type="Script" uid="uid://qmyqxjn0dm01" path="res://Scripts/flyWander.gd" id="4_chdgc"]
-[ext_resource type="Script" path="res://Scripts/flyPlant.gd" id="6_ul0ko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
 radius = 79.0759
@@ -46,10 +45,8 @@ amplitude = 30.0
 randomTargetRadio = 50.0
 amplitudeRandomRange = Vector2(0.1, 40)
 
-[node name="Plant" type="Node2D" parent="Behaviour"]
-script = ExtResource("6_ul0ko")
-
 [node name="NoteDetector" type="Area2D" parent="Behaviour"]
+collision_layer = 257
 script = SubResource("GDScript_3wso7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Behaviour/NoteDetector"]

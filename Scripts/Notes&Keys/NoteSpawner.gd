@@ -14,6 +14,9 @@ var maxIndex = 0
 @export var nota: PackedScene 
 @export var rails : Array[Node2D]
 
+enum NotePrecision { MISSED, BAD, GOOD, PERFECT }
+signal note_clicked(precision : NotePrecision)
+
 func _ready():
 	maxIndex = rails.size()-1
 
@@ -33,4 +36,9 @@ func _process(delta):
 
 # Spawnea la nota en el punto de spawn y conecta la senial del boton a la funcion de la nota
 func spawnNote(chosen_rail, speed):
-	rails[chosen_rail].add_note(nota.instantiate(), speed)
+	var inst = nota.instantiate()
+	inst.note_clicked.connect(_on_note_clicked)
+	rails[chosen_rail].add_note(inst, speed)
+
+func _on_note_clicked(precision : NotePrecision):
+	note_clicked.emit(precision);
