@@ -3,6 +3,7 @@ extends Node2D
 var node := get_parent();
 
 @onready var wander := find_child("Wander", false, true);
+@onready var noteDetector := find_child("NoteDetector", false, true);
 
 var wandering := true;
 
@@ -35,16 +36,24 @@ func _process(delta):
 			attatchedToTree = true;
 			if (plantNode != null):
 				plantNode.addFly();
+	#elif (noteAttatched != null):
+		#owner.global_position = noteAttatched.global_position;
 	
 	noteColliding = false;
 	return;
 
 func onNoteCollision(note):
-	if(rng.randf_range(0.0, 1.0) > attachToNoteProbability):
+	if (wandering && rng.randf_range(0.0, 1.0) < attachToNoteProbability):
 		wander.stop();
 		noteColliding = true;
 		note.fly_block();
 		noteAttatched = note;
+		owner.get_parent().remove_child(owner);
+		owner.scale = owner.scale / noteAttatched.global_scale;
+		noteAttatched.add_child(owner);
+		owner.position = Vector2.ZERO;
+		noteDetector.queue_free();
+		
 
 func onFlyDestroyed():
 	if (noteAttatched != null):

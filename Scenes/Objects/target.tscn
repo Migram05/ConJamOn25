@@ -36,7 +36,8 @@ shape = SubResource("CircleShape2D_t2jmu")
 
 [node name="Behaviour" type="Node2D" parent="."]
 script = ExtResource("3_3jsu4")
-timeToAttatchToTree = 5.0
+attachToNoteProbability = 1.0
+timeToAttatchToTree = 10.0
 
 [node name="Wander" type="Node2D" parent="Behaviour"]
 script = ExtResource("4_chdgc")
