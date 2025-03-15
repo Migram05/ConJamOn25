@@ -50,3 +50,7 @@ func player_hits_key(otherNode : Node2D):
 func delete_note():
 	rail.remove_note(self)
 	queue_free()
+
+func block():
+	return
+
