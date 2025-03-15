@@ -46,6 +46,9 @@ func player_hits_key(otherNode : Node2D):
 	
 	queue_free()
 
+func block():
+	return
+
 #func _on_body_entered(body: Node2D) -> void:
 	#var instance : Label = floatingText.instantiate()
 	#
