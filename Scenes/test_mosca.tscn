@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf84xjhspdb60"]
+
+[ext_resource type="PackedScene" uid="uid://dvhl43sp7mnys" path="res://Scenes/Objects/targetDrag.tscn" id="1_aiq5s"]
+[ext_resource type="PackedScene" uid="uid://6t1b00ii5wpw" path="res://Scenes/Objects/cursor.tscn" id="2_1ybko"]
+[ext_resource type="PackedScene" uid="uid://dgj4dyxppp6dh" path="res://Scenes/Objects/target.tscn" id="3_0hlfn"]
+
+[node name="GameSceneTest" type="Node2D"]
+
+[node name="TargetDrag" parent="." instance=ExtResource("1_aiq5s")]
+position = Vector2(-381, 178)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cursor" parent="." instance=ExtResource("2_1ybko")]
+
+[node name="Target4" parent="." instance=ExtResource("3_0hlfn")]
+position = Vector2(441, -225)

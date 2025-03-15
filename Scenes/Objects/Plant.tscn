@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://njqeha6xttwb"]
+
+[ext_resource type="Texture2D" uid="uid://v34084bke216" path="res://Assets/Sprites/plant_final.png" id="1_apipn"]
+[ext_resource type="Script" uid="uid://bfqjr3jkq0c6x" path="res://Scripts/plant_movement.gd" id="1_f6c36"]
+
+[node name="Plant" type="Node2D"]
+script = ExtResource("1_f6c36")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_apipn")

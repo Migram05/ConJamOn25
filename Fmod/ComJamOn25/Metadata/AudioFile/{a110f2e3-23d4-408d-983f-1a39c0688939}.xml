@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a110f2e3-23d4-408d-983f-1a39c0688939}">
+		<property name="assetPath">
+			<value>RixieirasLayer1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>99</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{113d18cc-5bd3-4f2b-af46-a5e41fe2a512}</destination>
+		</relationship>
+	</object>
+</objects>

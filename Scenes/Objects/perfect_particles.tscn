@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk1rk27qc144d"]
+
+[ext_resource type="Texture2D" uid="uid://cebdc7ic4njim" path="res://Assets/Sprites/note_feedback/particle_perfect.png" id="1_5tb4h"]
+
+[sub_resource type="Gradient" id="Gradient_hvkpb"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_823jn"]
+gradient = SubResource("Gradient_hvkpb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kwno0"]
+lifetime_randomness = 0.8
+emission_shape_offset = Vector3(20, 0, 0)
+emission_shape_scale = Vector3(0, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 265.67
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -17.65
+linear_accel_max = -17.65
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+scale_min = 0.2
+scale_max = 0.35
+color_ramp = SubResource("GradientTexture1D_823jn")
+
+[node name="PerfectParticles" type="GPUParticles2D"]
+show_behind_parent = true
+emitting = false
+amount = 15
+sub_emitter = NodePath(".")
+texture = ExtResource("1_5tb4h")
+lifetime = 3.25
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_kwno0")

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{03c2b81a-7d62-4449-8755-70b6573ee3c2}">
+		<property name="assetPath">
+			<value>ZorzicoPiano.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>66.562517006802722</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{113d18cc-5bd3-4f2b-af46-a5e41fe2a512}</destination>
+		</relationship>
+	</object>
+</objects>
