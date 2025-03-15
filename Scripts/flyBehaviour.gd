@@ -13,8 +13,12 @@ var currentState := wander;
 @export var attachToNoteProbability := 0.25;
 @export var timeToAttatchToTree := 1.0;
 
+var timeWandering := 0.0;
+
 var noteColliding := false;
 var rng = RandomNumberGenerator.new();
+
+var noteAttatched : Area2D = null;
 
 func changeState(state: Node2D):
 	currentState.stop();
@@ -28,22 +32,29 @@ func _ready():
 	currentState = wander;
 	currentState.play();
 
-func transition_to_note() -> bool:
-	return noteColliding;
-
 func transition_to_tree() -> bool:
-	return false;
+	return timeWandering >= timeToAttatchToTree;
 
 
 func _process(delta):
+	timeWandering += delta;
 	if (wandering && transition_to_tree()):
 			changeState(plant);
 	
 	noteColliding = false;
-	return
+	return;
 
 func onNoteCollision(note):
 	if(rng.randf_range(0.0, 1.0) > attachToNoteProbability):
 		changeState(note);
 		noteColliding = true;
-		note.block();
+		note.fly_block();
+		noteAttatched = note;
+
+func onFlyDestroyed():
+	if (noteAttatched != null):
+		noteAttatched.fly_unblock();
+	return
+
+func _exit_tree():
+	onFlyDestroyed();

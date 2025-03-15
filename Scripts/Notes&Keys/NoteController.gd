@@ -53,4 +53,3 @@ func delete_note():
 
 func block():
 	return
-
