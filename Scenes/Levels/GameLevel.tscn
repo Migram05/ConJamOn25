@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://doubp0cns4pua"]
+[gd_scene load_steps=7 format=3 uid="uid://doubp0cns4pua"]
 
 [ext_resource type="Script" uid="uid://c6ble6fx0j4up" path="res://Scripts/game_level.gd" id="1_ep2aj"]
 [ext_resource type="PackedScene" uid="uid://defja54tn6vq8" path="res://Scenes/Objects/MinijuegoPianoTiles.tscn" id="2_dy3oa"]
+[ext_resource type="Texture2D" uid="uid://biscmtw7wtqdm" path="res://Assets/Sprites/Fondo.png" id="2_htr12"]
 [ext_resource type="PackedScene" uid="uid://njqeha6xttwb" path="res://Scenes/Objects/Plant.tscn" id="3_17xrb"]
 [ext_resource type="PackedScene" uid="uid://dgj4dyxppp6dh" path="res://Scenes/Objects/target.tscn" id="4_0eh1h"]
-[ext_resource type="PackedScene" uid="uid://6t1b00ii5wpw" path="res://Scenes/Objects/cursor.tscn" id="5_r4v18"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/cursor.tscn" id="5_r4v18"]
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_ep2aj")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-3.05176e-05, 1.52588e-05)
+scale = Vector2(0.609259, 0.609259)
+texture = ExtResource("2_htr12")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

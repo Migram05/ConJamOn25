@@ -46,7 +46,7 @@ autowrap_mode = 2
 [node name="Regadera" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-240, -66)
-scale = Vector2(0.339844, 0.339844)
+scale = Vector2(0.489375, 0.489375)
 texture = ExtResource("5_afqac")
 
 [node name="Label" type="Label" parent="Regadera"]
@@ -67,10 +67,11 @@ texture = ExtResource("6_rbkxc")
 
 [node name="Matamoscas" type="TextureButton" parent="."]
 visible = false
-offset_left = 169.0
-offset_top = -154.0
-offset_right = 348.0
-offset_bottom = 25.0
+offset_left = 130.0
+offset_top = -194.0
+offset_right = 309.0
+offset_bottom = -15.0
+scale = Vector2(1.44, 1.44)
 texture_normal = ExtResource("7_bxvtr")
 ignore_texture_size = true
 stretch_mode = 5
@@ -78,10 +79,10 @@ stretch_mode = 5
 [node name="Label2" type="Label" parent="Matamoscas"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 57.0
-offset_top = -29.0
-offset_right = 197.0
-offset_bottom = 10.0
+offset_left = 30.5556
+offset_top = -31.9444
+offset_right = 170.556
+offset_bottom = 7.05555
 theme_override_fonts/font = ExtResource("4_apbd8")
 theme_override_font_sizes/font_size = 30
 text = "Click here:"
@@ -93,8 +94,18 @@ position = Vector2(90, 89)
 scale = Vector2(0.349609, 0.349609)
 texture = ExtResource("8_yjane")
 
+[node name="Button" type="Button" parent="Matamoscas"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 130.556
+offset_top = -1.3889
+offset_right = 146.556
+offset_bottom = 15.6111
+rotation = 0.7631
+scale = Vector2(4.22222, 12.0278)
+
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="button_up" from="Button" to="." method="GoBack"]
-[connection signal="button_up" from="Matamoscas" to="." method="Player2Ready"]
+[connection signal="button_up" from="Matamoscas/Button" to="." method="Player2Ready"]
 [connection signal="timeout" from="Timer" to="." method="Play"]

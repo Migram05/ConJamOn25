@@ -1,6 +1,5 @@
 extends Node
 @export var plantLevelClass : PackedScene
-var currentPlant : int = 0
 @export var defaultLevels : Array[SongAsset]
 @export var defaultNarratorImage : Resource
 #region ModedLevelsRegion
@@ -29,9 +28,9 @@ var _inGamePlants : Array[LevelPlant]
 func _ready() -> void:
 	if plantLevelClass != null:
 		_load_default_levels()
-		print("Number of default levels found: " + str(currentPlant))
+		print("Number of default levels found: " + str(GameManager._currentLevel))
 		_load_moded_levels()
-		print("Number of moded levels found: " + str(currentPlant))
+		print("Number of moded levels found: " + str(GameManager._currentLevel))
 		showPlants()
 	else:
 		printerr("SongManager: No plant level selector class chosen")
@@ -140,15 +139,13 @@ func showPlants():
 		var new_level_plant : LevelPlant = plantLevelClass.instantiate()
 		add_child(new_level_plant)
 		_inGamePlants.append(new_level_plant)
-		var width : int = DisplayServer.screen_get_size().x
-		var num : int = width/4.25
-		print(num)
+		var num : int = DisplayServer.screen_get_size().x/4.25
 		new_level_plant.position = Vector2(-num*0.8+ num*i, 150)
 		
-		var aux : int = (currentPlant + (-1+i))
-		if currentPlant==0 && i==0:
+		var aux : int = (GameManager._currentLevel + (-1+i))
+		if GameManager._currentLevel==0 && i==0:
 			aux = _listPlants.size()-1
-		elif currentPlant == _listPlants.size()-1 && i==2:
+		elif GameManager._currentLevel == _listPlants.size()-1 && i==2:
 			aux = 0
 		new_level_plant.displayName = _listPlants[aux].song_name
 		new_level_plant.lastScore = str(_listPlants[aux].last_score)
@@ -161,15 +158,25 @@ func showPlants():
 		new_level_plant.moded_level = _listPlants[aux].moded
 		if i==1:
 			new_level_plant.setScale(1.25)
+			new_level_plant.showPanel(true)
+		else:
+			new_level_plant.setColorGradient(0.35,0.35,0.35,-1)
+			new_level_plant.showPanel(false)
 		i+=1
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("arrow_left"):
-		currentPlant = (_listPlants.size() + currentPlant-1)%_listPlants.size()
-		showPlants()
+		MoveLeft()
 	elif event.is_action_pressed("arrow_right"):
-		currentPlant = (currentPlant+1)%_listPlants.size()
-		showPlants()
+		MoveRight()
+
+func MoveLeft():
+	GameManager._currentLevel = (_listPlants.size() + GameManager._currentLevel-1)%_listPlants.size()
+	showPlants()
+	
+func MoveRight():
+	GameManager._currentLevel = (GameManager._currentLevel+1)%_listPlants.size()
+	showPlants()
 
 # Devuelve la extensión del archivo pasado como argumento, este método se encarga de hacer el split del string y coger la primera extensión encontrada
 # En caso de no poder hacer la separación del string o si el nombre de archivo no es válido, devuelve "NULL"

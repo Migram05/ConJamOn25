@@ -64,4 +64,18 @@ events_file = "res://Songs/Monster/events.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Monster/speech.txt"
 
+[node name="Left" type="Button" parent="."]
+offset_left = -559.0
+offset_top = 27.0
+offset_right = -515.0
+offset_bottom = 71.0
+
+[node name="Right" type="Button" parent="."]
+offset_left = 514.0
+offset_top = 29.0
+offset_right = 560.0
+offset_bottom = 75.0
+
 [connection signal="button_up" from="Button" to="." method="GoBackToMenu"]
+[connection signal="button_up" from="Left" to="SongLoader" method="MoveLeft"]
+[connection signal="button_up" from="Right" to="SongLoader" method="MoveRight"]

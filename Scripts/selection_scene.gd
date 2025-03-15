@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		showText(delta)
 	else:
 		if $Narrador.self_modulate.a >0:
-			$Narrador.self_modulate.a = $Narrador.self_modulate.a-1.5*delta
+			$Narrador.self_modulate.a = $Narrador.self_modulate.a-1.25*delta
 		elif !setReady:
 			$Regadera.visible=true
 			$Matamoscas.visible=true
@@ -44,7 +44,10 @@ func _input(event: InputEvent) -> void:
 		player1ReadyArray[2]=true
 	elif event.is_action_pressed("note_button_forth"):
 		player1ReadyArray[3]=true
-		
+	elif event.is_action_released("pause"):
+		if !done:
+			$Label.text = texto
+			done=true
 	var ready : bool = true 	
 	for b in player1ReadyArray:
 		ready = ready && b

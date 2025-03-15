@@ -21,9 +21,30 @@ var icon_image_path : String:
 		icon_image_path = path
 		$Image.texture = load(icon_image_path)
 		$Image.scale = Vector2(250,250) / $Image.texture.get_size()
+		$Maceta.scale = Vector2(125,125) / $Maceta.texture.get_size()
 
 func setScale(scale : float):
 	$Image.scale = (Vector2(250,250) / $Image.texture.get_size())*scale
+	$Maceta.scale = Vector2(125,125) / $Maceta.texture.get_size()*scale
+	
+func showPanel(show : bool):
+	$Historial.visible=show
+	$Button.visible=show
+	$Banner.visible=show
+
+func setColorGradient(red : float, green : float, blue : float, alpha : float):
+	if red > 0:
+		$Image.self_modulate.r = red
+		$Maceta.self_modulate.r = red
+	if green > 0:
+		$Image.self_modulate.g = green
+		$Maceta.self_modulate.g = red
+	if blue > 0:
+		$Image.self_modulate.b = blue
+		$Maceta.self_modulate.b = red
+	if alpha > 0:
+		$Image.self_modulate.a = alpha
+		$Maceta.self_modulate.a = red
 
 # Cómo de rápido aumenta el volumen de la preview cuando se está reproduciendo
 @export var preview_sound_volume_increase : float = 25

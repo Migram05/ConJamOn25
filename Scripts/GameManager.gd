@@ -19,6 +19,7 @@ var _volume : float = 100:
 			_audioPlayer.volume_db = -40 + new_value * 40 /100
 var _fullScreen : bool
 
+var _currentLevel:int=0
 var _song : Resource:
 	set(new_file):
 		_audioPlayer.stream = new_file

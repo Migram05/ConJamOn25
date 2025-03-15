@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2mp3b1rhugjg"]
+[gd_scene load_steps=4 format=3 uid="uid://2mp3b1rhugjg"]
 
 [ext_resource type="Script" uid="uid://c3scxcji4orif" path="res://Scripts/pause.gd" id="1_44hg8"]
-[ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="2_bx65v"]
+[ext_resource type="Texture2D" uid="uid://bvlws5enkyvqy" path="res://Assets/Sprites/blackSquare.png" id="2_bx65v"]
+[ext_resource type="Texture2D" uid="uid://b3u14sseq6ttr" path="res://Assets/Sprites/PausaPanel.png" id="3_qioq8"]
 
 [node name="Pause" type="Node2D"]
 process_mode = 3
@@ -9,13 +10,20 @@ script = ExtResource("1_44hg8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BackGround" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.415686)
-position = Vector2(-7.00003, -2.5)
-scale = Vector2(9.04688, 5.05469)
+z_index = 150
+position = Vector2(1.99996, 0.999971)
+scale = Vector2(3.32222, 4.4183)
 texture = ExtResource("2_bx65v")
 
+[node name="Panel" type="Sprite2D" parent="."]
+z_index = 150
+scale = Vector2(0.567593, 0.567593)
+texture = ExtResource("3_qioq8")
+
 [node name="Pause" type="Label" parent="."]
+z_index = 150
 offset_left = -78.0
 offset_top = -236.0
 offset_right = 78.0
@@ -26,6 +34,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Continue" type="Button" parent="."]
+z_index = 150
 offset_left = -91.0
 offset_top = -108.0
 offset_right = 100.0
@@ -40,6 +49,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="Button" parent="."]
+z_index = 150
 offset_left = -91.0
 offset_top = -11.0
 offset_right = 100.0
@@ -54,6 +64,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExitLevel" type="Button" parent="."]
+z_index = 150
 offset_left = -91.0
 offset_top = 89.0
 offset_right = 100.0
@@ -72,6 +83,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="CountDown" type="Label" parent="."]
+z_index = 150
 offset_left = -136.0
 offset_top = -126.0
 offset_right = 134.0
