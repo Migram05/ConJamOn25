@@ -25,7 +25,7 @@ func _input(event: InputEvent) -> void:
 func Continue() -> void:
 	if !exit && !isInOptions:
 		exit = true
-		$Continue.visible = false
+		$Play.visible = false
 		$Options.visible = false
 		$ExitLevel.visible = false
 		$Timer.start()

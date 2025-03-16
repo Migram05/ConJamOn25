@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://2mp3b1rhugjg"]
+[gd_scene load_steps=13 format=3 uid="uid://2mp3b1rhugjg"]
 
 [ext_resource type="Script" uid="uid://c3scxcji4orif" path="res://Scripts/pause.gd" id="1_44hg8"]
 [ext_resource type="Texture2D" uid="uid://bvlws5enkyvqy" path="res://Assets/Sprites/blackSquare.png" id="2_bx65v"]
 [ext_resource type="Texture2D" uid="uid://b3u14sseq6ttr" path="res://Assets/Sprites/PausaPanel.png" id="3_qioq8"]
+[ext_resource type="Texture2D" uid="uid://cfpq83shdwl7v" path="res://Assets/Sprites/Play.png" id="4_33tvl"]
+[ext_resource type="Texture2D" uid="uid://csno5tdmivub2" path="res://Assets/Sprites/PlayPress.png" id="5_ni7un"]
+[ext_resource type="Texture2D" uid="uid://dqjik7qqq4qxa" path="res://Assets/Sprites/PlayOver.png" id="6_2wads"]
+[ext_resource type="Texture2D" uid="uid://ckbpuptf8ofvf" path="res://Assets/Sprites/Options.png" id="7_x104v"]
+[ext_resource type="Texture2D" uid="uid://d07kjdgmf4wra" path="res://Assets/Sprites/OptionsPress.png" id="8_wxkbi"]
+[ext_resource type="Texture2D" uid="uid://clja1a0vr8vml" path="res://Assets/Sprites/OptionsOver.png" id="9_tyt82"]
+[ext_resource type="Texture2D" uid="uid://ghuq2v5363es" path="res://Assets/Sprites/ExitNormal.png" id="10_kb46c"]
+[ext_resource type="Texture2D" uid="uid://cti0ig52lfr88" path="res://Assets/Sprites/ExitPress.png" id="11_e1n6f"]
+[ext_resource type="Texture2D" uid="uid://bjfcy7qqef15y" path="res://Assets/Sprites/ExitOver.png" id="12_kpnag"]
 
 [node name="Pause" type="Node2D"]
 process_mode = 3
@@ -33,51 +42,6 @@ text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Continue" type="Button" parent="."]
-z_index = 150
-offset_left = -91.0
-offset_top = -108.0
-offset_right = 100.0
-offset_bottom = -46.0
-
-[node name="Label" type="Label" parent="Continue"]
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 60.0
-text = "CONTINUE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Options" type="Button" parent="."]
-z_index = 150
-offset_left = -91.0
-offset_top = -11.0
-offset_right = 100.0
-offset_bottom = 51.0
-
-[node name="Label" type="Label" parent="Options"]
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 60.0
-text = "OPTIONS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ExitLevel" type="Button" parent="."]
-z_index = 150
-offset_left = -91.0
-offset_top = 89.0
-offset_right = 100.0
-offset_bottom = 151.0
-
-[node name="Label" type="Label" parent="ExitLevel"]
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 60.0
-text = "EXIT LEVEL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -92,7 +56,43 @@ theme_override_font_sizes/font_size = 200
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_up" from="Continue" to="." method="Continue"]
+[node name="Play" type="TextureButton" parent="."]
+z_index = 150
+offset_left = -99.0
+offset_top = -127.0
+offset_right = 107.0
+offset_bottom = -33.0
+texture_normal = ExtResource("4_33tvl")
+texture_pressed = ExtResource("5_ni7un")
+texture_hover = ExtResource("6_2wads")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Options" type="TextureButton" parent="."]
+z_index = 150
+offset_left = -97.0
+offset_top = -27.0
+offset_right = 106.0
+offset_bottom = 64.0
+texture_normal = ExtResource("7_x104v")
+texture_pressed = ExtResource("8_wxkbi")
+texture_hover = ExtResource("9_tyt82")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ExitLevel" type="TextureButton" parent="."]
+z_index = 150
+offset_left = -94.0
+offset_top = 69.0
+offset_right = 104.0
+offset_bottom = 158.0
+texture_normal = ExtResource("10_kb46c")
+texture_pressed = ExtResource("11_e1n6f")
+texture_hover = ExtResource("12_kpnag")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="timeout" from="Timer" to="." method="StartAgain"]
+[connection signal="button_up" from="Play" to="." method="Continue"]
 [connection signal="button_up" from="Options" to="." method="options"]
 [connection signal="button_up" from="ExitLevel" to="." method="GoBackToLab"]
-[connection signal="timeout" from="Timer" to="." method="StartAgain"]
