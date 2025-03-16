@@ -707,13 +707,25 @@ texture = ExtResource("2_kdaex")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Title" type="Label" parent="."]
+modulate = Color(0.396078, 0.388235, 0.572549, 1)
 z_index = 200
-offset_left = -516.0
-offset_top = -470.0
-offset_right = 506.0
-offset_bottom = -95.0
+offset_left = -473.0
+offset_top = -472.0
+offset_right = 473.0
+offset_bottom = -195.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 195
+theme_override_font_sizes/font_size = 146
+text = "OPCIONES"
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="."]
+z_index = 200
+offset_left = -463.0
+offset_top = -477.0
+offset_right = 483.0
+offset_bottom = -200.0
+theme_override_fonts/font = ExtResource("3_ew2o0")
+theme_override_font_sizes/font_size = 146
 text = "OPCIONES"
 horizontal_alignment = 1
 
@@ -734,19 +746,19 @@ stretch_mode = 4
 [node name="VolumeSlider" type="HSlider" parent="Volume"]
 self_modulate = Color(0.996611, 0.966871, 0.968126, 1)
 z_index = 200
-offset_left = -277.0
-offset_top = 145.0
-offset_right = 101.0
-offset_bottom = 445.0
+offset_left = -402.0
+offset_top = 186.0
+offset_right = -24.0
+offset_bottom = 486.0
 scale = Vector2(1.5, 1.24)
 value = 100.0
 
 [node name="VolumeText" type="Label" parent="Volume"]
 z_index = 200
-offset_left = 90.0
-offset_top = 174.0
-offset_right = 284.0
-offset_bottom = 353.0
+offset_left = -13.0
+offset_top = 208.0
+offset_right = 181.0
+offset_bottom = 387.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 90
 text = "100"
@@ -755,10 +767,10 @@ vertical_alignment = 1
 [node name="Label" type="Label" parent="Volume"]
 self_modulate = Color(0.309804, 0.294118, 0.458824, 1)
 z_index = 200
-offset_left = -345.0
-offset_top = 146.0
-offset_right = 162.0
-offset_bottom = 507.0
+offset_left = -452.0
+offset_top = 178.0
+offset_right = 55.0
+offset_bottom = 539.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 90
 text = "Volumen:
@@ -770,10 +782,10 @@ vertical_alignment = 1
 
 [node name="FullScreenText" type="Label" parent="FullScreen"]
 z_index = 200
-offset_left = 345.0
-offset_top = 218.0
-offset_right = 910.0
-offset_bottom = 561.0
+offset_left = 354.0
+offset_top = 302.0
+offset_right = 919.0
+offset_bottom = 645.0
 scale = Vector2(0.56, 0.56)
 theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 120
@@ -784,10 +796,10 @@ vertical_alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="FullScreen"]
 z_index = 200
-offset_left = 302.0
-offset_top = 252.0
-offset_right = 326.0
-offset_bottom = 278.0
+offset_left = 307.0
+offset_top = 338.0
+offset_right = 331.0
+offset_bottom = 364.0
 scale = Vector2(1.6, 1.6)
 button_pressed = true
 icon = SubResource("PortableCompressedTexture2D_kdaex")
@@ -806,23 +818,23 @@ frame_progress = 0.722149
 [node name="Label2" type="Label" parent="."]
 self_modulate = Color(0.431373, 0.376471, 0.541176, 1)
 z_index = 200
-offset_left = 213.0
-offset_top = -187.0
-offset_right = 350.0
-offset_bottom = -149.0
+offset_left = 453.0
+offset_top = -298.0
+offset_right = 666.0
+offset_bottom = -241.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 39
 text = "JUGADOR 2"
 
 [node name="Label" type="Label" parent="."]
 self_modulate = Color(0.431373, 0.376471, 0.541176, 1)
 z_index = 200
-offset_left = -332.0
-offset_top = -188.0
-offset_right = -195.0
-offset_bottom = -150.0
+offset_left = -680.0
+offset_top = -291.0
+offset_right = -467.0
+offset_bottom = -234.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 39
 text = "JUGADOR 1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

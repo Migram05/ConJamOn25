@@ -48,6 +48,7 @@ plant_scale = 1.75
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Camera2D"]
+event_name = "event:/Background"
 event_guid = "{49e1da3c-738f-4e86-9a53-711c0788dbc6}"
 autoplay = true
 
@@ -56,8 +57,8 @@ autoplay = true
 [node name="Home" type="TextureButton" parent="."]
 offset_left = -928.0
 offset_top = -510.0
-offset_right = -853.0
-offset_bottom = -435.0
+offset_right = -819.0
+offset_bottom = -416.0
 texture_normal = ExtResource("6_n02vy")
 texture_pressed = ExtResource("7_2f0t2")
 texture_hover = ExtResource("8_20qkr")
@@ -131,8 +132,8 @@ score_file = "res://Songs/Megalovania/score.txt"
 
 [node name="Left" type="TextureButton" parent="."]
 offset_left = -942.0
-offset_top = 4.0
-offset_right = -793.0
+offset_top = -58.0
+offset_right = -677.0
 offset_bottom = 71.0
 texture_normal = ExtResource("16_bu36j")
 texture_pressed = ExtResource("17_n3acr")
@@ -142,9 +143,9 @@ stretch_mode = 4
 
 [node name="Right" type="TextureButton" parent="."]
 offset_left = 919.0
-offset_top = 81.0
-offset_right = 1069.0
-offset_bottom = 148.0
+offset_top = 60.0
+offset_right = 1186.0
+offset_bottom = 256.0
 rotation = 3.13504
 texture_normal = ExtResource("16_bu36j")
 texture_pressed = ExtResource("17_n3acr")
