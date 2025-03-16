@@ -26,7 +26,7 @@ var attatchedToTree := false;
 func _ready():
 	wander.setPlantPosition(plantPosition);
 	wander.play();
-	owner.rotation = wander.total_speed.angle();
+	owner.rotation = (Vector2.RIGHT.rotated(wander.rotation) * wander.forwardSpeed).angle();
 
 func transition_to_tree() -> bool:
 	return timeWandering >= timeToAttatchToTree;
