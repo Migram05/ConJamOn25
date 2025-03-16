@@ -1,5 +1,7 @@
 extends Node
 
+var total_notes : int
+
 var missed_notes : int
 var meh_notes : int
 var good_notes : int

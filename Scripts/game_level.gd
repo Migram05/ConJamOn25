@@ -19,9 +19,8 @@ func _ready() -> void:
 		var distance = minijuego_piano_tiles.rails[0].get_node("Tecla").global_position.y - minijuego_piano_tiles.rails[0].get_node("Spawnpoint").global_position.y 
 		timeUntilPerfect = distance / minijuego_piano_tiles.note_speed
 		_process_notes()
-		print(timesNotes.size())
 		spawn_max_timer = START_TIME + timesNotes[0] - timeUntilPerfect
-		
+		ScoreRegister.total_notes = timesNotes.size()
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("pause"):

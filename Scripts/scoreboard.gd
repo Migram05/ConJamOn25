@@ -24,12 +24,14 @@ func _ready() -> void:
 	var index = 0
 	for i in GameManager._TREE_TYPE_:
 		var height = GameManager.tree_type_by_height[index]
-		if height <= ScoreRegister.height:
+		if height * ScoreRegister.total_notes <= ScoreRegister.height:
 			tree_type = i
 			index += 1
 		else: 
 			break
-		
+	
+	index = clamp(index, 0, plant.textures.size() - 1)
+	
 	var height_rounded : float = round_to_dec(ScoreRegister.height, 2)
 	categoria.text = tree_type + "\n" +  str(height_rounded) + " M"
 	plant.texture = plant.textures[index]

@@ -1,6 +1,6 @@
 extends Node
 
-var _score : int = 0 
+var _score : int = 0
 enum _TREE_TYPE_{
 	SEMILLA,
 	BROTE,
@@ -11,10 +11,10 @@ enum _TREE_TYPE_{
 
 var tree_type_by_height : Array[float] = [
 	0.0,
-	1.0,
-	5.0,
-	10.0,
-	15.0
+	0.01,
+	0.03,
+	0.04,
+	0.05
 ]
 
 var _treeType : _TREE_TYPE_ = _TREE_TYPE_.SEMILLA
