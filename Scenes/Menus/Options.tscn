@@ -45,12 +45,14 @@ stretch_mode = 4
 [node name="Volume" type="Node" parent="."]
 
 [node name="VolumeSlider" type="HSlider" parent="Volume"]
+self_modulate = Color(0.996611, 0.966871, 0.968126, 1)
 z_index = 200
-offset_left = -232.0
-offset_top = -150.0
-offset_right = 80.0
-offset_bottom = -60.0
-scale = Vector2(1.5, 3)
+offset_left = -181.0
+offset_top = -100.0
+offset_right = 71.0
+offset_bottom = -9.99999
+scale = Vector2(1.5, 1.24)
+value = 100.0
 
 [node name="VolumeText" type="Label" parent="Volume"]
 z_index = 200
@@ -82,10 +84,11 @@ vertical_alignment = 1
 
 [node name="FullScreenText" type="Label" parent="FullScreen"]
 z_index = 200
-offset_left = -18.0
-offset_top = 53.0
-offset_right = 182.0
-offset_bottom = 166.0
+offset_left = -35.0
+offset_top = 8.0
+offset_right = 165.0
+offset_bottom = 127.0
+scale = Vector2(0.56, 0.56)
 theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 40
 text = "FullScreen
@@ -95,11 +98,11 @@ vertical_alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="FullScreen"]
 z_index = 200
-offset_left = -103.0
-offset_top = 41.0
-offset_right = -79.0
-offset_bottom = 67.0
-scale = Vector2(3, 3)
+offset_left = -77.0
+offset_top = 5.0
+offset_right = -53.0
+offset_bottom = 31.0
+scale = Vector2(1.6, 1.6)
 button_pressed = true
 icon = SubResource("PortableCompressedTexture2D_kdaex")
 flat = true

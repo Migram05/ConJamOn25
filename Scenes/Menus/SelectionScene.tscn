@@ -7,10 +7,10 @@
 [ext_resource type="FontFile" uid="uid://da2s077s5pm3t" path="res://Assets/Fonts/Hello Note.otf" id="4_apbd8"]
 [ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="4_wnm5w"]
 [ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="5_7csb5"]
-[ext_resource type="Texture2D" uid="uid://d08aopy8qwm4m" path="res://Assets/Sprites/wateringCanOn.png" id="5_afqac"]
-[ext_resource type="Texture2D" uid="uid://dej7b0cp3h5jy" path="res://Assets/Sprites/wateringCanOff.png" id="6_rbkxc"]
-[ext_resource type="Texture2D" uid="uid://dw8alpir1qwow" path="res://Assets/Sprites/swatterOn.png" id="7_bxvtr"]
-[ext_resource type="Texture2D" uid="uid://dacttjddxb2d0" path="res://Assets/Sprites/swatterOff.png" id="8_yjane"]
+[ext_resource type="Texture2D" uid="uid://c4yda41uxydir" path="res://Assets/Sprites/RegaderaReady.png" id="9_bxvtr"]
+[ext_resource type="Texture2D" uid="uid://v4i57et46brj" path="res://Assets/Sprites/RegaderaNotReady.png" id="9_rbkxc"]
+[ext_resource type="Texture2D" uid="uid://dc4n11uk5hg8v" path="res://Assets/Sprites/MatamoscasNotReady.png" id="10_yjane"]
+[ext_resource type="Texture2D" uid="uid://bsui8ead55avw" path="res://Assets/Sprites/MatamoscasReady.png" id="11_wnm5w"]
 
 [sub_resource type="Animation" id="Animation_rbkxc"]
 length = 0.001
@@ -165,63 +165,24 @@ autowrap_mode = 2
 [node name="Items" type="Node2D" parent="."]
 scale = Vector2(1e-05, 1e-05)
 
-[node name="Regadera" type="Sprite2D" parent="Items"]
-position = Vector2(-240, -66)
-scale = Vector2(0.489375, 0.489375)
-texture = ExtResource("5_afqac")
+[node name="RegaderaOff" type="Sprite2D" parent="Items"]
+position = Vector2(-200, -50)
+scale = Vector2(0.99997, 0.99997)
+texture = ExtResource("9_rbkxc")
 
-[node name="Label" type="Label" parent="Items/Regadera"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -770.943
-offset_top = -476.69
-offset_right = 825.057
-offset_bottom = -199.69
-theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 100
-text = "Press the keys: 
-\"A\",\"S\",\"J\" and \"K\""
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="RegaderaOn" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(-200, -50)
+texture = ExtResource("9_bxvtr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Items/Regadera"]
-texture = ExtResource("6_rbkxc")
+[node name="MatamoscasOff" type="Sprite2D" parent="Items"]
+position = Vector2(275, -50)
+texture = ExtResource("10_yjane")
 
-[node name="Matamoscas" type="TextureButton" parent="Items"]
-offset_left = 130.0
-offset_top = -194.0
-offset_right = 309.0
-offset_bottom = -15.0
-scale = Vector2(1.44, 1.44)
-texture_normal = ExtResource("7_bxvtr")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="Items/Matamoscas"]
-position = Vector2(90, 89)
-scale = Vector2(0.349609, 0.349609)
-texture = ExtResource("8_yjane")
-
-[node name="Label2" type="Label" parent="Items/Matamoscas/Sprite2D"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -128.33
-offset_top = -347.914
-offset_right = 336.67
-offset_bottom = -220.914
-theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 100
-text = "Click here:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="Items/Matamoscas"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 130.556
-offset_top = -1.3889
-offset_right = 146.556
-offset_bottom = 15.6111
-rotation = 0.7631
-scale = Vector2(4.22222, 12.0278)
+[node name="MatamoscasOn" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(275, -50)
+texture = ExtResource("11_wnm5w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Items"]
 root_node = NodePath("../..")
@@ -229,6 +190,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_rbkxc")
 }
 
+[node name="Button" type="Button" parent="Items"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 18.0
+offset_top = -249.0
+offset_right = 457.0
+offset_bottom = 80.0
+
 [connection signal="button_up" from="Back" to="." method="GoBack"]
 [connection signal="timeout" from="Timer" to="." method="Play"]
-[connection signal="button_up" from="Items/Matamoscas/Button" to="." method="Player2Ready"]
+[connection signal="button_up" from="Items/Button" to="." method="Player2Ready"]

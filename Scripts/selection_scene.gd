@@ -51,9 +51,9 @@ func _input(event: InputEvent) -> void:
 	for b in player1ReadyArray:
 		ready = ready && b
 	if ready:
-		$Items/Regadera/Sprite2D.visible=false
+		$Items/RegaderaOff.visible=false
+		$Items/RegaderaOn.visible=true
 		player1Ready=true		
-		$Items/Regadera/Label.text = "READY!"
 
 func showText(delta : float) -> void:
 	if index < texto.length():
@@ -74,6 +74,6 @@ func Play() -> void:
 
 
 func Player2Ready() -> void:
-	$Items/Matamoscas/Sprite2D.visible=false
+	$Items/MatamoscasOff.visible=false
+	$Items/MatamoscasOn.visible=true
 	player2Ready=true
-	$Items/Matamoscas/Sprite2D/Label2.text = "READY!"
