@@ -89,7 +89,7 @@ func _on_button_pressed() -> void:
 func GoToHistorial() -> void:
 	GameManager._score_content = score_content
 	GameManager._current_level_name = $Panel/SongName.text
-	SceneManager.loadScene(SceneManager._SCENES_.SCORE_MENU);
+	SceneManager.loadScene(SceneManager._SCENES_.HISTORIAL);
 
 func GoToSelection() -> void:
 	SceneManager.loadScene(SceneManager._SCENES_.SELECTION_MENU);
