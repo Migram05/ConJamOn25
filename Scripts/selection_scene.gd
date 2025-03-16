@@ -85,8 +85,8 @@ func Player2Ready() -> void:
 	
 func Traduction() -> void:
 	if not translated:
-		if GameManager._isCurrentNarratorMod:
+		if !GameManager._isCurrentNarratorMod:
 			$Label.text = traduccionText
 		else:
-			$Label.text = "Tradución: "+$Label.text
+			$Label.text = "Traducción: "+$Label.text
 		translated = true
