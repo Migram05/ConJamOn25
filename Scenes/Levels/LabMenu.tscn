@@ -48,7 +48,6 @@ plant_scale = 1.75
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Camera2D"]
-event_name = "event:/Background"
 event_guid = "{49e1da3c-738f-4e86-9a53-711c0788dbc6}"
 autoplay = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dq5j3pfp1lb76"]
+[gd_scene load_steps=20 format=3 uid="uid://dq5j3pfp1lb76"]
 
 [ext_resource type="Texture2D" uid="uid://ctyj66tlojkni" path="res://Assets/Sprites/scoreboard/solidPanel.png" id="1_26kal"]
 [ext_resource type="Texture2D" uid="uid://bfqh7rdtfh5tr" path="res://Assets/Sprites/note_feedback/results_bg.png" id="1_k06fr"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cv83aqy67qevf" path="res://Assets/Sprites/note_feedback/good.png" id="6_86ppk"]
 [ext_resource type="Texture2D" uid="uid://c1h6vfg3rjgyd" path="res://Assets/Sprites/scoreboard/plant_4.png" id="6_hp617"]
 [ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="9_hp617"]
+[ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="11_toont"]
 [ext_resource type="Texture2D" uid="uid://djyt2xkpk5p2y" path="res://Assets/Sprites/enemies/gusanoSpriteSheet.png" id="12_re3hr"]
 
 [node name="Scoreboard" type="Node2D" node_paths=PackedStringArray("missed_text", "meh_text", "good_text", "perfect_text", "moscas_text", "ciempieses_text", "categoria", "plant", "team_name_input")]
@@ -83,11 +84,14 @@ max_length = 13
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1780.0
-offset_top = 35.0
-offset_right = 1861.0
-offset_bottom = 113.0
+offset_left = 1893.0
+offset_top = 135.0
+offset_right = 2476.0
+offset_bottom = 400.0
 grow_horizontal = 0
+rotation = -3.14159
+scale = Vector2(0.55049, 0.482788)
+icon = ExtResource("11_toont")
 
 [node name="ScoreBoard" type="Node2D" parent="."]
 position = Vector2(958, 543)

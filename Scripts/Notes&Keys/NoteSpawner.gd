@@ -25,15 +25,6 @@ func _ready():
 # en su tiempo correspondiente al llegar al final vuelve al inicio de las notas
 func _process(delta):
 	pass
-	#timer += delta
-	#if(noteStamps[currentIndex] < timer):
-		#var chosen_rail = randi_range(0,maxIndex)
-		#spawnNote(chosen_rail, note_speed)
-		#if(currentIndex + 1 == noteStamps.size()):
-			#currentIndex = 0
-			#timer = 0
-		#else:
-			#currentIndex += 1
 
 # Spawnea la nota en el punto de spawn y conecta la senial del boton a la funcion de la nota
 func spawnNote(chosen_rail, speed) -> Node2D:
