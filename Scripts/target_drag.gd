@@ -12,6 +12,7 @@ var animation_node_name : String
 
 func _ready() -> void:
 	super()
+	isSpecial = true
 	collision_shape_2d = $AnimationNode/Area2D/CollisionShape2D
 	initialPos = position
 	var index = randi() % sprite_frames.size()
@@ -46,7 +47,6 @@ func _process(delta: float) -> void:
 				return
 			var d = gameCursor.check_distance($".")
 			if d < errorDistance:
-				print(errorDistance)
 				errorDistance = d
 		
 				

@@ -15,6 +15,7 @@ var cursorOn = false
 @export var scoreMultiplier = 1.0
 @onready var collision_shape_2d: CollisionShape2D = $AnimationNode/Area2D/CollisionShape2D
 const SMACK = preload("res://Scenes/Objects/smack.tscn")
+var isSpecial = false
 
 @export var behaviour : Node2D;
 
@@ -74,7 +75,7 @@ func reset():
 func _click(perfect = false):
 	score = score * distance
 	var smack : Smack = SMACK.instantiate()
-	$"../".add_child(smack)
+	bug_generator.add_child(smack)
 	smack.global_position = global_position
 	if perfect:
 		smack.setPerfect()
@@ -85,5 +86,9 @@ func _click(perfect = false):
 	$FmodEventEmitter2D.play()
 	queue_free()
 
-func _on_tree_exiting() -> void:
-	bug_generator.current_enemies -= 1
+func _exit_tree():
+	if not (get_parent() is NoteController) :
+		if isSpecial:
+			bug_generator.current_enemies_special -= 1
+		else:
+			bug_generator.current_enemies_normal -= 1

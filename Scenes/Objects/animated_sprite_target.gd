@@ -21,4 +21,3 @@ func _on_frame_changed() -> void:
 		target.changeState(Target.State.OPEN)
 	elif frame < 18:
 		target.changeState(Target.State.CLOSING)
-	print(target.enemyState)
