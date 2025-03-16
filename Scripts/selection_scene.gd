@@ -12,6 +12,7 @@ var isReady : bool = false
 var player1ReadyArray : Array = [false,false,false,false]
 var player1Ready : bool = false
 var player2Ready : bool =false
+var translated : bool = false
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -83,7 +84,9 @@ func Player2Ready() -> void:
 	player2Ready=true
 	
 func Traduction() -> void:
-	if GameManager._isCurrentNarratorMod:
-		$Label.text = traduccionText
-	else:
-		$Label.text = "Tradución: "+$Label.text
+	if not translated:
+		if GameManager._isCurrentNarratorMod:
+			$Label.text = traduccionText
+		else:
+			$Label.text = "Tradución: "+$Label.text
+		translated = true

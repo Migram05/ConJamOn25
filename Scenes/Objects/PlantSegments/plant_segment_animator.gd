@@ -17,16 +17,18 @@ var damageCounter := 0.0;
 var perfectCounter := 0.0;
 var glowCounter := perfectGlowTime;
 
+var damaged : bool;
+
 func _ready():
+	#glow.self_modulate.a = 0.0;
 	return
-	glow.self_modulate.a = 0.0;
 
 func startGlow():
 	glow.self_modulate.a = 1.0;
 	return
 	
 func endGlow():
-	glow.self_modulate.a = 0.0;
+	#glow.self_modulate.a = 0.0;
 	return
 
 func onPerfect():
@@ -36,19 +38,18 @@ func onPerfect():
 	currentState = treeStates.PERFECT;
 	trunc.animation = treeStatesNames[treeStates.PERFECT];
 
-func onDamage():
-	damageCounter = 0.0;
+func onDamage(damage : bool):
+	damaged = damage;
 	currentState = treeStates.DAMAGE;
 	trunc.animation = treeStatesNames[treeStates.DAMAGE];
 
 func setIdle():
 	currentState = treeStates.IDLE;
 	trunc.animation = treeStatesNames[treeStates.IDLE];
+func setDamage():
+	currentState = treeStates.DAMAGE;
+	trunc.animation = treeStatesNames[treeStates.DAMAGE];
 
-func process_damage(delta):
-	damageCounter += delta;
-	if (damageCounter >= damageAnimationTime):
-		setIdle();
 
 func process_perfect(delta):
 	perfectCounter += delta;
@@ -57,8 +58,6 @@ func process_perfect(delta):
 
 func _process(delta):
 	match(currentState):
-		treeStates.DAMAGE:
-			process_damage(delta);
 		treeStates.PERFECT:
 			process_perfect(delta);
 	if (glowCounter < perfectGlowTime):

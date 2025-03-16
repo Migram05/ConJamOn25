@@ -17,6 +17,8 @@ var cursorOn = false
 @onready var collision_shape_2d: CollisionShape2D = $AnimationNode/Area2D/CollisionShape2D
 const SMACK = preload("res://Scenes/Objects/smack.tscn")
 
+@export var behaviour : Node2D;
+
 func _ready() -> void:
 	pass
 

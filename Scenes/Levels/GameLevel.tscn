@@ -20,9 +20,6 @@ texture = ExtResource("2_htr12")
 [node name="Plant" parent="." instance=ExtResource("3_17xrb")]
 z_index = -3
 position = Vector2(-31, -139)
-scale = Vector2(1.26443, 1.26443)
-upSpeed = 0.02
-maxPlantScroll = 500.0
 
 [node name="Cursor" parent="." instance=ExtResource("5_r4v18")]
 position = Vector2(300, 78)
@@ -31,11 +28,14 @@ position = Vector2(300, 78)
 position = Vector2(-636, -511)
 scale = Vector2(1.43553, 1.43553)
 
-[node name="BugGenerator" type="Node2D" parent="."]
+[node name="BugGenerator" type="Node2D" parent="." node_paths=PackedStringArray("plantNode")]
 script = ExtResource("7_2ao20")
+plantNode = NodePath("../Plant")
 
 [node name="MinSpawnDistance" type="Node2D" parent="BugGenerator"]
 position = Vector2(316, -542)
 
 [node name="MaxSpawnDistance" type="Node2D" parent="BugGenerator"]
 position = Vector2(960, 543)
+
+[connection signal="note_clicked" from="MinijuegoPianoTiles" to="Plant" method="_on_minijuego_piano_tiles_note_clicked"]
