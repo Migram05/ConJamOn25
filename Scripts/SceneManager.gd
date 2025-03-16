@@ -3,19 +3,23 @@ extends Node
 var allScenes = [preload("res://Scenes/Menus/MainMenu.tscn"),
 				preload("res://Scenes/Menus/Options.tscn"),
 				preload("res://Scenes/Levels/LabMenu.tscn"),
-				preload("res://Scenes/Menus/Historial.tscn"),
+				preload("res://Scenes/Menus/Score.tscn"),
 				preload("res://Scenes/Menus/SelectionScene.tscn"),
 				preload("res://Scenes/Levels/GameLevel.tscn"),
-				preload("res://Scenes/Menus/Pause.tscn")]
+				preload("res://Scenes/Menus/Pause.tscn"),
+				preload("res://Scenes/Objects/scoreboard.tscn"),
+				preload("res://Scenes/Menus/Credits.tscn")]
+				
 enum _SCENES_{
 	MAIN_MENU,
 	OPTIONS,
 	LAB_MENU,
-	HISTORIAL_MENU,
+	HISTORIAL,
 	SELECTION_MENU,
 	GAME_LEVEL,
 	PAUSE,
-	SCORE_SCENE
+	SCORE_SCENE,
+	CREDITS
 	}
 var _currSceneID : _SCENES_ = _SCENES_.MAIN_MENU
 
@@ -60,7 +64,6 @@ func pauseScene(p : bool)->void:
 		_pauseSceneInGame.queue_free()
 		_pauseSceneInGame=null
 	_isPaused = p;
-	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

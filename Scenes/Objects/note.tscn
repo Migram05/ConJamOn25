@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ygwova4vr4y8"]
+[gd_scene load_steps=21 format=3 uid="uid://ygwova4vr4y8"]
 
 [ext_resource type="Script" uid="uid://ddnsqst0avk11" path="res://Scripts/Notes&Keys/NoteController.gd" id="1_yjfqu"]
 [ext_resource type="Texture2D" uid="uid://fxyt4hcoxwe" path="res://Assets/Sprites/note_feedback/bad.png" id="2_enql0"]
@@ -8,7 +8,11 @@
 [ext_resource type="Script" uid="uid://bsl286duwulk6" path="res://Scripts/SpontaneousText.gd" id="6_enql0"]
 [ext_resource type="PackedScene" uid="uid://dk1rk27qc144d" path="res://Scenes/Objects/perfect_particles.tscn" id="7_4vjvx"]
 [ext_resource type="Texture2D" uid="uid://ddkguh26eabjr" path="res://Assets/Sprites/note_feedback/note.png" id="8_4vjvx"]
+[ext_resource type="Texture2D" uid="uid://bqnicnsqdifyn" path="res://Assets/Sprites/note_feedback/note_red.png" id="8_fgnlf"]
 [ext_resource type="Texture2D" uid="uid://bd4ueenpl0gtx" path="res://Assets/Sprites/note_feedback/bubble.png" id="9_fen3c"]
+[ext_resource type="Texture2D" uid="uid://mhbspttq4g8a" path="res://Assets/Sprites/note_feedback/note_blue.png" id="9_rl3d7"]
+[ext_resource type="Texture2D" uid="uid://er8svhllmvbh" path="res://Assets/Sprites/note_feedback/note_green.png" id="10_vl5vn"]
+[ext_resource type="Texture2D" uid="uid://cqgyi4flvsin2" path="res://Assets/Sprites/note_feedback/note_yellow.png" id="11_lqxih"]
 
 [sub_resource type="PackedScene" id="PackedScene_4vjvx"]
 _bundled = {
@@ -56,15 +60,17 @@ scale_max = 0.3
 scale_curve = SubResource("CurveTexture_anhue")
 color_ramp = SubResource("GradientTexture1D_pct2r")
 
-[node name="Nota" type="Area2D"]
+[node name="Nota" type="Area2D" node_paths=PackedStringArray("miss_note_sound")]
 collision_mask = 6
 script = ExtResource("1_yjfqu")
-distanceLabels = Array[float]([100.0, 50.0, 10.0])
+distanceLabels = Array[float]([2000.0, 50.0, 10.0])
 feedbackSprites = Array[Texture2D]([ExtResource("2_enql0"), ExtResource("2_h1yvu"), ExtResource("3_enql0")])
 missSprite = ExtResource("5_4vjvx")
 floatingText = SubResource("PackedScene_4vjvx")
 perfect_particles = ExtResource("7_4vjvx")
 note_fade_out_time = 0.15
+note_sprites = Array[Texture2D]([ExtResource("9_rl3d7"), ExtResource("11_lqxih"), ExtResource("10_vl5vn"), ExtResource("8_fgnlf")])
+miss_note_sound = NodePath("FmodEventEmitter2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.82, 2.82)
@@ -82,5 +88,9 @@ lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_ud5gr")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/MissNote"
+event_guid = "{f667cc7e-345b-42d6-bb12-a9d89831cfe9}"
 
 [connection signal="note_clicked" from="." to="." method="_on_note_clicked"]

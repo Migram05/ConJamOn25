@@ -4,18 +4,20 @@ class_name LevelPlant
 var displayName : String:
 	set(new_text):
 		displayName = new_text
-		$Panel/Song/Button.text = new_text.to_upper()
+		$Panel/SongName.text = new_text.to_upper()
 		
 var lastScore : String:
 	set(new_text):
 		lastScore = new_text
-		$Panel/Song/Button/LastScoreLabel.text = "Last Score: " + new_text
+		$Panel/Score.text = new_text
 
 var song_file_path : String
 var enemies_file_path : String
 var notes_file_path : String
 var speech_file_path : String
 var narrator_image_path : String
+var score_file_path : String
+#var score_content : String
 		
 var icon_image_path : String:
 	set(path):
@@ -31,7 +33,7 @@ func setScale(scale : float):
 func showPanel(show : bool):
 	$Panel/Historial.visible=show
 	$Panel/Banner.visible=show
-	$Panel/Song/Button.visible=show
+	$Panel/Song/PlaySong.visible=show
 	if show:
 		$Panel/AnimationPlayer.play("Grow")
 
@@ -74,7 +76,9 @@ func _on_button_pressed() -> void:
 		$AudioStreamPlayer2D.stop()
 		if moded_level:
 			GameManager._song = AudioStreamOggVorbis.load_from_file(song_file_path)
+			GameManager._isCurrentNarratorMod = true
 		else:
+			GameManager._isCurrentNarratorMod = false
 			GameManager._song = load(song_file_path)
 		GameManager._narrator_image = load(narrator_image_path)
 		GameManager._enemies = FileAccess.open(enemies_file_path, FileAccess.READ).get_as_text()
@@ -83,10 +87,13 @@ func _on_button_pressed() -> void:
 			GameManager._speech = FileAccess.open(speech_file_path, FileAccess.READ).get_as_text()
 		else:
 			GameManager._speech = defaultSpeech
+		GameManager._score_file_path = score_file_path
 		SceneManager.loadScene(SceneManager._SCENES_.SELECTION_MENU);
 
 func GoToHistorial() -> void:
-	SceneManager.loadScene(SceneManager._SCENES_.HISTORIAL_MENU);
+	GameManager._score_file_path = score_file_path
+	GameManager._current_level_name = $Panel/SongName.text
+	SceneManager.loadScene(SceneManager._SCENES_.HISTORIAL);
 
 func GoToSelection() -> void:
 	SceneManager.loadScene(SceneManager._SCENES_.SELECTION_MENU);

@@ -1,81 +1,158 @@
-[gd_scene load_steps=16 format=3 uid="uid://dl8rdqabkv7s3"]
+[gd_scene load_steps=28 format=3 uid="uid://dl8rdqabkv7s3"]
 
 [ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
 [ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
 [ext_resource type="PackedScene" uid="uid://bvy8ymvq7op" path="res://Scenes/Objects/lab_plant.tscn" id="3_gn372"]
-[ext_resource type="Texture2D" uid="uid://c0w51yedhoe30" path="res://icon.svg" id="4_7a7og"]
 [ext_resource type="PackedScene" uid="uid://c7l237d8v22af" path="res://Scenes/Objects/SongAsset.tscn" id="5_085gp"]
+[ext_resource type="Texture2D" uid="uid://cts2yfdyb6thd" path="res://Assets/Sprites/caracoles/FacundoIcon.png" id="5_l5i8c"]
 [ext_resource type="AudioStream" uid="uid://bn2o2p8wjcccc" path="res://Songs/Megalovania/megalovania.mp3" id="6_gn372"]
 [ext_resource type="AudioStream" uid="uid://dhw6d3qkqm1vw" path="res://Songs/Monster2/Monster2.mp3" id="6_mtvoj"]
-[ext_resource type="Texture2D" uid="uid://br5ln7g8bl3hq" path="res://Songs/Monster2/caracolGalllegoSmall.png" id="7_mtvoj"]
+[ext_resource type="Texture2D" uid="uid://cnt8ch5crkhk1" path="res://Assets/Sprites/Home.png" id="6_n02vy"]
+[ext_resource type="Texture2D" uid="uid://b1abwbt1y73p6" path="res://Assets/Sprites/HomePress.png" id="7_2f0t2"]
+[ext_resource type="Texture2D" uid="uid://1a7drw54px3e" path="res://Assets/Sprites/HomeOver.png" id="8_20qkr"]
 [ext_resource type="Texture2D" uid="uid://1q0otn7s8m1m" path="res://Songs/Monster2/caracolGalllego.png" id="8_hbtht"]
 [ext_resource type="AudioStream" uid="uid://cape2tknhq54f" path="res://Songs/Monster/Monster.mp3" id="8_nsvov"]
-[ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/Megalovania/caracolCatalanSmall.png" id="9_kknh8"]
+[ext_resource type="AudioStream" uid="uid://c1geccs0mh3er" path="res://Songs/Beneath the mask/Beneath The Mask.mp3" id="10_25ioh"]
 [ext_resource type="Texture2D" uid="uid://c6qrc2w4c60g" path="res://Songs/Megalovania/caracolCatalan.png" id="11_25ioh"]
-[ext_resource type="Texture2D" uid="uid://cjr70umdvi04l" path="res://Songs/Monster/caracolVascoSmall.png" id="11_kknh8"]
+[ext_resource type="AudioStream" uid="uid://tfc18gk3eowb" path="res://Songs/Zorzico/Zorzico.mp3" id="11_n02vy"]
 [ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="12_mtvoj"]
+[ext_resource type="Texture2D" uid="uid://bg10dpbq3j373" path="res://Songs/Zorzico/caracolVasco.png" id="13_20qkr"]
 [ext_resource type="Texture2D" uid="uid://bym43ujlvvdvt" path="res://Songs/Monster/caracolVasco.png" id="14_b135w"]
+[ext_resource type="AudioStream" uid="uid://bo2vd4xca5v2c" path="res://Songs/Rixieiras/Rixieiras.mp3" id="14_foina"]
+[ext_resource type="AudioStream" uid="uid://k1w2l5cm3ued" path="res://Songs/El noi/El noi.mp3" id="16_76b3g"]
+[ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="16_bu36j"]
+[ext_resource type="Texture2D" uid="uid://c1vnw456syyic" path="res://Songs/Rixieiras/caracolGalllego.png" id="16_l5i8c"]
+[ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="17_n3acr"]
+[ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="18_3niem"]
+[ext_resource type="Texture2D" uid="uid://d23xyoy2t8sef" path="res://Songs/El noi/caracolCatalan.png" id="18_76b3g"]
+[ext_resource type="Texture2D" uid="uid://do6rosw7nodua" path="res://Assets/Sprites/caracoles/FacundoJoker.png" id="21_vgm0q"]
+[ext_resource type="Texture2D" uid="uid://bux8s1y7vecur" path="res://Assets/Sprites/caracoles/FacundoSans.png" id="23_76b3g"]
 
 [node name="LabMenu" type="Node2D"]
 script = ExtResource("1_is7h6")
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Fmod/ComJamOn25/Banks/Desktop/Master.strings.bank", "res://Fmod/ComJamOn25/Banks/Desktop/Master.bank"]
+
 [node name="BackGround" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.602)
 texture = ExtResource("12_mtvoj")
 
 [node name="SongLoader" type="Node" parent="." node_paths=PackedStringArray("defaultLevels")]
 unique_name_in_owner = true
 script = ExtResource("1_tsnl6")
 plantLevelClass = ExtResource("3_gn372")
-defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset"), NodePath("../SongHolder/MonsterSongAsset"), NodePath("../SongHolder/Prueba3")]
-placeholderImage = ExtResource("4_7a7og")
+defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset"), NodePath("../SongHolder/MonsterSongAsset"), NodePath("../SongHolder/Prueba3"), NodePath("../SongHolder/BeneathTheMaskSongAsset"), NodePath("../SongHolder/Rixieiras"), NodePath("../SongHolder/Zorzico"), NodePath("../SongHolder/El noi")]
+placeholderImage = ExtResource("5_l5i8c")
+plant_scale = 1.75
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = -567.0
-offset_top = -299.0
-offset_right = -499.0
-offset_bottom = -244.0
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Camera2D"]
+event_name = "event:/Background"
+event_guid = "{49e1da3c-738f-4e86-9a53-711c0788dbc6}"
+autoplay = true
+
+[node name="FmodListener2D" type="FmodListener2D" parent="Camera2D"]
+
+[node name="Home" type="TextureButton" parent="."]
+offset_left = -928.0
+offset_top = -510.0
+offset_right = -819.0
+offset_bottom = -416.0
+texture_normal = ExtResource("6_n02vy")
+texture_pressed = ExtResource("7_2f0t2")
+texture_hover = ExtResource("8_20qkr")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="SongHolder" type="Node" parent="."]
 
 [node name="Prueba3" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("6_mtvoj")
-icon_image_file = ExtResource("7_mtvoj")
+icon_image_file = ExtResource("8_hbtht")
 narrator_image_file = ExtResource("8_hbtht")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Monster2/speech.txt"
+score_file = "res://Songs/Megalovania/score.txt"
+
+[node name="Rixieiras" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("14_foina")
+icon_image_file = ExtResource("8_hbtht")
+narrator_image_file = ExtResource("16_l5i8c")
+enemies_file = "res://Songs/Rixieiras/enemies.txt"
+notes_file = "res://Songs/Rixieiras/notes.txt"
+speech_file = "res://Songs/Rixieiras/speech.txt"
+score_file = "res://Songs/Rixieiras/score.txt"
+
+[node name="Zorzico" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("11_n02vy")
+icon_image_file = ExtResource("14_b135w")
+narrator_image_file = ExtResource("13_20qkr")
+enemies_file = "res://Songs/Zorzico/enemies.txt"
+notes_file = "res://Songs/Zorzico/notes.txt"
+speech_file = "res://Songs/Zorzico/speech.txt"
+score_file = "res://Songs/Zorzico/score.txt"
+
+[node name="El noi" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("16_76b3g")
+icon_image_file = ExtResource("18_76b3g")
+narrator_image_file = ExtResource("11_25ioh")
+enemies_file = "res://Songs/El noi/enemies.txt"
+notes_file = "res://Songs/El noi/notes.txt"
+speech_file = "res://Songs/El noi/speech.txt"
+score_file = "res://Songs/El noi/score.txt"
+
+[node name="BeneathTheMaskSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("10_25ioh")
+icon_image_file = ExtResource("21_vgm0q")
+narrator_image_file = ExtResource("21_vgm0q")
+enemies_file = "res://Songs/Beneath the mask/enemies.txt"
+notes_file = "res://Songs/Beneath the mask/notes.txt"
+speech_file = "res://Songs/Beneath the mask/speech.txt"
+score_file = "res://Songs/Beneath the mask/score.txt"
 
 [node name="MegalovaniaSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("6_gn372")
-icon_image_file = ExtResource("9_kknh8")
-narrator_image_file = ExtResource("11_25ioh")
+icon_image_file = ExtResource("23_76b3g")
+narrator_image_file = ExtResource("23_76b3g")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Megalovania/speech.txt"
+score_file = "res://Songs/Megalovania/score.txt"
 
 [node name="MonsterSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("8_nsvov")
-icon_image_file = ExtResource("11_kknh8")
-narrator_image_file = ExtResource("14_b135w")
+icon_image_file = ExtResource("23_76b3g")
+narrator_image_file = ExtResource("23_76b3g")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
-notes_file = "res://Songs/Megalovania/notes.txt"
+notes_file = "res://Songs/Monster/notes.txt"
 speech_file = "res://Songs/Monster/speech.txt"
+score_file = "res://Songs/Monster/score.txt"
 
-[node name="Left" type="Button" parent="."]
-offset_left = -559.0
-offset_top = 27.0
-offset_right = -515.0
+[node name="Left" type="TextureButton" parent="."]
+offset_left = -942.0
+offset_top = -58.0
+offset_right = -677.0
 offset_bottom = 71.0
+texture_normal = ExtResource("16_bu36j")
+texture_pressed = ExtResource("17_n3acr")
+texture_hover = ExtResource("18_3niem")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Right" type="Button" parent="."]
-offset_left = 514.0
-offset_top = 29.0
-offset_right = 560.0
-offset_bottom = 75.0
+[node name="Right" type="TextureButton" parent="."]
+offset_left = 919.0
+offset_top = 60.0
+offset_right = 1186.0
+offset_bottom = 256.0
+rotation = 3.13504
+texture_normal = ExtResource("16_bu36j")
+texture_pressed = ExtResource("17_n3acr")
+texture_hover = ExtResource("18_3niem")
+ignore_texture_size = true
+stretch_mode = 4
 
-[connection signal="button_up" from="Button" to="." method="GoBackToMenu"]
+[connection signal="button_up" from="Home" to="." method="GoBackToMenu"]
 [connection signal="button_up" from="Left" to="SongLoader" method="MoveLeft"]
 [connection signal="button_up" from="Right" to="SongLoader" method="MoveRight"]

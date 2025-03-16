@@ -8,11 +8,13 @@ class_name NoteController
 @export var floatingText : PackedScene
 @export var perfect_particles : PackedScene
 @export var note_fade_out_time : float = 0.2
+@export var note_sprites : Array[Texture2D]
+@export var miss_note_sound : FmodEventEmitter2D
 
 var rail : Rail
 var limit : Node2D
 var speed : float
-var blocked_by_fly : bool
+var blocked_by_fly : bool = false
 var move : bool = true
 
 enum NotePrecision { MISSED = 0, BAD = 1, GOOD = 2, PERFECT = 3 }
@@ -24,21 +26,24 @@ func _process(delta):
 	if move:
 		global_position.y += delta * speed
 	
-	if limit.position.y < position.y:
+	if limit.position.y < position.y && move:
 		delete_note(0)
-		print("webo")
 
 func set_limits(limits : Node2D):
 	limit = limits
 	
 func set_rail(_rail : Rail):
 	rail = _rail
+	$Sprite2D.texture = note_sprites[rail.button_position]
 
 func set_speed(_speed : float):
 	speed = _speed
 
 func player_hits_key(otherNode : Node2D):
-	if otherNode.button_type != rail.button_position && !blocked_by_fly:
+	if otherNode.button_type != rail.button_position:
+		return
+	
+	if blocked_by_fly:
 		return
 	
 	var diff : Vector2 = otherNode.global_position - global_position
@@ -70,11 +75,13 @@ func delete_note(category : int):
 
 	var precision : NotePrecision = category
 	note_clicked.emit(precision)
+	if precision == NotePrecision.MISSED:
+		miss_note_sound.play()
 	 
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 	rail.remove_note(self)
-	$GPUParticles2D.emitting
+	$GPUParticles2D.set_deferred("emitting", false)
 	fade_out(note_fade_out_time)
 
 func fade_out(time_to_live):
@@ -85,9 +92,9 @@ func fade_out(time_to_live):
 	tween.kill()
 	queue_free()
 
-
 func fly_block():
 	blocked_by_fly = true
+	print(self.get_rid())
 
 func fly_free():
 	blocked_by_fly = false

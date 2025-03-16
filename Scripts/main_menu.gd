@@ -1,11 +1,13 @@
 extends Node2D
 
+var pressed : bool = false
+
+@export var loadSound : FmodEventEmitter2D
+@export var finishLoadSound : FmodEventEmitter2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -21,3 +23,29 @@ func GoToOptions() -> void:
 
 func Exit() -> void:
 	get_tree().quit()
+
+
+func HoverPlay() -> void:
+	if !pressed:
+		$AnimatedSprite2D.play("over")
+		loadSound.play()
+
+
+func LeftPlay() -> void:
+	if !pressed:
+		$AnimatedSprite2D.play("left")
+
+func PlayUp() -> void:
+	$Timer.start()
+	
+func PlayPress() -> void:
+	finishLoadSound.play()
+	pressed = true
+	$Button2/Sprite2D.visible=false
+	$Button2/EmptyCircle.visible=false
+	$AnimatedSprite2D.scale.x = -1*$AnimatedSprite2D.scale.x
+	$AnimatedSprite2D.play("press")
+
+
+func Credits() -> void:
+	SceneManager.loadScene(SceneManager._SCENES_.CREDITS);

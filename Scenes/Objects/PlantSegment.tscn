@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6q485batgyyy"]
+
+[ext_resource type="Script" uid="uid://dtexc04ntyl15" path="res://Scripts/plant_segment.gd" id="1_4qnks"]
+
+[node name="PlantSegment" type="Node2D"]
+script = ExtResource("1_4qnks")

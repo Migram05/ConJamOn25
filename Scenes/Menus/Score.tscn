@@ -1,0 +1,216 @@
+[gd_scene load_steps=12 format=3 uid="uid://ximmwatelqu1"]
+
+[ext_resource type="Script" uid="uid://cp04wpx7lbs68" path="res://Scripts/score_scene.gd" id="1_qq16v"]
+[ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="2_0ystr"]
+[ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="2_vj26j"]
+[ext_resource type="Texture2D" uid="uid://elk8g0becijo" path="res://Assets/Sprites/HistorialPanel.png" id="3_1bdwg"]
+[ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="3_vj26j"]
+[ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="4_1bdwg"]
+[ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="4_4gnm1"]
+
+[sub_resource type="Animation" id="Animation_jwmmc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.447123, 0.447123)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4gnm1"]
+resource_name = "Show"
+length = 0.27
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -107), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.447123, 0.447123), Vector2(1.08712, 1.08712)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gio7p"]
+resource_name = "back"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -106)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.08712, 1.08712), Vector2(0.447122, 0.447122)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gio7p"]
+_data = {
+&"RESET": SubResource("Animation_jwmmc"),
+&"Show": SubResource("Animation_4gnm1"),
+&"back": SubResource("Animation_gio7p")
+}
+
+[node name="Score" type="Node2D"]
+script = ExtResource("1_qq16v")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+texture = ExtResource("2_vj26j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Back" type="TextureButton" parent="."]
+offset_left = -939.0
+offset_top = -521.0
+offset_right = -709.0
+offset_bottom = -405.0
+texture_normal = ExtResource("2_0ystr")
+texture_pressed = ExtResource("3_vj26j")
+texture_hover = ExtResource("4_1bdwg")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.447123, 0.447123)
+
+[node name="Panel" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.971468, 0.971468)
+texture = ExtResource("3_1bdwg")
+
+[node name="Titulo" type="Label" parent="Node2D"]
+offset_left = -662.0
+offset_top = -466.0
+offset_right = 664.0
+offset_bottom = -112.0
+theme_override_fonts/font = ExtResource("4_4gnm1")
+theme_override_font_sizes/font_size = 100
+text = "TITULO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -420.466
+offset_top = -219.179
+offset_right = 421.534
+offset_bottom = -147.179
+theme_override_fonts/font = ExtResource("4_4gnm1")
+theme_override_font_sizes/font_size = 50
+text = "Mejores puntuaciones"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Node2D"]
+offset_left = -532.292
+offset_top = -131.955
+offset_right = 534.708
+offset_bottom = -62.9547
+theme_override_fonts/font = ExtResource("4_4gnm1")
+theme_override_font_sizes/font_size = 25
+text = "EQUIPO    MOSCAS    CIEMPIÉS   PERFECT   GOOD   MEH   FALLOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Node2D"]
+offset_left = -492.035
+offset_top = -60.3861
+offset_right = 293.965
+offset_bottom = 247.614
+scale = Vector2(1.27027, 1.41797)
+theme_override_fonts/font = ExtResource("4_4gnm1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_gio7p")
+}
+autoplay = "Show"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="button_up" from="Back" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="GoBack"]

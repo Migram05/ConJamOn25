@@ -1,6 +1,6 @@
 extends Node
 
-var _score : int = 0 
+var _score : int = 0
 enum _TREE_TYPE_{
 	SEMILLA,
 	BROTE,
@@ -8,6 +8,15 @@ enum _TREE_TYPE_{
 	ARBUSTO,
 	ARBOL
 }
+
+var tree_type_by_height : Array[float] = [
+	0.0,
+	0.01,
+	0.03,
+	0.04,
+	0.05
+]
+
 var _treeType : _TREE_TYPE_ = _TREE_TYPE_.SEMILLA
 var _audioPlayer : AudioStreamPlayer2D
 var _volume : float = 100:
@@ -27,6 +36,9 @@ var _notes : String
 var _enemies : String
 var _speech : String
 var _narrator_image : Resource
+var _current_level_name : String
+var _score_file_path : String
+var _isCurrentNarratorMod : bool = false
 
 func _play_song():
 	if _audioPlayer.stream  != null:

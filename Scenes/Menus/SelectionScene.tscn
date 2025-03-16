@@ -1,65 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqsu1ob7778dh"]
+[gd_scene load_steps=17 format=3 uid="uid://dqsu1ob7778dh"]
 
 [ext_resource type="Script" uid="uid://erqm3a6aewq0" path="res://Scripts/selection_scene.gd" id="1_4jnrq"]
 [ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="2_lkhw4"]
+[ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="3_yjane"]
 [ext_resource type="Texture2D" uid="uid://bvlws5enkyvqy" path="res://Assets/Sprites/blackSquare.png" id="4_2yxjr"]
 [ext_resource type="FontFile" uid="uid://da2s077s5pm3t" path="res://Assets/Fonts/Hello Note.otf" id="4_apbd8"]
-[ext_resource type="Texture2D" uid="uid://d08aopy8qwm4m" path="res://Assets/Sprites/wateringCanOn.png" id="5_afqac"]
-[ext_resource type="Texture2D" uid="uid://dej7b0cp3h5jy" path="res://Assets/Sprites/wateringCanOff.png" id="6_rbkxc"]
-[ext_resource type="Texture2D" uid="uid://dw8alpir1qwow" path="res://Assets/Sprites/swatterOn.png" id="7_bxvtr"]
-[ext_resource type="Texture2D" uid="uid://dacttjddxb2d0" path="res://Assets/Sprites/swatterOff.png" id="8_yjane"]
-
-[sub_resource type="Animation" id="Animation_afqac"]
-resource_name = "showItems"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Items:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Items:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Items:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1.00003, 1.00003)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Items:skew")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
+[ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="4_wnm5w"]
+[ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="5_7csb5"]
+[ext_resource type="Texture2D" uid="uid://c4yda41uxydir" path="res://Assets/Sprites/RegaderaReady.png" id="9_bxvtr"]
+[ext_resource type="Texture2D" uid="uid://v4i57et46brj" path="res://Assets/Sprites/RegaderaNotReady.png" id="9_rbkxc"]
+[ext_resource type="Texture2D" uid="uid://dc4n11uk5hg8v" path="res://Assets/Sprites/MatamoscasNotReady.png" id="10_yjane"]
+[ext_resource type="Texture2D" uid="uid://bsui8ead55avw" path="res://Assets/Sprites/MatamoscasReady.png" id="11_wnm5w"]
+[ext_resource type="Texture2D" uid="uid://bm61ovxt03fqq" path="res://Assets/Sprites/FacundoMini.png" id="12_wnm5w"]
+[ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="13_7csb5"]
 
 [sub_resource type="Animation" id="Animation_rbkxc"]
 length = 0.001
@@ -112,6 +65,58 @@ tracks/3/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_afqac"]
+resource_name = "showItems"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Items:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Items:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Items:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.7, 1.7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Items:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rbkxc"]
 _data = {
 &"RESET": SubResource("Animation_rbkxc"),
@@ -120,36 +125,41 @@ _data = {
 
 [node name="SelectionScene" type="Node2D"]
 script = ExtResource("1_4jnrq")
+traduccionText = "Os estábamos esperando! vuestro trabajo es demostrar que la música regional de mi comunidad es la mejor para las plantas, a pesar de lo que digan el resto. Tened cuidado que hay insectos, así que mientras uno riega, que el otro se encargue de proteger a la planta"
 
 [node name="BackGround" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.602)
 texture = ExtResource("2_lkhw4")
 
 [node name="Narrador" type="Sprite2D" parent="."]
-position = Vector2(-232, 49)
-scale = Vector2(3.54297, 3.02734)
+position = Vector2(-490, -46)
+scale = Vector2(9.3018, 6.88866)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = -539.0
-offset_top = -295.0
-offset_right = -494.0
-offset_bottom = -254.0
+[node name="Back" type="TextureButton" parent="."]
+offset_left = -921.0
+offset_top = -521.0
+offset_right = -645.0
+offset_bottom = -392.0
+texture_normal = ExtResource("3_yjane")
+texture_pressed = ExtResource("4_wnm5w")
+texture_hover = ExtResource("5_7csb5")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="DialogBox" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.784314)
-position = Vector2(-0.499953, 198.5)
-scale = Vector2(2.69167, 1.31373)
+position = Vector2(0, 348.5)
+scale = Vector2(4.07161, 2.37586)
 texture = ExtResource("4_2yxjr")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -476.0
-offset_top = 102.0
-offset_right = 474.0
-offset_bottom = 292.0
+offset_left = -719.0
+offset_top = 184.0
+offset_right = 719.0
+offset_bottom = 510.0
 theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 45
 autowrap_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
@@ -157,64 +167,23 @@ autowrap_mode = 2
 [node name="Items" type="Node2D" parent="."]
 scale = Vector2(1e-05, 1e-05)
 
-[node name="Regadera" type="Sprite2D" parent="Items"]
-position = Vector2(-240, -66)
-scale = Vector2(0.489375, 0.489375)
-texture = ExtResource("5_afqac")
+[node name="RegaderaOff" type="Sprite2D" parent="Items"]
+position = Vector2(-200, -50)
+texture = ExtResource("9_rbkxc")
 
-[node name="Label" type="Label" parent="Items/Regadera"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -770.943
-offset_top = -476.69
-offset_right = 825.057
-offset_bottom = -199.69
-theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 100
-text = "Press the keys: 
-\"A\",\"S\",\"J\" and \"K\""
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="RegaderaOn" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(-200, -50)
+texture = ExtResource("9_bxvtr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Items/Regadera"]
-texture = ExtResource("6_rbkxc")
+[node name="MatamoscasOff" type="Sprite2D" parent="Items"]
+position = Vector2(275, -50)
+texture = ExtResource("10_yjane")
 
-[node name="Matamoscas" type="TextureButton" parent="Items"]
-offset_left = 130.0
-offset_top = -194.0
-offset_right = 309.0
-offset_bottom = -15.0
-scale = Vector2(1.44, 1.44)
-texture_normal = ExtResource("7_bxvtr")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label2" type="Label" parent="Items/Matamoscas"]
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 30.5556
-offset_top = -31.9444
-offset_right = 170.556
-offset_bottom = 7.05555
-theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 30
-text = "Click here:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="Items/Matamoscas"]
-position = Vector2(90, 89)
-scale = Vector2(0.349609, 0.349609)
-texture = ExtResource("8_yjane")
-
-[node name="Button" type="Button" parent="Items/Matamoscas"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 130.556
-offset_top = -1.3889
-offset_right = 146.556
-offset_bottom = 15.6111
-rotation = 0.7631
-scale = Vector2(4.22222, 12.0278)
+[node name="MatamoscasOn" type="Sprite2D" parent="Items"]
+visible = false
+position = Vector2(275, -50)
+texture = ExtResource("11_wnm5w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Items"]
 root_node = NodePath("../..")
@@ -222,6 +191,41 @@ libraries = {
 &"": SubResource("AnimationLibrary_rbkxc")
 }
 
-[connection signal="button_up" from="Button" to="." method="GoBack"]
+[node name="Button" type="Button" parent="Items"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 18.0
+offset_top = -249.0
+offset_right = 457.0
+offset_bottom = 80.0
+
+[node name="Facundo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(849.381, 437)
+scale = Vector2(0.797904, 0.797904)
+texture = ExtResource("12_wnm5w")
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 767.381
+offset_top = 300.0
+offset_right = 953.381
+offset_bottom = 361.0
+theme_override_fonts/font = ExtResource("13_7csb5")
+theme_override_font_sizes/font_size = 20
+text = "Púlsame si quieres 
+una traducción ;)"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 0)
+offset_left = 775.381
+offset_top = 370.0
+offset_right = 931.381
+offset_bottom = 502.0
+
+[connection signal="button_up" from="Back" to="." method="GoBack"]
 [connection signal="timeout" from="Timer" to="." method="Play"]
-[connection signal="button_up" from="Items/Matamoscas/Button" to="." method="Player2Ready"]
+[connection signal="button_up" from="Items/Button" to="." method="Player2Ready"]
+[connection signal="button_up" from="Button" to="." method="Traduction"]

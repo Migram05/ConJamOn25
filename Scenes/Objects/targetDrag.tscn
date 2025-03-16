@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvhl43sp7mnys"]
+[gd_scene load_steps=14 format=3 uid="uid://dvhl43sp7mnys"]
 
 [ext_resource type="Script" uid="uid://up85yi24m455" path="res://Scripts/target_drag.gd" id="1_3y70s"]
-[ext_resource type="Texture2D" uid="uid://c4t4mvslc6xqn" path="res://Assets/Sprites/Cursor.png" id="2_4pv4o"]
+[ext_resource type="SpriteFrames" uid="uid://bier3ib76k6oo" path="res://Assets/Sprites/spriteframes/gusano_0.tres" id="2_35uwl"]
+[ext_resource type="SpriteFrames" uid="uid://eis0a3w2xsgf" path="res://Assets/Sprites/spriteframes/gusano_1.tres" id="3_dspet"]
+[ext_resource type="SpriteFrames" uid="uid://cd02ck0ypwlkq" path="res://Assets/Sprites/spriteframes/gusasno_2.tres" id="4_dspet"]
+[ext_resource type="Texture2D" uid="uid://d4fpcjn23m073" path="res://Assets/Sprites/enemies/Bolita.png" id="5_dspet"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/CienpiesMuelto.tscn" id="5_llsua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
 radius = 79.0759
 
 [sub_resource type="Animation" id="Animation_c36h4"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,21 +40,81 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(377, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_3y70s"]
+resource_name = "centipede_0"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(49, -19), Vector2(-25, 1), Vector2(-15, 92), Vector2(87, 119)]
+}
+
+[sub_resource type="Animation" id="Animation_dspet"]
+resource_name = "centipede_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(78, -69), Vector2(-160, 123)]
+}
+
+[sub_resource type="Animation" id="Animation_llsua"]
+resource_name = "centipede_2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.53, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(49, -18), Vector2(-27, -1), Vector2(-39, 110), Vector2(-150, 118)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ag3pf"]
 _data = {
 &"RESET": SubResource("Animation_c36h4"),
-&"Test": SubResource("Animation_s0ws0")
+&"Test": SubResource("Animation_s0ws0"),
+&"centipede_0": SubResource("Animation_3y70s"),
+&"centipede_1": SubResource("Animation_dspet"),
+&"centipede_2": SubResource("Animation_llsua")
 }
 
-[node name="TargetDrag" type="Node2D"]
+[node name="TargetDrag" type="Node2D" node_paths=PackedStringArray("animated_sprite")]
+scale = Vector2(1.7, 1.7)
 script = ExtResource("1_3y70s")
+sprite_frames = Array[SpriteFrames]([ExtResource("2_35uwl"), ExtResource("3_dspet"), ExtResource("4_dspet")])
+animated_sprite = NodePath("Sprite2D")
+moscaMuelta = ExtResource("5_llsua")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_dspet")
+autoplay = "default"
+speed_scale = 0.25
 
 [node name="AnimationNode" type="Node2D" parent="."]
 scale = Vector2(2.45313, 2.45313)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimationNode"]
-modulate = Color(0.316964, 0.624572, 0, 1)
-texture = ExtResource("2_4pv4o")
+position = Vector2(-3.26115, 0.815291)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_dspet")
 
 [node name="Area2D" type="Area2D" parent="AnimationNode"]
 scale = Vector2(0.407642, 0.407642)
@@ -60,13 +123,11 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationNode/Area2D"]
 shape = SubResource("CircleShape2D_t2jmu")
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ag3pf")
 }
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

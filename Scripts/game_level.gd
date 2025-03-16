@@ -1,6 +1,8 @@
 extends Node2D
+class_name GameLevel
 
-@onready var minijuego_piano_tiles: NoteSpawner = $MinijuegoPianoTiles
+@onready var minijuego_piano_tiles : NoteSpawner = $MinijuegoPianoTiles
+@onready var bug_generator: Node2D = $BugGenerator
 
 var timesNotes : Array[float]
 var index = 0
@@ -18,9 +20,9 @@ func _ready() -> void:
 		var distance = minijuego_piano_tiles.rails[0].get_node("Tecla").global_position.y - minijuego_piano_tiles.rails[0].get_node("Spawnpoint").global_position.y 
 		timeUntilPerfect = distance / minijuego_piano_tiles.note_speed
 		_process_notes()
-		print(timesNotes.size())
 		spawn_max_timer = START_TIME + timesNotes[0] - timeUntilPerfect
-		
+		ScoreRegister.total_notes = timesNotes.size()
+		ScoreRegister.song_title = GameManager._current_level_name
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("pause"):
@@ -34,6 +36,7 @@ func _process(delta: float) -> void:
 	spawn_timer += delta
 	if not started and initial_timer >= START_TIME:
 		GameManager._play_song()
+		bug_generator.pause = false
 		started = true
 	
 	if spawn_timer >= spawn_max_timer and have_more_notes:
@@ -53,8 +56,7 @@ func _process_notes() -> void:
 		for i in numbers.size() - 1:
 			timesNotes.push_back(((float)(numbers[i].split("\t")[0])))
 		
-	
-	
+
 func _next_note(spawnDiff):
 	var chosen_rail = randi_range(0,minijuego_piano_tiles.maxIndex)
 	var note = minijuego_piano_tiles.spawnNote(chosen_rail, minijuego_piano_tiles.note_speed)

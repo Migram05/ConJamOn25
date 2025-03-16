@@ -8,6 +8,7 @@
 
 [node name="TargetDrag" parent="." instance=ExtResource("1_aiq5s")]
 position = Vector2(-381, 178)
+moscaMuelta = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

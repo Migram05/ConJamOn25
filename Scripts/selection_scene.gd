@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var traduccionText : String
 var texto : String = "Never gonna give you up, Never gonna let you down, Never gonna turn around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you"
 var index : int = 0
 var done : bool = false
@@ -11,6 +12,7 @@ var isReady : bool = false
 var player1ReadyArray : Array = [false,false,false,false]
 var player1Ready : bool = false
 var player2Ready : bool =false
+var translated : bool = false
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +31,9 @@ func _process(delta: float) -> void:
 		elif !setReady:
 			$Items/AnimationPlayer.play("showItems")
 			setReady=true
+			$Facundo.visible=true
+			$Label2.visible=true
+			$Button.visible=true
 		elif !isReady:
 			if player1Ready && player2Ready:
 				isReady=true
@@ -51,9 +56,9 @@ func _input(event: InputEvent) -> void:
 	for b in player1ReadyArray:
 		ready = ready && b
 	if ready:
-		$Items/Regadera/Sprite2D.visible=false
+		$Items/RegaderaOff.visible=false
+		$Items/RegaderaOn.visible=true
 		player1Ready=true		
-		$Items/Regadera/Label.text = "READY!"
 
 func showText(delta : float) -> void:
 	if index < texto.length():
@@ -74,6 +79,14 @@ func Play() -> void:
 
 
 func Player2Ready() -> void:
-	$Items/Matamoscas/Sprite2D.visible=false
+	$Items/MatamoscasOff.visible=false
+	$Items/MatamoscasOn.visible=true
 	player2Ready=true
-	$Items/Matamoscas/Label2.text = "READY!"
+	
+func Traduction() -> void:
+	if not translated:
+		if !GameManager._isCurrentNarratorMod:
+			$Label.text = traduccionText
+		else:
+			$Label.text = "Traducción: "+$Label.text
+		translated = true
