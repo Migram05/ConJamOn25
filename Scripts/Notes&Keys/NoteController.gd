@@ -74,7 +74,7 @@ func delete_note(category : int):
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 	rail.remove_note(self)
-	$GPUParticles2D.emitting
+	$GPUParticles2D.set_deferred("emitting", false)
 	fade_out(note_fade_out_time)
 
 func fade_out(time_to_live):
