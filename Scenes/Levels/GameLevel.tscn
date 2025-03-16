@@ -14,7 +14,7 @@ script = ExtResource("1_ep2aj")
 bank_paths = ["res://Fmod/ComJamOn25/Banks/Desktop/Master.strings.bank", "res://Fmod/ComJamOn25/Banks/Desktop/Master.bank"]
 
 [node name="BackGround" type="Sprite2D" parent="."]
-z_index = -3
+z_index = -7
 position = Vector2(-3.05176e-05, 1.52588e-05)
 texture = ExtResource("2_htr12")
 
@@ -33,10 +33,7 @@ event_guid = "{a80a1525-d6b5-4161-a80c-d5041a65dee7}"
 
 [node name="Plant" parent="." instance=ExtResource("3_17xrb")]
 z_index = -3
-position = Vector2(-31, -139)
-scale = Vector2(1.26443, 1.26443)
-upSpeed = 0.02
-maxPlantScroll = 500.0
+position = Vector2(-27, -134)
 
 [node name="Cursor" parent="." node_paths=PackedStringArray("smashSound", "smashFlySound") instance=ExtResource("5_r4v18")]
 position = Vector2(300, 78)

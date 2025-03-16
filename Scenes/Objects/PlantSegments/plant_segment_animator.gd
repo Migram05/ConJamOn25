@@ -20,15 +20,15 @@ var glowCounter := perfectGlowTime;
 var damaged : bool;
 
 func _ready():
-	#glow.self_modulate.a = 0.0;
+	#glow.visible = false;
 	return
 
 func startGlow():
-	glow.self_modulate.a = 1.0;
+	#glow.visible = true;
 	return
 	
 func endGlow():
-	#glow.self_modulate.a = 0.0;
+	#glow.visible = false;
 	return
 
 func onPerfect():

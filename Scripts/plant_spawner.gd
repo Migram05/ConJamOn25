@@ -1,11 +1,12 @@
 extends Node2D
 
-@export var pot : Node2D;
+@export var pot : AnimatedSprite2D;
 @export var segments : Array[PackedScene];
 @export var offset := 20.0;
 @export var damageAnimationTime := 0.3;
 
-@onready var lastSegment := pot;
+@onready var lastSegmentTexture := pot.sprite_frames.get_frame_texture("Crece", pot.sprite_frames.get_frame_count("Crece") - 1);
+@onready var lastSegment : Node2D = pot
 
 var rng = RandomNumberGenerator.new();
 
@@ -16,10 +17,11 @@ func _ready():
 
 func spawn():
 	var segment : PlantSegmentAnimator = segments[rng.randi_range(0, segments.size() - 1)].instantiate();
-	var y = owner.global_position.y - lastSegment.texture.get_size().y / 2.0 - segment.glow.texture.get_size().y / 2.0 + offset;
+	var y = owner.global_position.y - lastSegmentTexture.get_size().y / 2.0 - segment.glow.texture.get_size().y / 2.0 + offset;
 	self.add_child(segment);
 	segment.global_position.y = y;
-	lastSegment = segment.glow;
+	lastSegmentTexture = segment.glow.texture;
+	lastSegment = segment;
 	owner.perfect.connect(segment.onPerfect);
 	segment.damaged = damaged;
 	damageSignal.connect(segment.onDamage);
@@ -35,7 +37,7 @@ func onDamage(damage : bool):
 var damageActive := true;
 
 func _process(delta):
-	if (lastSegment.global_position.y > 50):
+	if (lastSegment.global_position.y > -50):
 		spawn();
 	if (damaged):
 		if (damageActive):
