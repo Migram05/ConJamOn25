@@ -38,7 +38,9 @@ func _process(delta):
 			attatchedToTree = true;
 			if (plantNode != null):
 				plantNode.addFly();
+			var current_frame = animation.frame
 			animation.animation = flyAttackAnimation;
+			animation.frame = current_frame
 	sprite.rotation = lerpf(sprite.rotation, wander.total_speed.angle(), 0.02);
 	noteColliding = false;
 	return;
