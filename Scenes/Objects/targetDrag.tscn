@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvhl43sp7mnys"]
+[gd_scene load_steps=9 format=3 uid="uid://dvhl43sp7mnys"]
 
 [ext_resource type="Script" uid="uid://up85yi24m455" path="res://Scripts/target_drag.gd" id="1_3y70s"]
 [ext_resource type="Texture2D" uid="uid://c4t4mvslc6xqn" path="res://Assets/Sprites/Cursor.png" id="2_4pv4o"]
+[ext_resource type="SpriteFrames" uid="uid://bier3ib76k6oo" path="res://Assets/Sprites/spriteframes/gusano_0.tres" id="2_35uwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
 radius = 79.0759
 
 [sub_resource type="Animation" id="Animation_c36h4"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,14 +37,37 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(377, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_3y70s"]
+resource_name = "centipede_0"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.51, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(49, -19), Vector2(-25, 1), Vector2(-15, 92), Vector2(87, 119)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ag3pf"]
 _data = {
 &"RESET": SubResource("Animation_c36h4"),
-&"Test": SubResource("Animation_s0ws0")
+&"Test": SubResource("Animation_s0ws0"),
+&"centipede_0": SubResource("Animation_3y70s")
 }
 
 [node name="TargetDrag" type="Node2D"]
 script = ExtResource("1_3y70s")
+sprite_frames = Array[SpriteFrames]([ExtResource("2_35uwl"), null, null, null])
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_35uwl")
+frame_progress = 0.574866
+speed_scale = 0.25
 
 [node name="AnimationNode" type="Node2D" parent="."]
 scale = Vector2(2.45313, 2.45313)

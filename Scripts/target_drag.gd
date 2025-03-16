@@ -3,12 +3,17 @@ extends Target
 var dragging = false
 var initialPos : Vector2
 var errorDistance = 0
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var sprite_frames : Array[SpriteFrames]
+@export var animated_sprite : AnimatedSprite2D
 
 func _ready() -> void:
 	super()
 	collision_shape_2d = $AnimationNode/Area2D/CollisionShape2D
 	initialPos = position
+	animated_sprite.sprite_frames = sprite_frames[randi() % sprite_frames.size()]
+	
 
 func pressed(distanceNormalized, cursor) -> bool:
 	if super(distanceNormalized, cursor):

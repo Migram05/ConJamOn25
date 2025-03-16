@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bier3ib76k6oo"]
+
+[ext_resource type="Texture2D" uid="uid://djyt2xkpk5p2y" path="res://Assets/Sprites/enemies/gusanoSpriteSheet.png" id="1_lqw13"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35uwl"]
+atlas = ExtResource("1_lqw13")
+region = Rect2(390, 0, 390, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dspet"]
+atlas = ExtResource("1_lqw13")
+region = Rect2(0, 0, 390, 360)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35uwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dspet")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
