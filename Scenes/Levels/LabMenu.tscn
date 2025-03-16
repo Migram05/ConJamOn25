@@ -47,6 +47,7 @@ narrator_image_file = ExtResource("8_hbtht")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Monster2/speech.txt"
+score_file = "res://Songs/Megalovania/score.txt"
 
 [node name="MegalovaniaSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("6_gn372")
@@ -55,6 +56,7 @@ narrator_image_file = ExtResource("11_25ioh")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Megalovania/speech.txt"
+score_file = "res://Songs/Megalovania/score.txt"
 
 [node name="MonsterSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("8_nsvov")
@@ -63,6 +65,7 @@ narrator_image_file = ExtResource("14_b135w")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Monster/speech.txt"
+score_file = "res://Songs/Megalovania/score.txt"
 
 [node name="Left" type="Button" parent="."]
 offset_left = -559.0

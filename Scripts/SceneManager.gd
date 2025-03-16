@@ -3,7 +3,7 @@ extends Node
 var allScenes = [preload("res://Scenes/Menus/MainMenu.tscn"),
 				preload("res://Scenes/Menus/Options.tscn"),
 				preload("res://Scenes/Levels/LabMenu.tscn"),
-				preload("res://Scenes/Menus/Historial.tscn"),
+				preload("res://Scenes/Menus/Score.tscn"),
 				preload("res://Scenes/Menus/SelectionScene.tscn"),
 				preload("res://Scenes/Levels/GameLevel.tscn"),
 				preload("res://Scenes/Menus/Pause.tscn")]
@@ -11,7 +11,7 @@ enum _SCENES_{
 	MAIN_MENU,
 	OPTIONS,
 	LAB_MENU,
-	HISTORIAL_MENU,
+	SCORE_MENU,
 	SELECTION_MENU,
 	GAME_LEVEL,
 	PAUSE,

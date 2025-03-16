@@ -27,6 +27,8 @@ var _notes : String
 var _enemies : String
 var _speech : String
 var _narrator_image : Resource
+var _current_level_name : String
+var _score_content : String
 
 func _play_song():
 	if _audioPlayer.stream  != null:

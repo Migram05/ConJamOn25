@@ -16,6 +16,7 @@ var enemies_file_path : String
 var notes_file_path : String
 var speech_file_path : String
 var narrator_image_path : String
+var score_content : String
 		
 var icon_image_path : String:
 	set(path):
@@ -86,7 +87,9 @@ func _on_button_pressed() -> void:
 		SceneManager.loadScene(SceneManager._SCENES_.SELECTION_MENU);
 
 func GoToHistorial() -> void:
-	SceneManager.loadScene(SceneManager._SCENES_.HISTORIAL_MENU);
+	GameManager._score_content = score_content
+	GameManager._current_level_name = $Panel/Song/Button.text
+	SceneManager.loadScene(SceneManager._SCENES_.SCORE_MENU);
 
 func GoToSelection() -> void:
 	SceneManager.loadScene(SceneManager._SCENES_.SELECTION_MENU);

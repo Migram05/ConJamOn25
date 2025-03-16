@@ -2,9 +2,11 @@ extends Node
 @export var plantLevelClass : PackedScene
 @export var defaultLevels : Array[SongAsset]
 @export var placeholderImage : Resource
+@export var defaultTextForFirstTime : String = "Sin partidas"
 #region ModedLevelsRegion
 const VALID_MOD_AUDIO_EXTENSION : String = "ogg"
 const ENEMIES_FILE_NAME : String = "enemies.txt"
+const SCORE_FILE_NAME : String = "score.txt"
 const NOTES_FILE_NAME : String = "notes.txt"
 const SPEECH_FILE_NAME : String = "speech.txt"
 const MODS_FOLDER_NAME : String = "/GodotMods"
@@ -12,11 +14,12 @@ const MODS_FOLDER_NAME : String = "/GodotMods"
 
 class Plant:
 	var song_name : String
-	var last_score : int
+	var last_score : String
 	var song_path : String
 	var enemies_file_path : String
 	var notes_file_path : String
 	var speech_path : String 
+	var score_file_content : String
 	var icon_image_path : String
 	var narrator_image_path : String
 	var moded : bool = false
@@ -38,7 +41,7 @@ func _ready() -> void:
 func _load_default_levels():
 	for asset in defaultLevels:
 		if asset._is_valid():
-			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), 999, asset.song_file.resource_path, asset.enemies_file, asset.notes_file, asset.icon_image_file.resource_path, asset.narrator_image_file.resource_path, asset.speech_file)
+			_add_song(_get_file_name(asset.song_file.resource_path.get_file()), asset.song_file.resource_path, asset.enemies_file, asset.notes_file, asset.icon_image_file.resource_path, asset.narrator_image_file.resource_path, asset.speech_file, asset.score_file)
 
 # Carga los archivos que se encuentren en la carpeta designada para los mods
 # La carpeta de mods tiene que estar creada en el mismo directorio que el ejecutable
@@ -71,6 +74,7 @@ func _register_moded_song(files_array : PackedStringArray, files_path : String) 
 	var enemies_file_found : bool = false
 	var notes_file_found : bool = false
 	var speech_file_found : bool = false
+	var score_file_found : bool = false
 	var song_file_path : String
 	var enemies_file_path : String
 	var notes_file_path : String
@@ -78,6 +82,7 @@ func _register_moded_song(files_array : PackedStringArray, files_path : String) 
 	var speech_file_path : String
 	var icon_image_path : String
 	var narrator_image_path : String
+	var score_file_path : String
 	for file in files_array:
 		if(!song_file_found and VALID_MOD_AUDIO_EXTENSION == _get_file_extension(file).to_lower()):
 			song_file_found = true
@@ -92,23 +97,37 @@ func _register_moded_song(files_array : PackedStringArray, files_path : String) 
 		elif (!speech_file_found and file.to_lower() == SPEECH_FILE_NAME.to_lower()):
 			speech_file_found = true
 			speech_file_path = files_path + "/"+ file
+		elif (!score_file_found and file.to_lower() == SCORE_FILE_NAME.to_lower()):
+			score_file_found = true
+			score_file_path = files_path + "/"+ file
 	if(song_file_found and enemies_file_found and notes_file_found):
 		if(placeholderImage != null):
 			icon_image_path = placeholderImage.resource_path
 			narrator_image_path = placeholderImage.resource_path
+		if(!score_file_found):
+			score_file_path = files_path + "/" + SCORE_FILE_NAME
+			FileAccess.open(score_file_path, FileAccess.WRITE)
 		if(!speech_file_found):
 			speech_file_path = ""
-		_add_song(song_file_name, 999, song_file_path, enemies_file_path, notes_file_path, icon_image_path, narrator_image_path, speech_file_path,true)
-		return true	
+		_add_song(song_file_name, song_file_path, enemies_file_path, notes_file_path, icon_image_path, narrator_image_path, speech_file_path, score_file_path ,true)
+		return true
 	return false
 
 # Crea un objeto de tipo planta, que sirve como botón para acceder a un nivel.
 # La planta guarda la ruta a los archivos necesarios para iniciar un nuevo nivel
-func _add_song(song_name : String, last_score : int, song_path : String, enemies_file_path : String, notes_path : String, icon_image_path : String, narrator_image_path : String, speech_path : String , moded : bool = false):
+func _add_song(song_name : String, song_path : String, enemies_file_path : String, notes_path : String, icon_image_path : String, narrator_image_path : String, speech_path : String , score_file_path : String , moded : bool = false):
 	print("New song info: " + song_name + " Path: " + song_path + " Enemies: " + enemies_file_path + " Icon: " + icon_image_path + " Narrator: " + narrator_image_path)
 	var newPlant : Plant = Plant.new()
 	newPlant.song_name = song_name
-	newPlant.last_score = int(last_score)
+	var score_file = FileAccess.open(score_file_path, FileAccess.READ)
+	var content : String = score_file.get_as_text()
+	if(content.is_empty()):
+		newPlant.last_score = defaultTextForFirstTime
+		newPlant.score_file_content = ""
+	else:
+		newPlant.score_file_content = content
+		var best_score_info : PackedStringArray = content.split("\n")[0].split(" ")
+		newPlant.last_score = "Mejor altura: " + best_score_info[1] + " (EQUIPO: " + best_score_info[0].to_upper() + ")"
 	newPlant.song_path = song_path
 	newPlant.enemies_file_path = enemies_file_path
 	newPlant.notes_file_path = notes_path
@@ -119,6 +138,8 @@ func _add_song(song_name : String, last_score : int, song_path : String, enemies
 	_listPlants.append(newPlant)
 
 func showPlants():
+	if _listPlants.is_empty():
+		pass
 	var i : int = 0
 	if _inGamePlants.size() !=0:
 		for plant in _inGamePlants:
@@ -137,7 +158,8 @@ func showPlants():
 		elif GameManager._currentLevel == _listPlants.size()-1 && i==2:
 			aux = 0
 		new_level_plant.displayName = _listPlants[aux].song_name
-		new_level_plant.lastScore = str(_listPlants[aux].last_score)
+		new_level_plant.lastScore = _listPlants[aux].last_score
+		new_level_plant.score_content = _listPlants[aux].score_file_content
 		new_level_plant.song_file_path = _listPlants[aux].song_path
 		new_level_plant.enemies_file_path = _listPlants[aux].enemies_file_path
 		new_level_plant.notes_file_path = _listPlants[aux].notes_file_path
