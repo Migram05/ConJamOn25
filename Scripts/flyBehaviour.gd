@@ -12,7 +12,7 @@ var wandering := true;
 @export var animation : AnimatedSprite2D;
 @export var flyAttackAnimation : String;
 
-@onready var plantNode = owner.get_parent().get_node("Plant");
+var plantNode : Node2D;
 
 var timeWandering := 0.0;
 

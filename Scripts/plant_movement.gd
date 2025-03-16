@@ -17,6 +17,9 @@ var noteGrowth;
 
 enum NotePrecision { MISSED, BAD, GOOD, PERFECT }
 
+signal perfect;
+signal damage(bool);
+
 func _ready():
 	var gl = find_parent("GameLevel");
 	await gl.ready;
@@ -31,9 +34,12 @@ func _process(delta):
 
 func addFly():
 	++currentFlies;
+	damage.emit(true);
 
 func removeFly():
 	--currentFlies;
+	if (currentFlies == 0):
+		damage.emit(false);
 
 func _on_minijuego_piano_tiles_note_clicked(precision: NoteSpawner.NotePrecision) -> void:
 	var flyGrowth = 1 - currentFlies * flyGrowthDecrement; 
@@ -43,4 +49,5 @@ func _on_minijuego_piano_tiles_note_clicked(precision: NoteSpawner.NotePrecision
 		NotePrecision.GOOD:
 			targetPosition += goodGrowth * noteGrowth * flyGrowth;
 		NotePrecision.PERFECT:
+			perfect.emit();
 			targetPosition += perfectGrowth * noteGrowth * flyGrowth;

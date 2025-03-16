@@ -5,6 +5,8 @@ extends Node2D
 @onready var max_spawn_distance: Node2D = $MaxSpawnDistance
 @onready var minijuego_piano_tiles: NoteSpawner = $"../MinijuegoPianoTiles"
 
+@export var plantNode : Node2D;
+
 const COMMON_BEAT : float = 120
 var currentBeat = 0
 const TARGET = preload("res://Scenes/Objects/target.tscn")
@@ -35,6 +37,7 @@ func _process(delta: float) -> void:
 func spawnNormalEnemy(timeOffset):
 	var enemy = TARGET.instantiate()
 	current_enemies += 1
+	enemy.behaviour.plantNode = plantNode;
 	add_child(enemy)
 	if rng.randi_range(0, 1) == 1:
 		enemy.global_position.x = randf_range(min_spawn_distance.global_position.x, max_spawn_distance.global_position.x)
