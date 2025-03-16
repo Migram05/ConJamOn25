@@ -10,6 +10,9 @@
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_ep2aj")
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Fmod/ComJamOn25/Banks/Desktop/Master.strings.bank", "res://Fmod/ComJamOn25/Banks/Desktop/Master.bank"]
+
 [node name="BackGround" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(-3.05176e-05, 1.52588e-05)
@@ -17,12 +20,25 @@ texture = ExtResource("2_htr12")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="FmodListener3D" type="FmodListener3D" parent="Camera2D"]
+
+[node name="SmashEvent" type="FmodEventEmitter2D" parent="Camera2D"]
+event_name = "event:/Smash"
+event_guid = "{811169f2-e8dc-44c9-ba96-7c97a0773352}"
+attached = false
+
+[node name="SmashFlyEvent" type="FmodEventEmitter2D" parent="Camera2D"]
+event_name = "event:/SmashInsect"
+event_guid = "{a80a1525-d6b5-4161-a80c-d5041a65dee7}"
+
 [node name="Plant" parent="." instance=ExtResource("3_17xrb")]
 z_index = -3
 position = Vector2(-31, -139)
 
-[node name="Cursor" parent="." instance=ExtResource("5_r4v18")]
+[node name="Cursor" parent="." node_paths=PackedStringArray("smashSound", "smashFlySound") instance=ExtResource("5_r4v18")]
 position = Vector2(300, 78)
+smashSound = NodePath("../Camera2D/SmashEvent")
+smashFlySound = NodePath("../Camera2D/SmashFlyEvent")
 
 [node name="MinijuegoPianoTiles" parent="." instance=ExtResource("2_dy3oa")]
 position = Vector2(-636, -511)
