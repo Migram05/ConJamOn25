@@ -161,9 +161,9 @@ scale = Vector2(0.971468, 0.971468)
 texture = ExtResource("3_1bdwg")
 
 [node name="Titulo" type="Label" parent="Node2D"]
-offset_left = -492.0
+offset_left = -662.0
 offset_top = -466.0
-offset_right = 491.0
+offset_right = 664.0
 offset_bottom = -112.0
 theme_override_fonts/font = ExtResource("4_4gnm1")
 theme_override_font_sizes/font_size = 100
@@ -177,8 +177,9 @@ offset_top = -214.0
 offset_right = 431.0
 offset_bottom = -91.0
 theme_override_fonts/font = ExtResource("4_4gnm1")
-theme_override_font_sizes/font_size = 86
+theme_override_font_sizes/font_size = 50
 text = "Mejores puntuaciones"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Node2D"]
 offset_left = -498.0
@@ -187,6 +188,8 @@ offset_right = 288.0
 offset_bottom = 211.0
 scale = Vector2(1.27027, 1.41797)
 theme_override_fonts/font = ExtResource("4_4gnm1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 libraries = {

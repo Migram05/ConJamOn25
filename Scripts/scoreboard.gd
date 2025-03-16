@@ -41,9 +41,17 @@ func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
 
 func BackToLabMenu():
-	SceneManager.loadScene(SceneManager._SCENES_.LAB_MENU)
 	if team_name_input.text == "":
-		ScoreRegister.team_name = "SIN NOMBRE ;("
+		ScoreRegister.team_name = "SIN NOMBRE :("
+	SaveScore()
+	SceneManager.loadScene(SceneManager._SCENES_.LAB_MENU)
+
+func SaveScore():
+	var score_file = FileAccess.open(GameManager._score_file_path, FileAccess.READ)
+	var content : String = score_file.get_as_text()
+	content += ScoreRegister.team_name + " " + str(str(round_to_dec(ScoreRegister.height, 2))) + " " + str(ScoreRegister.moscas_killed) + " " + str(ScoreRegister.ciempieses_killed) + " " + str(ScoreRegister.perfect_notes) + " " + str(ScoreRegister.good_notes) + " " + str(ScoreRegister.meh_notes) + " " + str(ScoreRegister.missed_notes) + "\n"
+	var file = FileAccess.open(GameManager._score_file_path, FileAccess.WRITE)
+	file.store_string(content)
 
 func WriteTeamName(new_text : String):
 	ScoreRegister.team_name = new_text

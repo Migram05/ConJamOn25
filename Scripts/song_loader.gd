@@ -21,7 +21,7 @@ class Plant:
 	var enemies_file_path : String
 	var notes_file_path : String
 	var speech_path : String 
-	var score_file_content : String
+	var score_file_path : String
 	var icon_image_path : String
 	var narrator_image_path : String
 	var moded : bool = false
@@ -125,11 +125,10 @@ func _add_song(song_name : String, song_path : String, enemies_file_path : Strin
 	var content : String = score_file.get_as_text()
 	if(content.is_empty()):
 		newPlant.last_score = defaultTextForFirstTime
-		newPlant.score_file_content = ""
 	else:
-		newPlant.score_file_content = content
 		var best_score_info : PackedStringArray = content.split("\n")[0].split(" ")
 		newPlant.last_score = best_score_info[1] + " (EQUIPO: " + best_score_info[0].to_upper() + ")"
+	newPlant.score_file_path = score_file_path
 	newPlant.song_path = song_path
 	newPlant.enemies_file_path = enemies_file_path
 	newPlant.notes_file_path = notes_path
@@ -161,7 +160,7 @@ func showPlants():
 			aux = 0
 		new_level_plant.displayName = _listPlants[aux].song_name
 		new_level_plant.lastScore = _listPlants[aux].last_score
-		new_level_plant.score_content = _listPlants[aux].score_file_content
+		new_level_plant.score_file_path = _listPlants[aux].score_file_path
 		new_level_plant.song_file_path = _listPlants[aux].song_path
 		new_level_plant.enemies_file_path = _listPlants[aux].enemies_file_path
 		new_level_plant.notes_file_path = _listPlants[aux].notes_file_path

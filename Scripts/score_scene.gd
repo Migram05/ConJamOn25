@@ -3,7 +3,9 @@ extends Node2D
 var back :bool = false
 func _ready() -> void:
 	$Node2D/Titulo.text = GameManager._current_level_name
-	$Node2D/Label2.text = GameManager._score_content
+	var score_file = FileAccess.open(GameManager._score_file_path, FileAccess.READ)
+	var content : String = score_file.get_as_text()
+	$Node2D/Label2.text = content
 		
 func _on_button_pressed() -> void:
 	if !back:
