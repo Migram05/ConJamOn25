@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://safdpstmcfuw"]
+[gd_scene load_steps=133 format=3 uid="uid://safdpstmcfuw"]
 
 [ext_resource type="Script" uid="uid://cawequgkyd2oo" path="res://Scripts/main_menu.gd" id="1_hqtmt"]
 [ext_resource type="Texture2D" uid="uid://de8tq23cwbp8w" path="res://Assets/Sprites/Menu.png" id="2_mb40c"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://duqkn8govrny2" path="res://Assets/Sprites/C.png" id="25_5g34x"]
 [ext_resource type="Texture2D" uid="uid://bqej3fj4yu3co" path="res://Assets/Sprites/H.png" id="26_exk81"]
 [ext_resource type="Texture2D" uid="uid://cwtv1pvwfxs3e" path="res://Assets/Sprites/bichoVolandoSpriteSheet.png" id="27_2af57"]
+[ext_resource type="Texture2D" uid="uid://bm61ovxt03fqq" path="res://Assets/Sprites/FacundoMini.png" id="28_k6aqs"]
 [ext_resource type="Texture2D" uid="uid://cml0d2mewkqek" path="res://Assets/Sprites/bichoVolandoSpriteSheetBig.png" id="28_mcpy8"]
 [ext_resource type="Texture2D" uid="uid://dxslparf6qpms" path="res://Assets/Sprites/squishedSpriteSheetBig.png" id="29_d7ogg"]
 [ext_resource type="Texture2D" uid="uid://cggweclaa6qq" path="res://Assets/Sprites/Icon.png" id="29_fsbok"]
@@ -1392,6 +1393,116 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_4qscj"]
+resource_name = "facundo"
+length = 37.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 16, 17, 17.5, 18.5, 33.5, 34.5, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(334, 407), Vector2(334, 407), Vector2(836, 407), Vector2(836, 407), Vector2(836, 407), Vector2(836, 407), Vector2(334, 407), Vector2(334, 407), Vector2(334, 407)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 16, 17, 17.5, 18.5, 33.5, 34.5, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 16, 17, 17.5, 18.5, 33.5, 34.5, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Facundo:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 16, 17.5, 18.5, 33.5, 34.5, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.738, 0.738), Vector2(0.73, 0.738), Vector2(0.73, 0.738), Vector2(-0.738, 0.738), Vector2(-0.738, 0.738), Vector2(-0.73, 0.738), Vector2(-0.73, 0.738), Vector2(0.73, 0.738)]
+}
+
+[sub_resource type="Animation" id="Animation_4rd4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(334, 407)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Facundo:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.738, 0.738)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rnpm"]
+_data = {
+&"RESET": SubResource("Animation_4rd4b"),
+&"facundo": SubResource("Animation_4qscj")
+}
+
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("loadSound", "finishLoadSound")]
 script = ExtResource("1_hqtmt")
 loadSound = NodePath("Camera2D/LoadEvent")
@@ -1735,6 +1846,36 @@ texture = ExtResource("31_d7ogg")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="Facundo2" type="Node2D" parent="."]
+position = Vector2(334, 407)
+
+[node name="Facundo" type="Sprite2D" parent="Facundo2"]
+position = Vector2(16.7148, -10.375)
+scale = Vector2(-0.738, 0.738)
+texture = ExtResource("28_k6aqs")
+
+[node name="Button" type="Button" parent="Facundo2"]
+self_modulate = Color(0.152941, 0.152941, 0.152941, 0)
+offset_left = -48.0
+offset_top = -69.0
+offset_right = 75.0
+offset_bottom = 45.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Facundo2"]
+libraries = {
+&"": SubResource("AnimationLibrary_5rnpm")
+}
+autoplay = "facundo"
+
+[node name="Label" type="Label" parent="Facundo2"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -29.0
+offset_top = -98.0
+offset_right = 71.0
+offset_bottom = -70.0
+theme_override_font_sizes/font_size = 20
+text = "Púlsame ;)"
+
 [connection signal="button_up" from="Button" to="." method="GoToOptions"]
 [connection signal="button_up" from="Exit" to="." method="Exit"]
 [connection signal="button_down" from="Button2" to="." method="PlayPress"]
@@ -1742,3 +1883,4 @@ wait_time = 0.5
 [connection signal="mouse_entered" from="Button2" to="." method="HoverPlay"]
 [connection signal="mouse_exited" from="Button2" to="." method="LeftPlay"]
 [connection signal="timeout" from="Timer" to="." method="GoToLab"]
+[connection signal="button_up" from="Facundo2/Button" to="." method="Credits"]
