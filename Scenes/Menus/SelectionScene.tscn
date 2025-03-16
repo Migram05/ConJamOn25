@@ -125,7 +125,7 @@ _data = {
 
 [node name="SelectionScene" type="Node2D"]
 script = ExtResource("1_4jnrq")
-traduccionText = "GRACIAS ROI POR TANTO"
+traduccionText = "Os estábamos esperando! vuestro trabajo es demostrar que la música regional de mi comunidad es la mejor para las plantas, a pesar de lo que digan el resto. Tened cuidado que hay insectos, así que mientras uno riega, que el otro se encargue de proteger a la planta"
 
 [node name="BackGround" type="Sprite2D" parent="."]
 texture = ExtResource("2_lkhw4")
@@ -159,7 +159,7 @@ offset_top = 184.0
 offset_right = 719.0
 offset_bottom = 510.0
 theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 45
 autowrap_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
@@ -199,11 +199,13 @@ offset_right = 457.0
 offset_bottom = 80.0
 
 [node name="Facundo" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(849.381, 437)
 scale = Vector2(0.797904, 0.797904)
 texture = ExtResource("12_wnm5w")
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 offset_left = 767.381
 offset_top = 300.0
@@ -216,6 +218,7 @@ una traducción ;)"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
+visible = false
 self_modulate = Color(0, 0, 0, 0)
 offset_left = 775.381
 offset_top = 370.0

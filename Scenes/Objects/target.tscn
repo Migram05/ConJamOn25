@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5vrd4toxa3js" path="res://Scripts/target.gd" id="1_ulev0"]
 [ext_resource type="Texture2D" uid="uid://cwtv1pvwfxs3e" path="res://Assets/Sprites/bichoVolandoSpriteSheet.png" id="2_3jsu4"]
 [ext_resource type="Texture2D" uid="uid://xd58klkv1gf3" path="res://Assets/Sprites/bichoSpriteSheet.png" id="2_3wso7"]
-[ext_resource type="PackedScene" uid="uid://c1boynfd48uqr" path="res://Scenes/Objects/MoscaMuelta.tscn" id="2_myf6i"]
+[ext_resource type="PackedScene" uid="uid://175amdn2bws0" path="res://Scenes/Objects/MoscaMuelta.tscn" id="2_myf6i"]
 [ext_resource type="Script" uid="uid://cv8khkbps4scv" path="res://Scripts/flyBehaviour.gd" id="3_3jsu4"]
 [ext_resource type="Script" uid="uid://qmyqxjn0dm01" path="res://Scripts/flyWander.gd" id="4_chdgc"]
 [ext_resource type="Texture2D" uid="uid://ctpwmb16nl8jt" path="res://Assets/Sprites/squishedSpriteSheet.png" id="4_ul0ko"]
@@ -348,8 +348,8 @@ radius = 74.0
 
 [node name="Target" type="Node2D" node_paths=PackedStringArray("behaviour")]
 script = ExtResource("1_ulev0")
-moscaMuelta = ExtResource("2_myf6i")
 behaviour = NodePath("Behaviour")
+moscaMuelta = ExtResource("2_myf6i")
 
 [node name="AnimationNode" type="Node2D" parent="."]
 

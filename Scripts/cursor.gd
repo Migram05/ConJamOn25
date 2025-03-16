@@ -6,6 +6,9 @@ var currentTargets : Array[Node2D]
 var cont : int = 0
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+@export var smashSound : FmodEventEmitter2D
+@export var smashFlySound : FmodEventEmitter2D
+
 func _ready():
 	currentTargets.resize(MAX_ELEMENTS)
 	currentTargets.fill(null)
@@ -48,7 +51,9 @@ func _input(event):
 			var distanceNormalized = check_distance(node)
 			if node.pressed(distanceNormalized, $"."):
 				remove_element(node)
-			
+				smashFlySound.play_one_shot()
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			smashSound.play_one_shot()
 func get_radius() -> float:
 	return collision_shape_2d.shape.get_rect().size.x
 	
