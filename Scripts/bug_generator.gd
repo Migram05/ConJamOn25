@@ -45,6 +45,7 @@ func _process(delta: float) -> void:
 func spawnNormalEnemy():
 	var enemy = TARGET.instantiate()
 	current_enemies += 1
+	enemy.behaviour.plantNode = plantNode;
 	add_child(enemy)
 	if rng.randi_range(0, 1) == 1:
 		enemy.global_position.x = randf_range(min_spawn_distance.global_position.x, max_spawn_distance.global_position.x)

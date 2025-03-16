@@ -105,6 +105,7 @@ moscaMuelta = ExtResource("5_llsua")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_dspet")
+autoplay = "default"
 speed_scale = 0.25
 
 [node name="AnimationNode" type="Node2D" parent="."]
