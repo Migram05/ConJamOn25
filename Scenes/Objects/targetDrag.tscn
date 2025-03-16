@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvhl43sp7mnys"]
+[gd_scene load_steps=14 format=3 uid="uid://dvhl43sp7mnys"]
 
 [ext_resource type="Script" uid="uid://up85yi24m455" path="res://Scripts/target_drag.gd" id="1_3y70s"]
 [ext_resource type="SpriteFrames" uid="uid://bier3ib76k6oo" path="res://Assets/Sprites/spriteframes/gusano_0.tres" id="2_35uwl"]
-[ext_resource type="SpriteFrames" uid="uid://bmoxparykmomf" path="res://Assets/Sprites/spriteframes/gusano_1.tres" id="3_dspet"]
-[ext_resource type="SpriteFrames" uid="uid://dsi64ghibdayx" path="res://Assets/Sprites/spriteframes/gusasno_2.tres" id="4_dspet"]
+[ext_resource type="SpriteFrames" uid="uid://d1237hldxu1jj" path="res://Assets/Sprites/spriteframes/gusano_1.tres" id="3_dspet"]
+[ext_resource type="SpriteFrames" uid="uid://djsqokgt7e0u3" path="res://Assets/Sprites/spriteframes/gusasno_2.tres" id="4_dspet"]
 [ext_resource type="Texture2D" uid="uid://d4fpcjn23m073" path="res://Assets/Sprites/enemies/Bolita.png" id="5_dspet"]
+[ext_resource type="PackedScene" uid="uid://bmwtbs4gchgl1" path="res://Scenes/Objects/CienpiesMuelto.tscn" id="5_llsua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
 radius = 79.0759
@@ -100,6 +101,7 @@ scale = Vector2(1.7, 1.7)
 script = ExtResource("1_3y70s")
 sprite_frames = Array[SpriteFrames]([ExtResource("2_35uwl"), ExtResource("3_dspet"), ExtResource("4_dspet")])
 animated_sprite = NodePath("Sprite2D")
+moscaMuelta = ExtResource("5_llsua")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_dspet")

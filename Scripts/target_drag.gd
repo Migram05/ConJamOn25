@@ -38,6 +38,9 @@ func _process(delta: float) -> void:
 		else:
 			if not animation_player.is_playing():
 				score = score * errorDistance
+				var inst : Node2D = moscaMuelta.instantiate();
+				get_parent().add_child(inst);
+				inst.global_position = self.global_position;
 				queue_free()
 				return
 			var d = gameCursor.check_distance($".")
