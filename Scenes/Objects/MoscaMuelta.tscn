@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1boynfd48uqr"]
+[gd_scene load_steps=8 format=3 uid="uid://175amdn2bws0"]
 
 [ext_resource type="Texture2D" uid="uid://ctpwmb16nl8jt" path="res://Assets/Sprites/squishedSpriteSheet.png" id="1_nhgjs"]
 [ext_resource type="Script" path="res://Scripts/moscaMuelta.gd" id="2_ja7gc"]

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://up85yi24m455" path="res://Scripts/target_drag.gd" id="1_3y70s"]
 [ext_resource type="SpriteFrames" uid="uid://bier3ib76k6oo" path="res://Assets/Sprites/spriteframes/gusano_0.tres" id="2_35uwl"]
-[ext_resource type="SpriteFrames" uid="uid://eis0a3w2xsgf" path="res://Assets/Sprites/spriteframes/gusano_1.tres" id="3_dspet"]
-[ext_resource type="SpriteFrames" uid="uid://cd02ck0ypwlkq" path="res://Assets/Sprites/spriteframes/gusasno_2.tres" id="4_dspet"]
+[ext_resource type="SpriteFrames" uid="uid://bmoxparykmomf" path="res://Assets/Sprites/spriteframes/gusano_1.tres" id="3_dspet"]
+[ext_resource type="SpriteFrames" uid="uid://dsi64ghibdayx" path="res://Assets/Sprites/spriteframes/gusasno_2.tres" id="4_dspet"]
 [ext_resource type="Texture2D" uid="uid://d4fpcjn23m073" path="res://Assets/Sprites/enemies/Bolita.png" id="5_dspet"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
