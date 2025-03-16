@@ -128,7 +128,7 @@ narrator_image_file = ExtResource("23_76b3g")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Monster/notes.txt"
 speech_file = "res://Songs/Monster/speech.txt"
-score_file = "res://Songs/Megalovania/score.txt"
+score_file = "res://Songs/Monster/score.txt"
 
 [node name="Left" type="TextureButton" parent="."]
 offset_left = -942.0
