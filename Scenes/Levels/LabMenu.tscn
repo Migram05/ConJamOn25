@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dl8rdqabkv7s3"]
+[gd_scene load_steps=17 format=3 uid="uid://dl8rdqabkv7s3"]
 
 [ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
 [ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
@@ -10,8 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://br5ln7g8bl3hq" path="res://Songs/Monster2/caracolGalllegoSmall.png" id="7_mtvoj"]
 [ext_resource type="Texture2D" uid="uid://1q0otn7s8m1m" path="res://Songs/Monster2/caracolGalllego.png" id="8_hbtht"]
 [ext_resource type="AudioStream" uid="uid://cape2tknhq54f" path="res://Songs/Monster/Monster.mp3" id="8_nsvov"]
-[ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/Megalovania/caracolCatalanSmall.png" id="9_kknh8"]
-[ext_resource type="Texture2D" uid="uid://c6qrc2w4c60g" path="res://Songs/Megalovania/caracolCatalan.png" id="11_25ioh"]
+[ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/Beneath the mask/caracolCatalanSmall.png" id="9_kknh8"]
+[ext_resource type="AudioStream" uid="uid://c1geccs0mh3er" path="res://Songs/Beneath the mask/Beneath The Mask.mp3" id="10_25ioh"]
+[ext_resource type="Texture2D" uid="uid://c6qrc2w4c60g" path="res://Songs/Beneath the mask/caracolCatalan.png" id="11_25ioh"]
 [ext_resource type="Texture2D" uid="uid://cjr70umdvi04l" path="res://Songs/Monster/caracolVascoSmall.png" id="11_kknh8"]
 [ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="12_mtvoj"]
 [ext_resource type="Texture2D" uid="uid://bym43ujlvvdvt" path="res://Songs/Monster/caracolVasco.png" id="14_b135w"]
@@ -27,7 +28,7 @@ texture = ExtResource("12_mtvoj")
 unique_name_in_owner = true
 script = ExtResource("1_tsnl6")
 plantLevelClass = ExtResource("3_gn372")
-defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset"), NodePath("../SongHolder/MonsterSongAsset"), NodePath("../SongHolder/Prueba3")]
+defaultLevels = [NodePath("../SongHolder/MegalovaniaSongAsset"), NodePath("../SongHolder/MonsterSongAsset"), NodePath("../SongHolder/Prueba3"), NodePath("../SongHolder/BeneathTheMaskSongAsset")]
 placeholderImage = ExtResource("4_7a7og")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -48,6 +49,14 @@ enemies_file = "res://Songs/Megalovania/enemies.txt"
 notes_file = "res://Songs/Megalovania/notes.txt"
 speech_file = "res://Songs/Monster2/speech.txt"
 
+[node name="BeneathTheMaskSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
+song_file = ExtResource("10_25ioh")
+icon_image_file = ExtResource("7_mtvoj")
+narrator_image_file = ExtResource("8_hbtht")
+enemies_file = "res://Songs/Beneath the mask/enemies.txt"
+notes_file = "res://Songs/Beneath the mask/notes.txt"
+speech_file = "res://Songs/Beneath the mask/speech.txt"
+
 [node name="MegalovaniaSongAsset" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("6_gn372")
 icon_image_file = ExtResource("9_kknh8")
@@ -61,7 +70,7 @@ song_file = ExtResource("8_nsvov")
 icon_image_file = ExtResource("11_kknh8")
 narrator_image_file = ExtResource("14_b135w")
 enemies_file = "res://Songs/Megalovania/enemies.txt"
-notes_file = "res://Songs/Megalovania/notes.txt"
+notes_file = "res://Songs/Monster/notes.txt"
 speech_file = "res://Songs/Monster/speech.txt"
 
 [node name="Left" type="Button" parent="."]
