@@ -16,6 +16,7 @@ var maxIndex = 0
 
 enum NotePrecision { MISSED, BAD, GOOD, PERFECT }
 signal note_clicked(precision : NotePrecision)
+var current_notes = 0
 
 func _ready():
 	maxIndex = rails.size() - 1
@@ -40,6 +41,7 @@ func spawnNote(chosen_rail, speed) -> Node2D:
 	inst.note_clicked.connect(_on_note_clicked)
 	inst.note_clicked.connect(score_system.score_point)
 	rails[chosen_rail].add_note(inst, speed)
+	current_notes += 1
 	return inst
 
 var notes_clicked : int
@@ -47,6 +49,7 @@ func _on_note_clicked(precision : NotePrecision):
 	note_clicked.emit(precision);
 	ScoreRegister.clicked_note(precision)
 	notes_clicked += 1
+	current_notes -= 1
 	var level : GameLevel = owner
 	if notes_clicked >= level.timesNotes.size() - 1:
 		await get_tree().create_timer(3.5).timeout

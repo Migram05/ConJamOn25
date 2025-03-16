@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://defja54tn6vq8" path="res://Scenes/Objects/MinijuegoPianoTiles.tscn" id="2_dy3oa"]
 [ext_resource type="Texture2D" uid="uid://biscmtw7wtqdm" path="res://Assets/Sprites/Fondo.png" id="2_htr12"]
 [ext_resource type="PackedScene" uid="uid://njqeha6xttwb" path="res://Scenes/Objects/Plant.tscn" id="3_17xrb"]
-[ext_resource type="PackedScene" uid="uid://dgj4dyxppp6dh" path="res://Scenes/Objects/target.tscn" id="4_0eh1h"]
 [ext_resource type="PackedScene" uid="uid://6t1b00ii5wpw" path="res://Scenes/Objects/cursor.tscn" id="5_r4v18"]
+[ext_resource type="Script" uid="uid://gal5la6th8on" path="res://Scripts/bug_generator.gd" id="7_2ao20"]
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_ep2aj")
@@ -27,13 +27,18 @@ badGrowth = 1.0
 upSpeed = 0.02
 maxPlantScroll = 500.0
 
-[node name="Target" parent="." instance=ExtResource("4_0eh1h")]
-position = Vector2(542, -16)
-moscaMuelta = null
-
 [node name="Cursor" parent="." instance=ExtResource("5_r4v18")]
 position = Vector2(300, 78)
 
 [node name="MinijuegoPianoTiles" parent="." instance=ExtResource("2_dy3oa")]
 position = Vector2(-399, -309)
 scale = Vector2(0.878865, 0.878865)
+
+[node name="BugGenerator" type="Node2D" parent="."]
+script = ExtResource("7_2ao20")
+
+[node name="MinSpawnDistance" type="Node2D" parent="BugGenerator"]
+position = Vector2(226, -321)
+
+[node name="MaxSpawnDistance" type="Node2D" parent="BugGenerator"]
+position = Vector2(573, 322)

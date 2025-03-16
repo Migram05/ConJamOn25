@@ -2,6 +2,7 @@ extends Node2D
 class_name GameLevel
 
 @onready var minijuego_piano_tiles : NoteSpawner = $MinijuegoPianoTiles
+@onready var bug_generator: Node2D = $BugGenerator
 
 var timesNotes : Array[float]
 var index = 0
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 	spawn_timer += delta
 	if not started and initial_timer >= START_TIME:
 		GameManager._play_song()
+		bug_generator.pause = false
 		started = true
 	
 	if spawn_timer >= spawn_max_timer and have_more_notes:
