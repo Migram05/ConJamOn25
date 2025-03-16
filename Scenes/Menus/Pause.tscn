@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://2mp3b1rhugjg"]
+[gd_scene load_steps=14 format=3 uid="uid://2mp3b1rhugjg"]
 
 [ext_resource type="Script" uid="uid://c3scxcji4orif" path="res://Scripts/pause.gd" id="1_44hg8"]
 [ext_resource type="Texture2D" uid="uid://bvlws5enkyvqy" path="res://Assets/Sprites/blackSquare.png" id="2_bx65v"]
 [ext_resource type="Texture2D" uid="uid://b3u14sseq6ttr" path="res://Assets/Sprites/PausaPanel.png" id="3_qioq8"]
 [ext_resource type="Texture2D" uid="uid://cfpq83shdwl7v" path="res://Assets/Sprites/Play.png" id="4_33tvl"]
+[ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="4_e1n6f"]
 [ext_resource type="Texture2D" uid="uid://csno5tdmivub2" path="res://Assets/Sprites/PlayPress.png" id="5_ni7un"]
 [ext_resource type="Texture2D" uid="uid://dqjik7qqq4qxa" path="res://Assets/Sprites/PlayOver.png" id="6_2wads"]
 [ext_resource type="Texture2D" uid="uid://ckbpuptf8ofvf" path="res://Assets/Sprites/Options.png" id="7_x104v"]
@@ -37,6 +38,7 @@ offset_left = -78.0
 offset_top = -236.0
 offset_right = 78.0
 offset_bottom = -167.0
+theme_override_fonts/font = ExtResource("4_e1n6f")
 theme_override_font_sizes/font_size = 50
 text = "PAUSE"
 horizontal_alignment = 1

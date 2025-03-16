@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqsu1ob7778dh"]
+[gd_scene load_steps=15 format=3 uid="uid://dqsu1ob7778dh"]
 
 [ext_resource type="Script" uid="uid://erqm3a6aewq0" path="res://Scripts/selection_scene.gd" id="1_4jnrq"]
 [ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="2_lkhw4"]
+[ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="3_yjane"]
 [ext_resource type="Texture2D" uid="uid://bvlws5enkyvqy" path="res://Assets/Sprites/blackSquare.png" id="4_2yxjr"]
 [ext_resource type="FontFile" uid="uid://da2s077s5pm3t" path="res://Assets/Fonts/Hello Note.otf" id="4_apbd8"]
+[ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="4_wnm5w"]
+[ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="5_7csb5"]
 [ext_resource type="Texture2D" uid="uid://d08aopy8qwm4m" path="res://Assets/Sprites/wateringCanOn.png" id="5_afqac"]
 [ext_resource type="Texture2D" uid="uid://dej7b0cp3h5jy" path="res://Assets/Sprites/wateringCanOff.png" id="6_rbkxc"]
 [ext_resource type="Texture2D" uid="uid://dw8alpir1qwow" path="res://Assets/Sprites/swatterOn.png" id="7_bxvtr"]
@@ -131,11 +134,16 @@ scale = Vector2(3.54297, 3.02734)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = -539.0
-offset_top = -295.0
-offset_right = -494.0
-offset_bottom = -254.0
+[node name="Back" type="TextureButton" parent="."]
+offset_left = -565.0
+offset_top = -306.0
+offset_right = -403.0
+offset_bottom = -229.0
+texture_normal = ExtResource("3_yjane")
+texture_pressed = ExtResource("4_wnm5w")
+texture_hover = ExtResource("5_7csb5")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="DialogBox" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.784314)
@@ -221,6 +229,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_rbkxc")
 }
 
-[connection signal="button_up" from="Button" to="." method="GoBack"]
+[connection signal="button_up" from="Back" to="." method="GoBack"]
 [connection signal="timeout" from="Timer" to="." method="Play"]
 [connection signal="button_up" from="Items/Matamoscas/Button" to="." method="Player2Ready"]

@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://6nuqkgftmk54"]
+[gd_scene load_steps=8 format=3 uid="uid://6nuqkgftmk54"]
 
 [ext_resource type="Script" uid="uid://bntg7x3dkttay" path="res://Scripts/options.gd" id="1_m4ch3"]
 [ext_resource type="Texture2D" uid="uid://sx2a70o16ygh" path="res://Assets/Sprites/OptionPanel.png" id="2_kdaex"]
+[ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="3_6f7r2"]
+[ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="3_ew2o0"]
+[ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="4_ew2o0"]
+[ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="5_xkt4p"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_kdaex"]
 
@@ -18,19 +22,25 @@ texture = ExtResource("2_kdaex")
 
 [node name="Title" type="Label" parent="."]
 z_index = 200
-offset_left = -88.0
-offset_top = -222.0
-offset_right = 113.0
-offset_bottom = -167.0
-theme_override_font_sizes/font_size = 40
+offset_left = -239.0
+offset_top = -343.0
+offset_right = 263.0
+offset_bottom = -206.0
+theme_override_fonts/font = ExtResource("3_ew2o0")
+theme_override_font_sizes/font_size = 100
 text = "OPCIONES"
 
-[node name="Button" type="Button" parent="."]
+[node name="Back" type="TextureButton" parent="."]
 z_index = 200
-offset_left = -522.0
-offset_top = -296.0
-offset_right = -442.0
-offset_bottom = -238.0
+offset_left = -552.0
+offset_top = -301.0
+offset_right = -381.0
+offset_bottom = -223.0
+texture_normal = ExtResource("3_6f7r2")
+texture_pressed = ExtResource("4_ew2o0")
+texture_hover = ExtResource("5_xkt4p")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="Volume" type="Node" parent="."]
 
@@ -44,12 +54,27 @@ scale = Vector2(1.5, 3)
 
 [node name="VolumeText" type="Label" parent="Volume"]
 z_index = 200
-offset_left = -97.0
+offset_left = -94.0
 offset_top = -124.0
-offset_right = 97.0
+offset_right = 100.0
 offset_bottom = -43.0
+theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 36
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Volume"]
+self_modulate = Color(0.309804, 0.294118, 0.458824, 1)
+z_index = 200
+offset_left = -126.0
+offset_top = -170.0
+offset_right = 139.0
+offset_bottom = -29.0
+theme_override_fonts/font = ExtResource("3_ew2o0")
+theme_override_font_sizes/font_size = 50
+text = "Volumen:
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -61,6 +86,7 @@ offset_left = -18.0
 offset_top = 53.0
 offset_right = 182.0
 offset_bottom = 166.0
+theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 40
 text = "FullScreen
 "
@@ -78,6 +104,6 @@ button_pressed = true
 icon = SubResource("PortableCompressedTexture2D_kdaex")
 flat = true
 
-[connection signal="button_up" from="Button" to="." method="GoBack"]
+[connection signal="button_up" from="Back" to="." method="GoBack"]
 [connection signal="value_changed" from="Volume/VolumeSlider" to="." method="ChangeVolume"]
 [connection signal="button_up" from="FullScreen/CheckBox" to="." method="FullScreen"]
