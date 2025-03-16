@@ -368,7 +368,6 @@ script = ExtResource("5_ul0ko")
 
 [node name="Behaviour" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "animation")]
 script = ExtResource("3_3jsu4")
-attachToNoteProbability = 0.0
 timeToAttatchToTree = 7.5
 sprite = NodePath("../AnimationNode")
 animation = NodePath("../AnimationNode/AnimatedSprite2D")
