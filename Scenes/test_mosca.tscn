@@ -15,4 +15,3 @@ position = Vector2(-381, 178)
 
 [node name="Target4" parent="." instance=ExtResource("3_0hlfn")]
 position = Vector2(441, -225)
-scoreMultiplier = null

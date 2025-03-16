@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1boynfd48uqr"]
+
+[ext_resource type="Texture2D" uid="uid://ctpwmb16nl8jt" path="res://Assets/Sprites/squishedSpriteSheet.png" id="1_nhgjs"]
+[ext_resource type="Script" uid="uid://cq3nsc73j5x3s" path="res://Scripts/moscaMuelta.gd" id="2_ja7gc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja7gc"]
+atlas = ExtResource("1_nhgjs")
+region = Rect2(0, 0, 170, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxnn"]
+atlas = ExtResource("1_nhgjs")
+region = Rect2(170, 0, 170, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27dvy"]
+atlas = ExtResource("1_nhgjs")
+region = Rect2(340, 0, 170, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nve6i"]
+atlas = ExtResource("1_nhgjs")
+region = Rect2(510, 0, 170, 170)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7gy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja7gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsxnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27dvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nve6i")
+}],
+"loop": false,
+"name": &"Muelta",
+"speed": 5.0
+}]
+
+[node name="MoscaMuelta" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g7gy3")
+animation = &"Muelta"
+autoplay = "Muelta"
+frame = 3
+frame_progress = 1.0
+speed_scale = 2.0
+script = ExtResource("2_ja7gc")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]

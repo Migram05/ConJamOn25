@@ -87,9 +87,13 @@ func reset():
 	timer.wait_time = timeClose
 	enemyState = Target.State.CLOSED
 	timer.start()
+@export var moscaMuelta : PackedScene;
 
 # Cosas especificas del target
 func _click():
 	score = score * distance
 	ScoreRegister.mosca_killed()
+	var inst : Node2D = moscaMuelta.instantiate();
+	get_parent().add_child(inst);
+	inst.global_position = self.global_position;
 	queue_free()
