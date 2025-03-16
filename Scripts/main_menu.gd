@@ -40,3 +40,7 @@ func PlayPress() -> void:
 	$Button2/EmptyCircle.visible=false
 	$AnimatedSprite2D.scale.x = -1*$AnimatedSprite2D.scale.x
 	$AnimatedSprite2D.play("press")
+
+
+func Credits() -> void:
+	SceneManager.loadScene(SceneManager._SCENES_.CREDITS);

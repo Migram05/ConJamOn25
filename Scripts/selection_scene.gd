@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var traduccionText : String
 var texto : String = "Never gonna give you up, Never gonna let you down, Never gonna turn around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you"
 var index : int = 0
 var done : bool = false
@@ -29,6 +30,9 @@ func _process(delta: float) -> void:
 		elif !setReady:
 			$Items/AnimationPlayer.play("showItems")
 			setReady=true
+			$Facundo.visible=true
+			$Label2.visible=true
+			$Button.visible=true
 		elif !isReady:
 			if player1Ready && player2Ready:
 				isReady=true
@@ -77,3 +81,9 @@ func Player2Ready() -> void:
 	$Items/MatamoscasOff.visible=false
 	$Items/MatamoscasOn.visible=true
 	player2Ready=true
+	
+func Traduction() -> void:
+	if GameManager._isCurrentNarratorMod:
+		$Label.text = traduccionText
+	else:
+		$Label.text = "Tradución: "+$Label.text

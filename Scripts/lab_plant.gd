@@ -75,7 +75,9 @@ func _on_button_pressed() -> void:
 		$AudioStreamPlayer2D.stop()
 		if moded_level:
 			GameManager._song = AudioStreamOggVorbis.load_from_file(song_file_path)
+			GameManager._isCurrentNarratorMod = true
 		else:
+			GameManager._isCurrentNarratorMod = false
 			GameManager._song = load(song_file_path)
 		GameManager._narrator_image = load(narrator_image_path)
 		GameManager._enemies = FileAccess.open(enemies_file_path, FileAccess.READ).get_as_text()

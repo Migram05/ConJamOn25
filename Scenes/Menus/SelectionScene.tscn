@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqsu1ob7778dh"]
+[gd_scene load_steps=17 format=3 uid="uid://dqsu1ob7778dh"]
 
 [ext_resource type="Script" uid="uid://erqm3a6aewq0" path="res://Scripts/selection_scene.gd" id="1_4jnrq"]
 [ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="2_lkhw4"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://v4i57et46brj" path="res://Assets/Sprites/RegaderaNotReady.png" id="9_rbkxc"]
 [ext_resource type="Texture2D" uid="uid://dc4n11uk5hg8v" path="res://Assets/Sprites/MatamoscasNotReady.png" id="10_yjane"]
 [ext_resource type="Texture2D" uid="uid://bsui8ead55avw" path="res://Assets/Sprites/MatamoscasReady.png" id="11_wnm5w"]
+[ext_resource type="Texture2D" uid="uid://bm61ovxt03fqq" path="res://Assets/Sprites/FacundoMini.png" id="12_wnm5w"]
+[ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="13_7csb5"]
 
 [sub_resource type="Animation" id="Animation_rbkxc"]
 length = 0.001
@@ -123,6 +125,7 @@ _data = {
 
 [node name="SelectionScene" type="Node2D"]
 script = ExtResource("1_4jnrq")
+traduccionText = "GRACIAS ROI POR TANTO"
 
 [node name="BackGround" type="Sprite2D" parent="."]
 texture = ExtResource("2_lkhw4")
@@ -146,15 +149,15 @@ stretch_mode = 4
 
 [node name="DialogBox" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.784314)
-position = Vector2(-0.499434, 348.5)
-scale = Vector2(4.32805, 2.1124)
+position = Vector2(0, 198.5)
+scale = Vector2(2.25139, 1.31373)
 texture = ExtResource("4_2yxjr")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -755.0
-offset_top = 209.0
-offset_right = 753.0
-offset_bottom = 485.0
+offset_left = -399.0
+offset_top = 102.0
+offset_right = 399.0
+offset_bottom = 292.0
 theme_override_fonts/font = ExtResource("4_apbd8")
 theme_override_font_sizes/font_size = 80
 autowrap_mode = 2
@@ -195,6 +198,33 @@ offset_top = -249.0
 offset_right = 457.0
 offset_bottom = 80.0
 
+[node name="Facundo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(483, 236)
+scale = Vector2(0.797904, 0.797904)
+texture = ExtResource("12_wnm5w")
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 401.0
+offset_top = 99.0
+offset_right = 587.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("13_7csb5")
+theme_override_font_sizes/font_size = 20
+text = "Púlsame si quieres 
+una traducción ;)"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+offset_left = 409.0
+offset_top = 169.0
+offset_right = 565.0
+offset_bottom = 301.0
+
 [connection signal="button_up" from="Back" to="." method="GoBack"]
 [connection signal="timeout" from="Timer" to="." method="Play"]
 [connection signal="button_up" from="Items/Button" to="." method="Player2Ready"]
+[connection signal="button_up" from="Button" to="." method="Traduction"]

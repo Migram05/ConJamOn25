@@ -7,7 +7,8 @@ var allScenes = [preload("res://Scenes/Menus/MainMenu.tscn"),
 				preload("res://Scenes/Menus/SelectionScene.tscn"),
 				preload("res://Scenes/Levels/GameLevel.tscn"),
 				preload("res://Scenes/Menus/Pause.tscn"),
-				preload("res://Scenes/Objects/scoreboard.tscn")]
+				preload("res://Scenes/Objects/scoreboard.tscn"),
+				preload("res://Scenes/Menus/Credits.tscn")]
 				
 enum _SCENES_{
 	MAIN_MENU,
@@ -17,7 +18,8 @@ enum _SCENES_{
 	SELECTION_MENU,
 	GAME_LEVEL,
 	PAUSE,
-	SCORE_SCENE
+	SCORE_SCENE,
+	CREDITS
 	}
 var _currSceneID : _SCENES_ = _SCENES_.MAIN_MENU
 
