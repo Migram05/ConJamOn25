@@ -63,7 +63,7 @@ color_ramp = SubResource("GradientTexture1D_pct2r")
 [node name="Nota" type="Area2D"]
 collision_mask = 6
 script = ExtResource("1_yjfqu")
-distanceLabels = Array[float]([100.0, 50.0, 10.0])
+distanceLabels = Array[float]([2000.0, 50.0, 10.0])
 feedbackSprites = Array[Texture2D]([ExtResource("2_enql0"), ExtResource("2_h1yvu"), ExtResource("3_enql0")])
 missSprite = ExtResource("5_4vjvx")
 floatingText = SubResource("PackedScene_4vjvx")
