@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cv8khkbps4scv" path="res://Scripts/flyBehaviour.gd" id="3_3jsu4"]
 [ext_resource type="Script" uid="uid://qmyqxjn0dm01" path="res://Scripts/flyWander.gd" id="4_chdgc"]
 [ext_resource type="Texture2D" uid="uid://ctpwmb16nl8jt" path="res://Assets/Sprites/squishedSpriteSheet.png" id="4_ul0ko"]
-[ext_resource type="Script" path="res://Scenes/Objects/animated_sprite_target.gd" id="5_ul0ko"]
+[ext_resource type="Script" uid="uid://brxqldk53aph0" path="res://Scenes/Objects/animated_sprite_target.gd" id="5_ul0ko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
 radius = 79.0759

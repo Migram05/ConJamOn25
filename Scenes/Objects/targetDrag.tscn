@@ -96,6 +96,7 @@ _data = {
 }
 
 [node name="TargetDrag" type="Node2D" node_paths=PackedStringArray("animated_sprite")]
+scale = Vector2(1.7, 1.7)
 script = ExtResource("1_3y70s")
 sprite_frames = Array[SpriteFrames]([ExtResource("2_35uwl"), ExtResource("3_dspet"), ExtResource("4_dspet")])
 animated_sprite = NodePath("Sprite2D")
@@ -119,13 +120,11 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationNode/Area2D"]
 shape = SubResource("CircleShape2D_t2jmu")
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ag3pf")
 }
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

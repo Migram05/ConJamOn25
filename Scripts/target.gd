@@ -1,7 +1,6 @@
 class_name Target
 extends Node2D
 
-@onready var timer: Timer = $Timer
 @onready var bug_generator : BugGenerator = $"../"
 
 enum State { CLOSED, OPENING, OPEN, CLOSING, NUM_STATES}

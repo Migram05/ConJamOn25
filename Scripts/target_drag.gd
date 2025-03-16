@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 		
 				
 				
-func _click():
+func _click(perfect = false):
 	pass
 	
 func _input(event):
@@ -57,3 +57,4 @@ func _input(event):
 			animation_player.stop()
 			reset()
 			initialPos = position
+			

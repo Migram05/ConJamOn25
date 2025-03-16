@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1jbplwh6khob"]
 
 [ext_resource type="Texture2D" uid="uid://5wncl8epfo36" path="res://Assets/Sprites/smack.png" id="1_1pefa"]
-[ext_resource type="Script" uid="uid://dfd2q85j1ako5" path="res://Scripts/smack.gd" id="2_asfqc"]
+[ext_resource type="Script" path="res://Scripts/smack.gd" id="2_asfqc"]
 
 [node name="smack" type="Node2D"]
 z_index = 50

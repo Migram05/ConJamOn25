@@ -51,4 +51,10 @@ position = Vector2(316, -542)
 [node name="MaxSpawnDistance" type="Node2D" parent="BugGenerator"]
 position = Vector2(960, 543)
 
+[node name="MinSpecialSpawnDistance" type="Node2D" parent="BugGenerator"]
+position = Vector2(78, -287)
+
+[node name="MaxSpecialSpawnDistance" type="Node2D" parent="BugGenerator"]
+position = Vector2(260, 144)
+
 [connection signal="note_clicked" from="MinijuegoPianoTiles" to="Plant" method="_on_minijuego_piano_tiles_note_clicked"]
