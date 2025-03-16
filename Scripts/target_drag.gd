@@ -8,18 +8,23 @@ var errorDistance = 0
 @export var sprite_frames : Array[SpriteFrames]
 @export var animated_sprite : AnimatedSprite2D
 
+var animation_node_name : String
+
 func _ready() -> void:
 	super()
 	collision_shape_2d = $AnimationNode/Area2D/CollisionShape2D
 	initialPos = position
-	animated_sprite.sprite_frames = sprite_frames[randi() % sprite_frames.size()]
-	
+	var index = randi() % sprite_frames.size()
+	animated_sprite.sprite_frames = sprite_frames[index]
+	animation_node_name = ("centipede_" + str(index)) 
+	animation_player.current_animation = animation_node_name
+	animation_player.stop()
 
 func pressed(distanceNormalized, cursor) -> bool:
 	if super(distanceNormalized, cursor):
 		#Drag started
 		dragging = true
-		animation_player.play("Test")
+		animation_player.play(animation_node_name)
 		errorDistance = distance
 	return false
 

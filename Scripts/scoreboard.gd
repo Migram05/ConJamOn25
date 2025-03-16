@@ -11,6 +11,9 @@ class_name ScoreBoard
 @export var plant : PlantScoreboard
 @export var team_name_input : LineEdit
 
+var tree_type : String = "SEMILLA"
+
+
 func _ready() -> void:
 	missed_text.text = str(ScoreRegister.missed_notes)
 	meh_text.text = str(ScoreRegister.meh_notes)
@@ -19,7 +22,6 @@ func _ready() -> void:
 	moscas_text.text = str(ScoreRegister.moscas_killed)
 	ciempieses_text.text = str(ScoreRegister.ciempieses_killed)
 	
-	var tree_type : String = "SEMILLA"
 	
 	var index = 0
 	for i in GameManager._TREE_TYPE_:
@@ -43,8 +45,6 @@ func BackToLabMenu():
 	SceneManager.loadScene(SceneManager._SCENES_.LAB_MENU)
 	if team_name_input.text == "":
 		ScoreRegister.team_name = "SIN NOMBRE ;("
-		
-	print(ScoreRegister.team_name)
 
 func WriteTeamName(new_text : String):
 	ScoreRegister.team_name = new_text

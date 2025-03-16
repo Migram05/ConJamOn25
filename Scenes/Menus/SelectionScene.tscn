@@ -100,7 +100,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1.00003, 1.00003)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1.7, 1.7)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -125,20 +125,19 @@ _data = {
 script = ExtResource("1_4jnrq")
 
 [node name="BackGround" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.602)
 texture = ExtResource("2_lkhw4")
 
 [node name="Narrador" type="Sprite2D" parent="."]
-position = Vector2(-232, 49)
-scale = Vector2(3.54297, 3.02734)
+position = Vector2(-490, -46)
+scale = Vector2(9.3018, 6.88866)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Back" type="TextureButton" parent="."]
-offset_left = -565.0
-offset_top = -306.0
-offset_right = -403.0
-offset_bottom = -229.0
+offset_left = -921.0
+offset_top = -521.0
+offset_right = -645.0
+offset_bottom = -392.0
 texture_normal = ExtResource("3_yjane")
 texture_pressed = ExtResource("4_wnm5w")
 texture_hover = ExtResource("5_7csb5")
@@ -147,17 +146,17 @@ stretch_mode = 4
 
 [node name="DialogBox" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.784314)
-position = Vector2(-0.499953, 198.5)
-scale = Vector2(2.69167, 1.31373)
+position = Vector2(-0.499434, 348.5)
+scale = Vector2(4.32805, 2.1124)
 texture = ExtResource("4_2yxjr")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -476.0
-offset_top = 102.0
-offset_right = 474.0
-offset_bottom = 292.0
+offset_left = -755.0
+offset_top = 209.0
+offset_right = 753.0
+offset_bottom = 485.0
 theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 80
 autowrap_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
@@ -167,7 +166,6 @@ scale = Vector2(1e-05, 1e-05)
 
 [node name="RegaderaOff" type="Sprite2D" parent="Items"]
 position = Vector2(-200, -50)
-scale = Vector2(0.99997, 0.99997)
 texture = ExtResource("9_rbkxc")
 
 [node name="RegaderaOn" type="Sprite2D" parent="Items"]

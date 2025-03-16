@@ -24,22 +24,21 @@ script = ExtResource("1_44hg8")
 modulate = Color(1, 1, 1, 0.415686)
 z_index = 150
 position = Vector2(1.99996, 0.999971)
-scale = Vector2(3.32222, 4.4183)
+scale = Vector2(5.7653, 7.63064)
 texture = ExtResource("2_bx65v")
 
 [node name="Panel" type="Sprite2D" parent="."]
 z_index = 150
-scale = Vector2(0.567593, 0.567593)
 texture = ExtResource("3_qioq8")
 
 [node name="Pause" type="Label" parent="."]
 z_index = 150
-offset_left = -78.0
-offset_top = -236.0
-offset_right = 78.0
+offset_left = -146.0
+offset_top = -310.0
+offset_right = 156.0
 offset_bottom = -167.0
 theme_override_fonts/font = ExtResource("4_e1n6f")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 100
 text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -60,10 +59,10 @@ vertical_alignment = 1
 
 [node name="Play" type="TextureButton" parent="."]
 z_index = 150
-offset_left = -99.0
-offset_top = -127.0
-offset_right = 107.0
-offset_bottom = -33.0
+offset_left = -150.0
+offset_top = -153.0
+offset_right = 158.0
+offset_bottom = -7.0
 texture_normal = ExtResource("4_33tvl")
 texture_pressed = ExtResource("5_ni7un")
 texture_hover = ExtResource("6_2wads")
@@ -72,10 +71,10 @@ stretch_mode = 4
 
 [node name="Options" type="TextureButton" parent="."]
 z_index = 150
-offset_left = -97.0
-offset_top = -27.0
-offset_right = 106.0
-offset_bottom = 64.0
+offset_left = -148.0
+offset_top = -2.0
+offset_right = 157.0
+offset_bottom = 137.0
 texture_normal = ExtResource("7_x104v")
 texture_pressed = ExtResource("8_wxkbi")
 texture_hover = ExtResource("9_tyt82")
@@ -84,10 +83,10 @@ stretch_mode = 4
 
 [node name="ExitLevel" type="TextureButton" parent="."]
 z_index = 150
-offset_left = -94.0
-offset_top = 69.0
-offset_right = 104.0
-offset_bottom = 158.0
+offset_left = -145.0
+offset_top = 153.0
+offset_right = 155.0
+offset_bottom = 284.0
 texture_normal = ExtResource("10_kb46c")
 texture_pressed = ExtResource("11_e1n6f")
 texture_hover = ExtResource("12_kpnag")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ctyj66tlojkni" path="res://Assets/Sprites/scoreboard/solidPanel.png" id="1_26kal"]
 [ext_resource type="Texture2D" uid="uid://bfqh7rdtfh5tr" path="res://Assets/Sprites/note_feedback/results_bg.png" id="1_k06fr"]
 [ext_resource type="Script" uid="uid://d2mxelbr4u3bc" path="res://Scripts/scoreboard.gd" id="1_ng0ti"]
-[ext_resource type="Script" path="res://Scripts/plant_scoreboard.gd" id="1_sp15s"]
+[ext_resource type="Script" uid="uid://go2sne2hxu3v" path="res://Scripts/plant_scoreboard.gd" id="1_sp15s"]
 [ext_resource type="Texture2D" uid="uid://c3ph3ufmjamf3" path="res://Assets/Sprites/scoreboard/plant_0.png" id="2_6xd7b"]
 [ext_resource type="FontFile" uid="uid://ptfxu2lfjvg7" path="res://Assets/Fonts/Grinched 2.0 DEMO.otf" id="2_26kal"]
 [ext_resource type="Texture2D" uid="uid://dik1rfoa4l72q" path="res://Assets/Sprites/note_feedback/panel_fade.png" id="2_q1gqq"]
@@ -32,13 +32,11 @@ plant = NodePath("Arbol")
 team_name_input = NodePath("Arbol/LineEdit")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(522.69, 336.759)
-scale = Vector2(0.624677, 0.629184)
+position = Vector2(961, 542)
 texture = ExtResource("1_k06fr")
 
 [node name="Arbol" type="Sprite2D" parent="."]
-position = Vector2(678.69, 333.759)
-scale = Vector2(0.598634, 0.598634)
+position = Vector2(1117, 539)
 texture = ExtResource("6_hp617")
 script = ExtResource("1_sp15s")
 textures = Array[Texture2D]([ExtResource("2_6xd7b"), ExtResource("3_6qsxc"), ExtResource("4_re3hr"), ExtResource("5_ng0ti"), ExtResource("6_hp617")])
@@ -85,15 +83,14 @@ max_length = 13
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1021.0
-offset_top = 18.0
-offset_right = 1102.0
-offset_bottom = 96.0
+offset_left = 1780.0
+offset_top = 35.0
+offset_right = 1861.0
+offset_bottom = 113.0
 grow_horizontal = 0
 
 [node name="ScoreBoard" type="Node2D" parent="."]
-position = Vector2(519.69, 337.759)
-scale = Vector2(0.665157, 0.665157)
+position = Vector2(958, 543)
 
 [node name="Panel" type="Sprite2D" parent="ScoreBoard"]
 position = Vector2(-448.528, 0)
@@ -156,10 +153,10 @@ text = "100"
 horizontal_alignment = 1
 
 [node name="Ciempies" type="Sprite2D" parent="ScoreBoard/Enemies/Panel_Ciempies"]
-position = Vector2(67.1819, -15.1936)
-scale = Vector2(0.749253, 0.745557)
+position = Vector2(-28.7329, 10.6358)
+scale = Vector2(2.60479, 2.59437)
 texture = ExtResource("12_re3hr")
-hframes = 24
+hframes = 2
 
 [node name="Line2D" type="Line2D" parent="ScoreBoard/Enemies"]
 visible = false

@@ -15,34 +15,32 @@ script = ExtResource("1_m4ch3")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 z_index = 200
-scale = Vector2(0.611069, 0.600926)
 texture = ExtResource("2_ew2o0")
 
 [node name="Panel" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.831373)
 z_index = 200
-scale = Vector2(0.587963, 0.587963)
 texture = ExtResource("2_kdaex")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Title" type="Label" parent="."]
 z_index = 200
-offset_left = -249.0
-offset_top = -241.0
-offset_right = 253.0
-offset_bottom = -98.0
+offset_left = -509.0
+offset_top = -357.0
+offset_right = 513.0
+offset_bottom = 18.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 195
 text = "OPCIONES"
 horizontal_alignment = 1
 
 [node name="Back" type="TextureButton" parent="."]
 z_index = 200
-offset_left = -573.0
-offset_top = -303.0
-offset_right = -419.0
-offset_bottom = -225.0
+offset_left = -939.0
+offset_top = -523.0
+offset_right = -744.0
+offset_bottom = -424.0
 texture_normal = ExtResource("3_6f7r2")
 texture_pressed = ExtResource("4_ew2o0")
 texture_hover = ExtResource("5_xkt4p")
@@ -54,21 +52,21 @@ stretch_mode = 4
 [node name="VolumeSlider" type="HSlider" parent="Volume"]
 self_modulate = Color(0.996611, 0.966871, 0.968126, 1)
 z_index = 200
-offset_left = -142.0
-offset_top = 156.0
-offset_right = 55.0
-offset_bottom = 246.0
+offset_left = -277.0
+offset_top = 40.0
+offset_right = 101.0
+offset_bottom = 340.0
 scale = Vector2(1.5, 1.24)
 value = 100.0
 
 [node name="VolumeText" type="Label" parent="Volume"]
 z_index = 200
-offset_left = -94.0
-offset_top = 132.0
-offset_right = 100.0
+offset_left = -238.0
+offset_top = -6.0
+offset_right = 244.0
 offset_bottom = 213.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 126
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -76,12 +74,12 @@ vertical_alignment = 1
 [node name="Label" type="Label" parent="Volume"]
 self_modulate = Color(0.309804, 0.294118, 0.458824, 1)
 z_index = 200
-offset_left = -126.0
-offset_top = 86.0
-offset_right = 139.0
-offset_bottom = 227.0
+offset_left = -253.0
+offset_top = -118.0
+offset_right = 254.0
+offset_bottom = 243.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 126
 text = "Volumen:
 "
 horizontal_alignment = 1
@@ -91,13 +89,13 @@ vertical_alignment = 1
 
 [node name="FullScreenText" type="Label" parent="FullScreen"]
 z_index = 200
-offset_left = 248.0
-offset_top = 159.0
-offset_right = 448.0
-offset_bottom = 278.0
+offset_left = -149.0
+offset_top = 264.0
+offset_right = 416.0
+offset_bottom = 607.0
 scale = Vector2(0.56, 0.56)
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 120
 text = "FullScreen
 "
 horizontal_alignment = 1
@@ -105,14 +103,16 @@ vertical_alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="FullScreen"]
 z_index = 200
-offset_left = 206.0
-offset_top = 156.0
-offset_right = 230.0
-offset_bottom = 182.0
+offset_left = -213.0
+offset_top = 292.0
+offset_right = -177.0
+offset_bottom = 323.0
 scale = Vector2(1.6, 1.6)
 button_pressed = true
 icon = SubResource("PortableCompressedTexture2D_kdaex")
 flat = true
+alignment = 1
+icon_alignment = 1
 
 [connection signal="button_up" from="Back" to="." method="GoBack"]
 [connection signal="value_changed" from="Volume/VolumeSlider" to="." method="ChangeVolume"]

@@ -5,40 +5,40 @@
 [ext_resource type="Texture2D" uid="uid://biscmtw7wtqdm" path="res://Assets/Sprites/Fondo.png" id="2_htr12"]
 [ext_resource type="PackedScene" uid="uid://njqeha6xttwb" path="res://Scenes/Objects/Plant.tscn" id="3_17xrb"]
 [ext_resource type="PackedScene" uid="uid://6t1b00ii5wpw" path="res://Scenes/Objects/cursor.tscn" id="5_r4v18"]
-[ext_resource type="Script" path="res://Scripts/bug_generator.gd" id="7_2ao20"]
+[ext_resource type="Script" uid="uid://gal5la6th8on" path="res://Scripts/bug_generator.gd" id="7_2ao20"]
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_ep2aj")
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://Fmod/ComJamOn25/Banks/Desktop/Master.strings.bank", "res://Fmod/ComJamOn25/Banks/Desktop/Master.bank"]
-
 [node name="BackGround" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(-3.05176e-05, 1.52588e-05)
-scale = Vector2(0.609259, 0.609259)
 texture = ExtResource("2_htr12")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Plant" parent="." instance=ExtResource("3_17xrb")]
 z_index = -3
-position = Vector2(-31, -293)
+position = Vector2(-31, -139)
+scale = Vector2(1.26443, 1.26443)
+perfectGrowth = 10.0
+goodGrowth = 5.0
+badGrowth = 1.0
+upSpeed = 0.02
+maxPlantScroll = 500.0
 
 [node name="Cursor" parent="." instance=ExtResource("5_r4v18")]
 position = Vector2(300, 78)
 
 [node name="MinijuegoPianoTiles" parent="." instance=ExtResource("2_dy3oa")]
-position = Vector2(-399, -309)
-scale = Vector2(0.878865, 0.878865)
+position = Vector2(-685, -565)
+scale = Vector2(1.51762, 1.51762)
 
 [node name="BugGenerator" type="Node2D" parent="."]
 script = ExtResource("7_2ao20")
 
 [node name="MinSpawnDistance" type="Node2D" parent="BugGenerator"]
-position = Vector2(226, -321)
+position = Vector2(316, -542)
 
 [node name="MaxSpawnDistance" type="Node2D" parent="BugGenerator"]
-position = Vector2(573, 322)
-
-[connection signal="note_clicked" from="MinijuegoPianoTiles" to="Plant" method="_on_minijuego_piano_tiles_note_clicked"]
+position = Vector2(960, 543)

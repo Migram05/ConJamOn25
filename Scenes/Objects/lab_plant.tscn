@@ -220,7 +220,7 @@ _data = {
 }
 
 [node name="LevelPlant" type="Node2D"]
-position = Vector2(117, -50)
+position = Vector2(117, -49)
 script = ExtResource("1_u11gg")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

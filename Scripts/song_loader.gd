@@ -12,6 +12,8 @@ const SPEECH_FILE_NAME : String = "speech.txt"
 const MODS_FOLDER_NAME : String = "/GodotMods"
 #endregion
 
+@export var plant_scale : float = 1.25
+
 class Plant:
 	var song_name : String
 	var last_score : String
@@ -168,11 +170,12 @@ func showPlants():
 		new_level_plant.speech_file_path = _listPlants[aux].speech_path
 		new_level_plant.moded_level = _listPlants[aux].moded
 		if i==1:
-			new_level_plant.setScale(1.25)
+			new_level_plant.setScale(plant_scale * 1.25)
 			new_level_plant.showPanel(true)
 		else:
 			new_level_plant.setColorGradient(0.35,0.35,0.35,-1)
 			new_level_plant.showPanel(false)
+			new_level_plant.setScale(plant_scale)
 		i+=1
 
 func _input(event: InputEvent) -> void: 

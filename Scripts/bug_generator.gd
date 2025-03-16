@@ -1,9 +1,9 @@
 class_name BugGenerator
 extends Node2D
+
 @onready var min_spawn_distance: Node2D = $MinSpawnDistance
 @onready var max_spawn_distance: Node2D = $MaxSpawnDistance
 @onready var minijuego_piano_tiles: NoteSpawner = $"../MinijuegoPianoTiles"
-
 
 const COMMON_BEAT : float = 120
 var currentBeat = 0

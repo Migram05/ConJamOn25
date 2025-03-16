@@ -22,6 +22,7 @@ func _ready() -> void:
 		_process_notes()
 		spawn_max_timer = START_TIME + timesNotes[0] - timeUntilPerfect
 		ScoreRegister.total_notes = timesNotes.size()
+		ScoreRegister.song_title = GameManager._current_level_name
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("pause"):

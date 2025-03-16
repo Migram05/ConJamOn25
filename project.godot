@@ -40,6 +40,13 @@ GameManager="*res://Scripts/GameManager.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
 ScoreRegister="*res://score_register.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/borderless=true
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/fmod/plugin.cfg")

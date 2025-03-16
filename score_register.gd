@@ -1,5 +1,7 @@
 extends Node
 
+var song_title : String
+
 var total_notes : int
 
 var missed_notes : int
