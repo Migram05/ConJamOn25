@@ -60,7 +60,7 @@ scale_max = 0.3
 scale_curve = SubResource("CurveTexture_anhue")
 color_ramp = SubResource("GradientTexture1D_pct2r")
 
-[node name="Nota" type="Area2D"]
+[node name="Nota" type="Area2D" node_paths=PackedStringArray("miss_note_sound")]
 collision_mask = 6
 script = ExtResource("1_yjfqu")
 distanceLabels = Array[float]([2000.0, 50.0, 10.0])
@@ -70,6 +70,7 @@ floatingText = SubResource("PackedScene_4vjvx")
 perfect_particles = ExtResource("7_4vjvx")
 note_fade_out_time = 0.15
 note_sprites = Array[Texture2D]([ExtResource("9_rl3d7"), ExtResource("11_lqxih"), ExtResource("10_vl5vn"), ExtResource("8_fgnlf")])
+miss_note_sound = NodePath("FmodEventEmitter2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.82, 2.82)
@@ -87,5 +88,9 @@ lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_ud5gr")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/MissNote"
+event_guid = "{f667cc7e-345b-42d6-bb12-a9d89831cfe9}"
 
 [connection signal="note_clicked" from="." to="." method="_on_note_clicked"]

@@ -9,6 +9,7 @@ class_name NoteController
 @export var perfect_particles : PackedScene
 @export var note_fade_out_time : float = 0.2
 @export var note_sprites : Array[Texture2D]
+@export var miss_note_sound : FmodEventEmitter2D
 
 var rail : Rail
 var limit : Node2D
@@ -74,6 +75,8 @@ func delete_note(category : int):
 
 	var precision : NotePrecision = category
 	note_clicked.emit(precision)
+	if precision == NotePrecision.MISSED:
+		miss_note_sound.play()
 	 
 	$CollisionShape2D.set_deferred("disabled", true)
 	

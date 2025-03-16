@@ -5,7 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://d1237hldxu1jj" path="res://Assets/Sprites/spriteframes/gusano_1.tres" id="3_dspet"]
 [ext_resource type="SpriteFrames" uid="uid://djsqokgt7e0u3" path="res://Assets/Sprites/spriteframes/gusasno_2.tres" id="4_dspet"]
 [ext_resource type="Texture2D" uid="uid://d4fpcjn23m073" path="res://Assets/Sprites/enemies/Bolita.png" id="5_dspet"]
-[ext_resource type="PackedScene" uid="uid://bmwtbs4gchgl1" path="res://Scenes/Objects/CienpiesMuelto.tscn" id="5_llsua"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/CienpiesMuelto.tscn" id="5_llsua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2jmu"]
 radius = 79.0759

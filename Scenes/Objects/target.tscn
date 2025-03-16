@@ -387,6 +387,10 @@ script = SubResource("GDScript_3wso7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Behaviour/NoteDetector"]
 shape = SubResource("CircleShape2D_ul0ko")
 
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/SmashInsect"
+event_guid = "{a80a1525-d6b5-4161-a80c-d5041a65dee7}"
+
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AnimationNode/Area2D" to="." method="_on_area_2d_body_exited"]

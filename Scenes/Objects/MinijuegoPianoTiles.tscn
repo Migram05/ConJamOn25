@@ -30,3 +30,7 @@ button_position = 3
 
 [node name="ScoreSystem" parent="." instance=ExtResource("4_w5lp1")]
 position = Vector2(538, -43)
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/SmallEndTune"
+event_guid = "{532154df-33ae-45ab-8880-dea66a66058b}"

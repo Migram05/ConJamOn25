@@ -43,6 +43,7 @@ func _on_note_clicked(precision : NotePrecision):
 	current_notes -= 1
 	var level : GameLevel = owner
 	if notes_clicked >= level.timesNotes.size() - 1:
+		$FmodEventEmitter2D.play()
 		await get_tree().create_timer(3.5).timeout
 		SceneManager.loadScene(SceneManager._SCENES_.SCORE_SCENE)
 		GameManager._stop_song()

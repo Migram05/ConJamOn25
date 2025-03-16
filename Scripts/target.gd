@@ -82,6 +82,7 @@ func _click(perfect = false):
 	var inst : Node2D = moscaMuelta.instantiate();
 	get_parent().add_child(inst);
 	inst.global_position = self.global_position;
+	$FmodEventEmitter2D.play()
 	queue_free()
 
 func _on_tree_exiting() -> void:
