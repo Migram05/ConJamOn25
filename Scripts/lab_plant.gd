@@ -4,12 +4,12 @@ class_name LevelPlant
 var displayName : String:
 	set(new_text):
 		displayName = new_text
-		$Panel/Song/Button.text = new_text.to_upper()
+		$Panel/SongName.text = new_text.to_upper()
 		
 var lastScore : String:
 	set(new_text):
 		lastScore = new_text
-		$Panel/Song/Button/LastScoreLabel.text = "Last Score: " + new_text
+		$Panel/Score.text = new_text
 
 var song_file_path : String
 var enemies_file_path : String
@@ -32,7 +32,7 @@ func setScale(scale : float):
 func showPanel(show : bool):
 	$Panel/Historial.visible=show
 	$Panel/Banner.visible=show
-	$Panel/Song/Button.visible=show
+	$Panel/Song/PlaySong.visible=show
 	if show:
 		$Panel/AnimationPlayer.play("Grow")
 
@@ -88,7 +88,7 @@ func _on_button_pressed() -> void:
 
 func GoToHistorial() -> void:
 	GameManager._score_content = score_content
-	GameManager._current_level_name = $Panel/Song/Button.text
+	GameManager._current_level_name = $Panel/SongName.text
 	SceneManager.loadScene(SceneManager._SCENES_.SCORE_MENU);
 
 func GoToSelection() -> void:

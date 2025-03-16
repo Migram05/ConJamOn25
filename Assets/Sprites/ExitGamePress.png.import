@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b18h5wl6ir12k"
-path="res://.godot/imported/config.png-3ddcf970bdde650e273da87a6365003b.ctex"
+uid="uid://delo8nromh635"
+path="res://.godot/imported/ExitGamePress.png-6780e406edf841a8aae33aa08125dc54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/config.png"
-dest_files=["res://.godot/imported/config.png-3ddcf970bdde650e273da87a6365003b.ctex"]
+source_file="res://Assets/Sprites/ExitGamePress.png"
+dest_files=["res://.godot/imported/ExitGamePress.png-6780e406edf841a8aae33aa08125dc54.ctex"]
 
 [params]
 

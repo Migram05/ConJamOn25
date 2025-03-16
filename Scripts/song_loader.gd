@@ -127,7 +127,7 @@ func _add_song(song_name : String, song_path : String, enemies_file_path : Strin
 	else:
 		newPlant.score_file_content = content
 		var best_score_info : PackedStringArray = content.split("\n")[0].split(" ")
-		newPlant.last_score = "Mejor altura: " + best_score_info[1] + " (EQUIPO: " + best_score_info[0].to_upper() + ")"
+		newPlant.last_score = best_score_info[1] + " (EQUIPO: " + best_score_info[0].to_upper() + ")"
 	newPlant.song_path = song_path
 	newPlant.enemies_file_path = enemies_file_path
 	newPlant.notes_file_path = notes_path

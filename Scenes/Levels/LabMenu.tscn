@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c7l237d8v22af" path="res://Scenes/Objects/SongAsset.tscn" id="5_085gp"]
 [ext_resource type="AudioStream" uid="uid://bn2o2p8wjcccc" path="res://Songs/Megalovania/megalovania.mp3" id="6_gn372"]
 [ext_resource type="AudioStream" uid="uid://dhw6d3qkqm1vw" path="res://Songs/Monster2/Monster2.mp3" id="6_mtvoj"]
+[ext_resource type="Texture2D" uid="uid://cnt8ch5crkhk1" path="res://Assets/Sprites/Home.png" id="6_n02vy"]
+[ext_resource type="Texture2D" uid="uid://b1abwbt1y73p6" path="res://Assets/Sprites/HomePress.png" id="7_2f0t2"]
 [ext_resource type="Texture2D" uid="uid://br5ln7g8bl3hq" path="res://Songs/Monster2/caracolGalllegoSmall.png" id="7_mtvoj"]
+[ext_resource type="Texture2D" uid="uid://1a7drw54px3e" path="res://Assets/Sprites/HomeOver.png" id="8_20qkr"]
 [ext_resource type="Texture2D" uid="uid://1q0otn7s8m1m" path="res://Songs/Monster2/caracolGalllego.png" id="8_hbtht"]
 [ext_resource type="AudioStream" uid="uid://cape2tknhq54f" path="res://Songs/Monster/Monster.mp3" id="8_nsvov"]
 [ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/Megalovania/caracolCatalanSmall.png" id="9_kknh8"]
@@ -45,11 +48,16 @@ placeholderImage = ExtResource("4_7a7og")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = -567.0
-offset_top = -299.0
-offset_right = -499.0
-offset_bottom = -244.0
+[node name="Home" type="TextureButton" parent="."]
+offset_left = -565.0
+offset_top = -313.0
+offset_right = -490.0
+offset_bottom = -238.0
+texture_normal = ExtResource("6_n02vy")
+texture_pressed = ExtResource("7_2f0t2")
+texture_hover = ExtResource("8_20qkr")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="SongHolder" type="Node" parent="."]
 
@@ -139,6 +147,6 @@ texture_hover = ExtResource("18_3niem")
 ignore_texture_size = true
 stretch_mode = 4
 
-[connection signal="button_up" from="Button" to="." method="GoBackToMenu"]
+[connection signal="button_up" from="Home" to="." method="GoBackToMenu"]
 [connection signal="button_up" from="Left" to="SongLoader" method="MoveLeft"]
 [connection signal="button_up" from="Right" to="SongLoader" method="MoveRight"]
