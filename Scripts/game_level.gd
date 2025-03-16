@@ -1,6 +1,7 @@
 extends Node2D
+class_name GameLevel
 
-@onready var minijuego_piano_tiles: NoteSpawner = $MinijuegoPianoTiles
+@onready var minijuego_piano_tiles : NoteSpawner = $MinijuegoPianoTiles
 
 var timesNotes : Array[float]
 var index = 0
@@ -53,8 +54,7 @@ func _process_notes() -> void:
 		for i in numbers.size() - 1:
 			timesNotes.push_back(((float)(numbers[i].split("\t")[0])))
 		
-	
-	
+
 func _next_note(spawnDiff):
 	var chosen_rail = randi_range(0,minijuego_piano_tiles.maxIndex)
 	var note = minijuego_piano_tiles.spawnNote(chosen_rail, minijuego_piano_tiles.note_speed)

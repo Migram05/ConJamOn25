@@ -63,6 +63,7 @@ func onFlyDestroyed():
 		noteAttatched.fly_free();
 	if (attatchedToTree && plantNode != null):
 		plantNode.removeFly();
+	
 	return;
 
 func _exit_tree():

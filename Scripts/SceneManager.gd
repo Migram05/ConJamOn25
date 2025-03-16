@@ -6,7 +6,9 @@ var allScenes = [preload("res://Scenes/Menus/MainMenu.tscn"),
 				preload("res://Scenes/Menus/Score.tscn"),
 				preload("res://Scenes/Menus/SelectionScene.tscn"),
 				preload("res://Scenes/Levels/GameLevel.tscn"),
-				preload("res://Scenes/Menus/Pause.tscn")]
+				preload("res://Scenes/Menus/Pause.tscn"),
+				preload("res://Scenes/Objects/scoreboard.tscn")]
+				
 enum _SCENES_{
 	MAIN_MENU,
 	OPTIONS,

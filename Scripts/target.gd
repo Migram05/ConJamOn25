@@ -63,7 +63,6 @@ func pressed(distanceNormalized, cursor) -> bool:
 	_click()
 	return true
 
-
 func _on_timer_timeout() -> void:
 	match enemyState:
 		State.CLOSED:
@@ -83,14 +82,14 @@ func _on_timer_timeout() -> void:
 	
 func get_radius() -> float:
 	return collision_shape_2d.shape.get_rect().size.x
-	
+
 func reset():
 	timer.wait_time = timeClose
 	enemyState = Target.State.CLOSED
 	timer.start()
-	
+
 # Cosas especificas del target
 func _click():
 	score = score * distance
+	ScoreRegister.mosca_killed()
 	queue_free()
-	

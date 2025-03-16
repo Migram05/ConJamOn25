@@ -8,6 +8,15 @@ enum _TREE_TYPE_{
 	ARBUSTO,
 	ARBOL
 }
+
+var tree_type_by_height : Array[float] = [
+	0.0,
+	1.0,
+	5.0,
+	10.0,
+	15.0
+]
+
 var _treeType : _TREE_TYPE_ = _TREE_TYPE_.SEMILLA
 var _audioPlayer : AudioStreamPlayer2D
 var _volume : float = 100:

@@ -34,5 +34,3 @@ position = Vector2(542, -16)
 position = Vector2(300, 78)
 
 [node name="MinijuegoPianoTiles" parent="." instance=ExtResource("2_dy3oa")]
-position = Vector2(-399, -309)
-scale = Vector2(0.878865, 0.878865)
