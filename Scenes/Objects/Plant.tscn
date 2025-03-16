@@ -16,7 +16,7 @@ sprite = NodePath("Sprites")
 perfectGrowth = 10.0
 goodGrowth = 5.0
 badGrowth = 1.0
-maxPlantScroll = 5000.0
+maxPlantScroll = 25000.0
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -27,4 +27,4 @@ texture = ExtResource("1_apipn")
 script = ExtResource("3_gkspe")
 pot = NodePath("../Base")
 segments = Array[PackedScene]([ExtResource("4_1ge2o"), ExtResource("5_cuja4"), ExtResource("6_wa48y"), ExtResource("7_wragm"), ExtResource("8_b1xce"), ExtResource("9_vmini")])
-offset = 350.0
+offset = 200.0

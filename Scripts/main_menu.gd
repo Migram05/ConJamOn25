@@ -2,6 +2,9 @@ extends Node2D
 
 var pressed : bool = false
 
+@export var loadSound : FmodEventEmitter2D
+@export var finishLoadSound : FmodEventEmitter2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -25,6 +28,7 @@ func Exit() -> void:
 func HoverPlay() -> void:
 	if !pressed:
 		$AnimatedSprite2D.play("over")
+		loadSound.play()
 
 
 func LeftPlay() -> void:
@@ -35,6 +39,7 @@ func PlayUp() -> void:
 	$Timer.start()
 	
 func PlayPress() -> void:
+	finishLoadSound.play()
 	pressed = true
 	$Button2/Sprite2D.visible=false
 	$Button2/EmptyCircle.visible=false
