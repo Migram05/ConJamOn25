@@ -37,7 +37,10 @@ func set_speed(_speed : float):
 	speed = _speed
 
 func player_hits_key(otherNode : Node2D):
-	if otherNode.button_type != rail.button_position && !blocked_by_fly:
+	if otherNode.button_type != rail.button_position:
+		return
+	
+	if blocked_by_fly:
 		return
 	
 	var diff : Vector2 = otherNode.global_position - global_position
@@ -86,6 +89,7 @@ func fade_out(time_to_live):
 
 func fly_block():
 	blocked_by_fly = true
+	print(self.get_rid())
 
 func fly_free():
 	blocked_by_fly = false

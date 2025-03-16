@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dl8rdqabkv7s3"]
+[gd_scene load_steps=30 format=3 uid="uid://dl8rdqabkv7s3"]
 
 [ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
 [ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
@@ -28,9 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="16_bu36j"]
 [ext_resource type="Texture2D" uid="uid://c1vnw456syyic" path="res://Songs/Rixieiras/caracolGalllego.png" id="16_l5i8c"]
 [ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="17_n3acr"]
-[ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/El noi/caracolCatalanSmall.png" id="17_vgm0q"]
 [ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="18_3niem"]
-[ext_resource type="Texture2D" uid="uid://c6qrc2w4c60g" path="res://Songs/El noi/caracolCatalan.png" id="18_lc0nh"]
 
 [node name="LabMenu" type="Node2D"]
 script = ExtResource("1_is7h6")
@@ -90,8 +88,8 @@ score_file = "res://Songs/Zorzico/score.txt"
 
 [node name="El noi" parent="SongHolder" instance=ExtResource("5_085gp")]
 song_file = ExtResource("16_76b3g")
-icon_image_file = ExtResource("17_vgm0q")
-narrator_image_file = ExtResource("18_lc0nh")
+icon_image_file = ExtResource("9_kknh8")
+narrator_image_file = ExtResource("11_25ioh")
 enemies_file = "res://Songs/El noi/enemies.txt"
 notes_file = "res://Songs/El noi/notes.txt"
 speech_file = "res://Songs/El noi/speech.txt"

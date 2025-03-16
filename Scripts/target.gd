@@ -28,13 +28,11 @@ func _ready() -> void:
 	timer.start()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Enter")
 	var cursor : GameCursor = body
 	cursor.insert_element($".")
 	cursorOn = true
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("Exit")
 	var cursor : GameCursor = body
 	cursor.remove_element($".")
 	cursorOn = false
@@ -43,19 +41,15 @@ func pressed(distanceNormalized, cursor) -> bool:
 	gameCursor = cursor
 	match enemyState:
 		State.CLOSED:
-			print("Closed")
 			return false
 		State.OPENING:
 			score = (timeToOpen - timer.time_left) *  scoreMultiplier
-			print("Opening")
 			
 		State.OPEN:
 			score = timeOpen *  scoreMultiplier
-			print("Open")
 			
 		State.CLOSING:
 			score = timer.time_left *  scoreMultiplier
-			print("Closing")
 			
 	print("Score: " + str(score))
 	distance = distanceNormalized

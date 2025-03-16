@@ -12,7 +12,6 @@ var wandering := true;
 @export var animation : AnimatedSprite2D;
 @export var flyAttackAnimation : String;
 
-
 @onready var plantNode = owner.get_parent().get_node("Plant");
 
 var timeWandering := 0.0;
@@ -20,7 +19,7 @@ var timeWandering := 0.0;
 var noteColliding := false;
 var rng = RandomNumberGenerator.new();
 
-var noteAttatched : Area2D = null;
+var noteAttatched : NoteController = null;
 var attatchedToTree := false;
 
 func _ready():
@@ -30,7 +29,6 @@ func _ready():
 
 func transition_to_tree() -> bool:
 	return timeWandering >= timeToAttatchToTree;
-
 
 func _process(delta):
 	timeWandering += delta;
@@ -48,11 +46,11 @@ func _process(delta):
 func onNoteCollision(note):
 	if (wandering && rng.randf_range(0.0, 1.0) < attachToNoteProbability):
 		wandering = false;
+		owner.get_parent().remove_child(owner);
 		wander.stop();
 		noteColliding = true;
 		note.fly_block();
 		noteAttatched = note;
-		owner.get_parent().remove_child(owner);
 		owner.scale = owner.scale / noteAttatched.global_scale;
 		noteAttatched.add_child(owner);
 		owner.position = Vector2.ZERO;
