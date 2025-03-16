@@ -15,6 +15,7 @@ var distance = 0
 var cursorOn = false
 @export var scoreMultiplier = 1.0
 @onready var collision_shape_2d: CollisionShape2D = $AnimationNode/Area2D/CollisionShape2D
+const SMACK = preload("res://Scenes/Objects/smack.tscn")
 
 func _ready() -> void:
 	pass
@@ -35,6 +36,7 @@ func changeState(state):
 	
 func pressed(distanceNormalized, cursor) -> bool:
 	gameCursor = cursor
+	var perfect = false
 	match enemyState:
 		State.CLOSED:
 			return false
@@ -44,13 +46,16 @@ func pressed(distanceNormalized, cursor) -> bool:
 		State.OPEN:
 			#score = timeOpen *  scoreMultiplier
 			print("Open")
+			perfect = true
 		State.CLOSING:
 			#score = timer.time_left *  scoreMultiplier
 			print("Closing")
+	
+	
 
 	#print("Score: " + str(score))
 	distance = distanceNormalized
-	_click()
+	_click(perfect)
 	return true
 
 func get_radius() -> float:
@@ -65,8 +70,13 @@ func reset():
 @export var moscaMuelta : PackedScene;
 
 # Cosas especificas del target
-func _click():
+func _click(perfect = false):
 	score = score * distance
+	var smack : Smack = SMACK.instantiate()
+	$"../".add_child(smack)
+	smack.global_position = global_position
+	if perfect:
+		smack.setPerfect()
 	ScoreRegister.mosca_killed()
 	var inst : Node2D = moscaMuelta.instantiate();
 	get_parent().add_child(inst);

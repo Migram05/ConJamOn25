@@ -27,9 +27,6 @@ func _process(delta: float) -> void:
 	if not pause:
 		spawn_timer += delta
 		if spawn_timer < spawn_max_timer:
-			print("AAA")
-			print(current_enemies)
-			print(minijuego_piano_tiles.current_notes / RELATION_BETWEEN_NOTES_AND_ENEMIES)
 			if current_enemies < minijuego_piano_tiles.current_notes / RELATION_BETWEEN_NOTES_AND_ENEMIES:
 				spawnNormalEnemy(spawn_timer)
 			spawn_timer = spawn_timer - spawn_max_timer
