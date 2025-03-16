@@ -10,6 +10,8 @@ var ciempieses_killed : int
 
 var height : float
 
+var team_name : String
+
 func clicked_note(precision : NoteSpawner.NotePrecision):
 	print("received")
 	match(precision):

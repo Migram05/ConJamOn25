@@ -19,7 +19,7 @@
 [ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="9_hp617"]
 [ext_resource type="Texture2D" uid="uid://djyt2xkpk5p2y" path="res://Assets/Sprites/enemies/gusanoSpriteSheet.png" id="12_re3hr"]
 
-[node name="Scoreboard" type="Node2D" node_paths=PackedStringArray("missed_text", "meh_text", "good_text", "perfect_text", "moscas_text", "ciempieses_text", "categoria", "plant")]
+[node name="Scoreboard" type="Node2D" node_paths=PackedStringArray("missed_text", "meh_text", "good_text", "perfect_text", "moscas_text", "ciempieses_text", "categoria", "plant", "team_name_input")]
 script = ExtResource("1_ng0ti")
 missed_text = NodePath("ScoreBoard/Notes/Missed/Label")
 meh_text = NodePath("ScoreBoard/Notes/Meh/Label")
@@ -29,6 +29,7 @@ moscas_text = NodePath("ScoreBoard/Enemies/Panel_Mosca/NumKilledMoscas")
 ciempieses_text = NodePath("ScoreBoard/Enemies/Panel_Ciempies/NumKilledCiempies")
 categoria = NodePath("Arbol/Label")
 plant = NodePath("Arbol")
+team_name_input = NodePath("Arbol/LineEdit")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(522.69, 336.759)
@@ -269,4 +270,5 @@ points = PackedVector2Array(1.63098, 0, 355.56, 0)
 width = 6.425
 default_color = Color(0.632387, 0.936745, 0.991177, 0.498)
 
+[connection signal="text_changed" from="Arbol/LineEdit" to="." method="WriteTeamName"]
 [connection signal="button_up" from="Button" to="." method="BackToLabMenu"]

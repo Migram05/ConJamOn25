@@ -48,7 +48,7 @@ func _on_note_clicked(precision : NotePrecision):
 	ScoreRegister.clicked_note(precision)
 	notes_clicked += 1
 	var level : GameLevel = owner
-	if notes_clicked >= 1:
+	if notes_clicked >= level.timesNotes.size() - 1:
 		await get_tree().create_timer(1.0).timeout
 		SceneManager.loadScene(SceneManager._SCENES_.SCORE_SCENE)
 		GameManager._stop_song()

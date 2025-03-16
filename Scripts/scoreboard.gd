@@ -39,3 +39,10 @@ func round_to_dec(num, digit):
 
 func BackToLabMenu():
 	SceneManager.loadScene(SceneManager._SCENES_.LAB_MENU)
+	if team_name_input.text == "":
+		ScoreRegister.team_name = "SIN NOMBRE ;("
+		
+	print(ScoreRegister.team_name)
+
+func WriteTeamName(new_text : String):
+	ScoreRegister.team_name = new_text
