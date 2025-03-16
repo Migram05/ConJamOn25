@@ -23,10 +23,12 @@ texture = ExtResource("2_htr12")
 [node name="FmodListener3D" type="FmodListener3D" parent="Camera2D"]
 
 [node name="SmashEvent" type="FmodEventEmitter2D" parent="Camera2D"]
+event_name = "event:/Smash"
 event_guid = "{811169f2-e8dc-44c9-ba96-7c97a0773352}"
 attached = false
 
 [node name="SmashFlyEvent" type="FmodEventEmitter2D" parent="Camera2D"]
+event_name = "event:/SmashInsect"
 event_guid = "{a80a1525-d6b5-4161-a80c-d5041a65dee7}"
 
 [node name="Plant" parent="." instance=ExtResource("3_17xrb")]
@@ -42,8 +44,9 @@ smashFlySound = NodePath("../Camera2D/SmashFlyEvent")
 position = Vector2(-636, -511)
 scale = Vector2(1.43553, 1.43553)
 
-[node name="BugGenerator" type="Node2D" parent="."]
+[node name="BugGenerator" type="Node2D" parent="." node_paths=PackedStringArray("plantNode")]
 script = ExtResource("7_2ao20")
+plantNode = NodePath("../Plant")
 
 [node name="MinSpawnDistance" type="Node2D" parent="BugGenerator"]
 position = Vector2(316, -542)

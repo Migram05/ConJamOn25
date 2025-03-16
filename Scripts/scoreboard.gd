@@ -22,16 +22,18 @@ func _ready() -> void:
 	ciempieses_text.text = str(ScoreRegister.ciempieses_killed)
 	
 	var index = 0
+	var ola = 0
 	for i in GameManager._TREE_TYPE_:
 		var height = GameManager.tree_type_by_height[index]
 		var points = height * ScoreRegister.total_notes
 		if points <= ScoreRegister.height:
 			tree_type = i
+			ola = index
 			index += 1
 		else: 
 			break
 	
-	index = clamp(index, 0, plant.textures.size() - 1)
+	index = clamp(ola, 0, plant.textures.size() - 1)
 	
 	var height_rounded : float = round_to_dec(ScoreRegister.height, 2)
 	categoria.text = tree_type + "\n" +  str(height_rounded) + " M"

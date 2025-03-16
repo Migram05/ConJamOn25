@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 				get_parent().add_child(inst);
 				inst.global_position = self.global_position;
 				queue_free()
+				ScoreRegister.ciempies_killed()
 				return
 			var d = gameCursor.check_distance($".")
 			if d < errorDistance:
