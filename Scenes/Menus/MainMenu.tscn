@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cawequgkyd2oo" path="res://Scripts/main_menu.gd" id="1_hqtmt"]
 [ext_resource type="Texture2D" uid="uid://de8tq23cwbp8w" path="res://Assets/Sprites/Menu.png" id="2_mb40c"]
-[ext_resource type="Texture2D" uid="uid://b18h5wl6ir12k" path="res://Assets/Sprites/config.png" id="6_7r21k"]
+[ext_resource type="Texture2D" uid="uid://cu0mdosofm7ug" path="res://Assets/Sprites/config.png" id="6_7r21k"]
 [ext_resource type="Texture2D" uid="uid://dil73am6j0jc5" path="res://Assets/Sprites/ExitGame.png" id="6_k6aqs"]
 [ext_resource type="Texture2D" uid="uid://c8oykpxh4mwwt" path="res://Assets/Sprites/ConfigClick.png" id="7_c638u"]
 [ext_resource type="Texture2D" uid="uid://wxofucvkh537" path="res://Assets/Sprites/ExitGameOver.png" id="7_fsbok"]
@@ -1394,6 +1394,9 @@ animations = [{
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hqtmt")
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Fmod/ComJamOn25/Banks/Desktop/Master.strings.bank", "res://Fmod/ComJamOn25/Banks/Desktop/Master.bank"]
 
 [node name="BackGround" type="Sprite2D" parent="."]
 position = Vector2(-1.77777, -1)

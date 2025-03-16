@@ -5,10 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://biscmtw7wtqdm" path="res://Assets/Sprites/Fondo.png" id="2_htr12"]
 [ext_resource type="PackedScene" uid="uid://njqeha6xttwb" path="res://Scenes/Objects/Plant.tscn" id="3_17xrb"]
 [ext_resource type="PackedScene" uid="uid://6t1b00ii5wpw" path="res://Scenes/Objects/cursor.tscn" id="5_r4v18"]
-[ext_resource type="Script" uid="uid://gal5la6th8on" path="res://Scripts/bug_generator.gd" id="7_2ao20"]
+[ext_resource type="Script" path="res://Scripts/bug_generator.gd" id="7_2ao20"]
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_ep2aj")
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Fmod/ComJamOn25/Banks/Desktop/Master.strings.bank", "res://Fmod/ComJamOn25/Banks/Desktop/Master.bank"]
 
 [node name="BackGround" type="Sprite2D" parent="."]
 z_index = -3
