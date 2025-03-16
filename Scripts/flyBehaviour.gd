@@ -47,7 +47,7 @@ func _process(delta):
 	return;
 
 func onNoteCollision(note):
-	if (wandering && rng.randf_range(0.0, 1.0) < attachToNoteProbability):
+	if (wandering && note is NoteController && rng.randf_range(0.0, 1.0) < attachToNoteProbability):
 		wandering = false;
 		owner.get_parent().remove_child(owner);
 		wander.stop();
