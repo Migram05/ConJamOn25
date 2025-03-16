@@ -36,6 +36,7 @@ func _process(delta):
 			wandering = false;
 			wander.stop();
 			attatchedToTree = true;
+			noteDetector.queue_free();
 			if (plantNode != null):
 				plantNode.addFly();
 			var current_frame = animation.frame
