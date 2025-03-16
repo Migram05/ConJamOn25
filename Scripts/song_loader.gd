@@ -127,7 +127,10 @@ func _add_song(song_name : String, song_path : String, enemies_file_path : Strin
 		newPlant.last_score = defaultTextForFirstTime
 	else:
 		var best_score_info : PackedStringArray = content.split("\n")[0].split(" ")
-		newPlant.last_score = best_score_info[1] + " (EQUIPO: " + best_score_info[0].to_upper() + ")"
+		if !best_score_info.is_empty():
+			newPlant.last_score = best_score_info[1] + " (EQUIPO: " + best_score_info[0].to_upper() + ")"
+		else:
+			newPlant.last_score = defaultTextForFirstTime
 	newPlant.score_file_path = score_file_path
 	newPlant.song_path = song_path
 	newPlant.enemies_file_path = enemies_file_path

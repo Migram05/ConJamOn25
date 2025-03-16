@@ -172,20 +172,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Node2D"]
-offset_left = -411.0
-offset_top = -214.0
-offset_right = 431.0
-offset_bottom = -91.0
+offset_left = -420.466
+offset_top = -219.179
+offset_right = 421.534
+offset_bottom = -147.179
 theme_override_fonts/font = ExtResource("4_4gnm1")
 theme_override_font_sizes/font_size = 50
 text = "Mejores puntuaciones"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Node2D"]
+offset_left = -532.292
+offset_top = -131.955
+offset_right = 534.708
+offset_bottom = -62.9547
+theme_override_fonts/font = ExtResource("4_4gnm1")
+theme_override_font_sizes/font_size = 25
+text = "EQUIPO    MOSCAS    CIEMPIÉS   PERFECT   GOOD   MEH   FALLOS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Node2D"]
-offset_left = -498.0
-offset_top = -97.0
-offset_right = 288.0
-offset_bottom = 211.0
+offset_left = -492.035
+offset_top = -60.3861
+offset_right = 293.965
+offset_bottom = 247.614
 scale = Vector2(1.27027, 1.41797)
 theme_override_fonts/font = ExtResource("4_4gnm1")
 horizontal_alignment = 1

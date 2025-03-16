@@ -51,7 +51,21 @@ func BackToLabMenu():
 func SaveScore():
 	var score_file = FileAccess.open(GameManager._score_file_path, FileAccess.READ)
 	var content : String = score_file.get_as_text()
-	content += ScoreRegister.team_name + " " + str(str(round_to_dec(ScoreRegister.height, 2))) + " " + str(ScoreRegister.moscas_killed) + " " + str(ScoreRegister.ciempieses_killed) + " " + str(ScoreRegister.perfect_notes) + " " + str(ScoreRegister.good_notes) + " " + str(ScoreRegister.meh_notes) + " " + str(ScoreRegister.missed_notes) + "\n"
+	var content_split : PackedStringArray = content.split("\n")
+	var result : String = ""
+	var num : int = 0
+	var i : int = 0
+	var new_score_registered : bool = false
+	while num < 3:
+		var height = float(content_split[i].split(" ")[1])
+		if (new_score_registered or height >= ScoreRegister.height):
+			result += content_split[i]
+			num += 1
+			i += 1
+		else:
+			result += ScoreRegister.team_name + " " + str(str(round_to_dec(ScoreRegister.height, 2))) + " " + str(ScoreRegister.moscas_killed) + " " + str(ScoreRegister.ciempieses_killed) + " " + str(ScoreRegister.perfect_notes) + " " + str(ScoreRegister.good_notes) + " " + str(ScoreRegister.meh_notes) + " " + str(ScoreRegister.missed_notes) + "\n" 
+			num += 1
+			new_score_registered = true
 	var file = FileAccess.open(GameManager._score_file_path, FileAccess.WRITE)
 	file.store_string(content)
 
