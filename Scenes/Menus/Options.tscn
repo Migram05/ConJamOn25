@@ -708,10 +708,10 @@ texture = ExtResource("2_kdaex")
 
 [node name="Title" type="Label" parent="."]
 z_index = 200
-offset_left = -509.0
-offset_top = -357.0
-offset_right = 513.0
-offset_bottom = 18.0
+offset_left = -516.0
+offset_top = -470.0
+offset_right = 506.0
+offset_bottom = -95.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 195
 text = "OPCIONES"
@@ -735,32 +735,32 @@ stretch_mode = 4
 self_modulate = Color(0.996611, 0.966871, 0.968126, 1)
 z_index = 200
 offset_left = -277.0
-offset_top = 40.0
+offset_top = 145.0
 offset_right = 101.0
-offset_bottom = 340.0
+offset_bottom = 445.0
 scale = Vector2(1.5, 1.24)
 value = 100.0
 
 [node name="VolumeText" type="Label" parent="Volume"]
 z_index = 200
-offset_left = 33.0
-offset_top = 143.0
-offset_right = 227.0
-offset_bottom = 224.0
+offset_left = 90.0
+offset_top = 174.0
+offset_right = 284.0
+offset_bottom = 353.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 126
-text = "0"
+theme_override_font_sizes/font_size = 90
+text = "100"
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Volume"]
 self_modulate = Color(0.309804, 0.294118, 0.458824, 1)
 z_index = 200
-offset_left = -191.0
-offset_top = 138.0
-offset_right = 74.0
-offset_bottom = 279.0
+offset_left = -345.0
+offset_top = 146.0
+offset_right = 162.0
+offset_bottom = 507.0
 theme_override_fonts/font = ExtResource("3_ew2o0")
-theme_override_font_sizes/font_size = 126
+theme_override_font_sizes/font_size = 90
 text = "Volumen:
 "
 horizontal_alignment = 1
@@ -770,10 +770,10 @@ vertical_alignment = 1
 
 [node name="FullScreenText" type="Label" parent="FullScreen"]
 z_index = 200
-offset_left = 248.0
-offset_top = 193.0
-offset_right = 448.0
-offset_bottom = 312.0
+offset_left = 345.0
+offset_top = 218.0
+offset_right = 910.0
+offset_bottom = 561.0
 scale = Vector2(0.56, 0.56)
 theme_override_fonts/font = ExtResource("3_ew2o0")
 theme_override_font_sizes/font_size = 120
@@ -784,10 +784,10 @@ vertical_alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="FullScreen"]
 z_index = 200
-offset_left = 206.0
-offset_top = 190.0
-offset_right = 230.0
-offset_bottom = 216.0
+offset_left = 302.0
+offset_top = 252.0
+offset_right = 326.0
+offset_bottom = 278.0
 scale = Vector2(1.6, 1.6)
 button_pressed = true
 icon = SubResource("PortableCompressedTexture2D_kdaex")
@@ -797,8 +797,8 @@ icon_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 200
-position = Vector2(-4, -8)
-scale = Vector2(0.61, 0.61)
+position = Vector2(-3, -38)
+scale = Vector2(0.828328, 0.828328)
 sprite_frames = SubResource("SpriteFrames_4ut68")
 autoplay = "default"
 frame_progress = 0.722149

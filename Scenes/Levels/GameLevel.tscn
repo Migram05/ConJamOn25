@@ -21,9 +21,6 @@ texture = ExtResource("2_htr12")
 z_index = -3
 position = Vector2(-31, -139)
 scale = Vector2(1.26443, 1.26443)
-perfectGrowth = 10.0
-goodGrowth = 5.0
-badGrowth = 1.0
 upSpeed = 0.02
 maxPlantScroll = 500.0
 
@@ -31,8 +28,8 @@ maxPlantScroll = 500.0
 position = Vector2(300, 78)
 
 [node name="MinijuegoPianoTiles" parent="." instance=ExtResource("2_dy3oa")]
-position = Vector2(-685, -565)
-scale = Vector2(1.51762, 1.51762)
+position = Vector2(-636, -511)
+scale = Vector2(1.43553, 1.43553)
 
 [node name="BugGenerator" type="Node2D" parent="."]
 script = ExtResource("7_2ao20")

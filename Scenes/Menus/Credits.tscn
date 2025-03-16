@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b830qyyj3ewin"]
 
 [ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="1_h41mv"]
-[ext_resource type="Script" uid="uid://b65iwsttyfe7c" path="res://Scripts/credits.gd" id="1_tqkf6"]
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_tqkf6"]
 [ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="3_a2kxq"]
 [ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="4_u4td2"]
 [ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="5_po7rp"]
@@ -18,7 +18,6 @@
 script = ExtResource("1_tqkf6")
 
 [node name="BackGround" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.602)
 texture = ExtResource("1_h41mv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -36,10 +35,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Back" type="TextureButton" parent="."]
-offset_left = -573.0
-offset_top = -303.0
-offset_right = -419.0
-offset_bottom = -225.0
+offset_left = -940.0
+offset_top = -525.0
+offset_right = -640.0
+offset_bottom = -343.0
 texture_normal = ExtResource("4_u4td2")
 texture_pressed = ExtResource("5_po7rp")
 texture_hover = ExtResource("6_048fk")
@@ -47,36 +46,31 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Clau" type="Sprite2D" parent="."]
-position = Vector2(-459, 173)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-723, 347)
 texture = ExtResource("7_048fk")
 
 [node name="Eva" type="Sprite2D" parent="."]
-position = Vector2(-228, 170)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-742, 123)
 texture = ExtResource("8_0nowv")
 
 [node name="Raul" type="Sprite2D" parent="."]
-position = Vector2(1, 164)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-414, 329)
 texture = ExtResource("9_wub2n")
 
 [node name="Roi" type="Sprite2D" parent="."]
-position = Vector2(212, 163)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-83, 335)
 texture = ExtResource("10_grj66")
 
 [node name="Diego" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+position = Vector2(215, 330)
 texture = ExtResource("11_wub2n")
 
 [node name="Miguel" type="Sprite2D" parent="."]
-position = Vector2(-353, -18)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-426, 98)
 texture = ExtResource("12_grj66")
 
 [node name="David" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+position = Vector2(-87, 104)
 texture = ExtResource("13_grj66")
 
 [connection signal="button_up" from="Back" to="." method="GoBack"]

@@ -13,7 +13,6 @@ class_name ScoreBoard
 
 var tree_type : String = "SEMILLA"
 
-
 func _ready() -> void:
 	missed_text.text = str(ScoreRegister.missed_notes)
 	meh_text.text = str(ScoreRegister.meh_notes)
@@ -22,11 +21,11 @@ func _ready() -> void:
 	moscas_text.text = str(ScoreRegister.moscas_killed)
 	ciempieses_text.text = str(ScoreRegister.ciempieses_killed)
 	
-	
 	var index = 0
 	for i in GameManager._TREE_TYPE_:
 		var height = GameManager.tree_type_by_height[index]
-		if height * ScoreRegister.total_notes <= ScoreRegister.height:
+		var points = height * ScoreRegister.total_notes
+		if points <= ScoreRegister.height:
 			tree_type = i
 			index += 1
 		else: 

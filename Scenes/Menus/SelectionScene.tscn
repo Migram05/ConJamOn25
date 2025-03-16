@@ -149,15 +149,15 @@ stretch_mode = 4
 
 [node name="DialogBox" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.784314)
-position = Vector2(0, 198.5)
-scale = Vector2(2.25139, 1.31373)
+position = Vector2(0, 348.5)
+scale = Vector2(4.07161, 2.37586)
 texture = ExtResource("4_2yxjr")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -399.0
-offset_top = 102.0
-offset_right = 399.0
-offset_bottom = 292.0
+offset_left = -719.0
+offset_top = 184.0
+offset_right = 719.0
+offset_bottom = 510.0
 theme_override_fonts/font = ExtResource("4_apbd8")
 theme_override_font_sizes/font_size = 80
 autowrap_mode = 2
@@ -199,18 +199,16 @@ offset_right = 457.0
 offset_bottom = 80.0
 
 [node name="Facundo" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(483, 236)
+position = Vector2(849.381, 437)
 scale = Vector2(0.797904, 0.797904)
 texture = ExtResource("12_wnm5w")
 
 [node name="Label2" type="Label" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
-offset_left = 401.0
-offset_top = 99.0
-offset_right = 587.0
-offset_bottom = 160.0
+offset_left = 767.381
+offset_top = 300.0
+offset_right = 953.381
+offset_bottom = 361.0
 theme_override_fonts/font = ExtResource("13_7csb5")
 theme_override_font_sizes/font_size = 20
 text = "Púlsame si quieres 
@@ -219,10 +217,10 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(0, 0, 0, 0)
-offset_left = 409.0
-offset_top = 169.0
-offset_right = 565.0
-offset_bottom = 301.0
+offset_left = 775.381
+offset_top = 370.0
+offset_right = 931.381
+offset_bottom = 502.0
 
 [connection signal="button_up" from="Back" to="." method="GoBack"]
 [connection signal="timeout" from="Timer" to="." method="Play"]

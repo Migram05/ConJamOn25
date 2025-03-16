@@ -1517,10 +1517,10 @@ texture = ExtResource("2_mb40c")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Options" type="TextureButton" parent="."]
-offset_left = 477.0
-offset_top = -317.0
-offset_right = 575.0
-offset_bottom = -219.0
+offset_left = 757.0
+offset_top = -535.0
+offset_right = 938.0
+offset_bottom = -354.0
 texture_normal = ExtResource("6_7r21k")
 texture_pressed = ExtResource("7_c638u")
 texture_hover = ExtResource("8_5re3m")
@@ -1840,13 +1840,13 @@ position = Vector2(110, 287)
 
 [node name="Button" type="Button" parent="Credits"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -47.0
-offset_top = -49.625
-offset_right = 57.0
-offset_bottom = 30.375
+offset_left = 66.0
+offset_top = 98.0
+offset_right = 170.0
+offset_bottom = 178.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Credits"]
-position = Vector2(5, -14.2616)
+position = Vector2(115, 161)
 scale = Vector2(-0.514, 0.53)
 texture = ExtResource("28_k6aqs")
 
@@ -1858,10 +1858,10 @@ autoplay = "credits"
 
 [node name="Label" type="Label" parent="Credits"]
 self_modulate = Color(0, 0, 0, 1)
-offset_left = -36.0
-offset_top = -79.0
-offset_right = 58.0
-offset_bottom = -50.0
+offset_left = 70.0
+offset_top = 95.0
+offset_right = 166.0
+offset_bottom = 124.0
 theme_override_fonts/font = ExtResource("29_mcpy8")
 theme_override_font_sizes/font_size = 20
 text = "Púlsame ;)"
