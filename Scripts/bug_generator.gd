@@ -28,11 +28,24 @@ func _process(delta: float) -> void:
 		spawn_timer += delta
 		if spawn_timer < spawn_max_timer:
 			if current_enemies < minijuego_piano_tiles.current_notes / RELATION_BETWEEN_NOTES_AND_ENEMIES:
-				spawnNormalEnemy(spawn_timer)
+				spawnNormalEnemy()
 			spawn_timer = spawn_timer - spawn_max_timer
 		
 	
-func spawnNormalEnemy(timeOffset):
+func spawnNormalEnemy():
+	var enemy = TARGET.instantiate()
+	current_enemies += 1
+	add_child(enemy)
+	if rng.randi_range(0, 1) == 1:
+		enemy.global_position.x = randf_range(min_spawn_distance.global_position.x, max_spawn_distance.global_position.x)
+		enemy.global_position.y = randf_range(min_spawn_distance.global_position.y, max_spawn_distance.global_position.y)
+	else:
+		enemy.global_position.x = randf_range(-min_spawn_distance.global_position.x, -max_spawn_distance.global_position.x)
+		enemy.global_position.y = randf_range(-min_spawn_distance.global_position.y, -max_spawn_distance.global_position.y)
+	var sprite : AnimatedSprite2D = enemy.get_node("AnimationNode/AnimatedSprite2D")
+	sprite.speed_scale = currentBeat / COMMON_BEAT
+	
+func spawnSpecialEnemy():
 	var enemy = TARGET.instantiate()
 	current_enemies += 1
 	add_child(enemy)
