@@ -29,6 +29,7 @@ maxPlantScroll = 500.0
 
 [node name="Target" parent="." instance=ExtResource("4_0eh1h")]
 position = Vector2(542, -16)
+moscaMuelta = null
 
 [node name="Cursor" parent="." instance=ExtResource("5_r4v18")]
 position = Vector2(300, 78)

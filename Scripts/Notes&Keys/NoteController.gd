@@ -8,6 +8,7 @@ class_name NoteController
 @export var floatingText : PackedScene
 @export var perfect_particles : PackedScene
 @export var note_fade_out_time : float = 0.2
+@export var note_sprites : Array[Texture2D]
 
 var rail : Rail
 var limit : Node2D
@@ -32,6 +33,7 @@ func set_limits(limits : Node2D):
 	
 func set_rail(_rail : Rail):
 	rail = _rail
+	$Sprite2D.texture = note_sprites[rail.button_position]
 
 func set_speed(_speed : float):
 	speed = _speed

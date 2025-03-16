@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1boynfd48uqr"]
 
 [ext_resource type="Texture2D" uid="uid://ctpwmb16nl8jt" path="res://Assets/Sprites/squishedSpriteSheet.png" id="1_nhgjs"]
-[ext_resource type="Script" uid="uid://cq3nsc73j5x3s" path="res://Scripts/moscaMuelta.gd" id="2_ja7gc"]
+[ext_resource type="Script" path="res://Scripts/moscaMuelta.gd" id="2_ja7gc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ja7gc"]
 atlas = ExtResource("1_nhgjs")
