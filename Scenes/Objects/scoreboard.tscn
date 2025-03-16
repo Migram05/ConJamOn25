@@ -1,0 +1,272 @@
+[gd_scene load_steps=19 format=3 uid="uid://dq5j3pfp1lb76"]
+
+[ext_resource type="Texture2D" uid="uid://ctyj66tlojkni" path="res://Assets/Sprites/scoreboard/solidPanel.png" id="1_26kal"]
+[ext_resource type="Texture2D" uid="uid://bfqh7rdtfh5tr" path="res://Assets/Sprites/note_feedback/results_bg.png" id="1_k06fr"]
+[ext_resource type="Script" uid="uid://d2mxelbr4u3bc" path="res://Scripts/scoreboard.gd" id="1_ng0ti"]
+[ext_resource type="Script" uid="uid://go2sne2hxu3v" path="res://Scripts/plant_scoreboard.gd" id="1_sp15s"]
+[ext_resource type="Texture2D" uid="uid://c3ph3ufmjamf3" path="res://Assets/Sprites/scoreboard/plant_0.png" id="2_6xd7b"]
+[ext_resource type="FontFile" uid="uid://ptfxu2lfjvg7" path="res://Assets/Fonts/Grinched 2.0 DEMO.otf" id="2_26kal"]
+[ext_resource type="Texture2D" uid="uid://dik1rfoa4l72q" path="res://Assets/Sprites/note_feedback/panel_fade.png" id="2_q1gqq"]
+[ext_resource type="Texture2D" uid="uid://c6jxy6tje6d5a" path="res://Assets/Sprites/scoreboard/plant_1.png" id="3_6qsxc"]
+[ext_resource type="Texture2D" uid="uid://dblaxo2sw3nu" path="res://Assets/Sprites/scoreboard/mosquita_apagada.png" id="3_dm2bc"]
+[ext_resource type="Texture2D" uid="uid://5kp8byxjntx8" path="res://Assets/Sprites/note_feedback/perfect_nosparks.png" id="3_ms1t7"]
+[ext_resource type="Texture2D" uid="uid://cns10dyp1l1do" path="res://Assets/Sprites/note_feedback/missed.png" id="4_dm2bc"]
+[ext_resource type="Texture2D" uid="uid://cplpbdqswxw42" path="res://Assets/Sprites/scoreboard/plant_2.png" id="4_re3hr"]
+[ext_resource type="Texture2D" uid="uid://biygksmjyy82a" path="res://Assets/Sprites/scoreboard/plant_3.png" id="5_ng0ti"]
+[ext_resource type="Texture2D" uid="uid://fxyt4hcoxwe" path="res://Assets/Sprites/note_feedback/bad.png" id="5_sp15s"]
+[ext_resource type="Texture2D" uid="uid://cv83aqy67qevf" path="res://Assets/Sprites/note_feedback/good.png" id="6_86ppk"]
+[ext_resource type="Texture2D" uid="uid://c1h6vfg3rjgyd" path="res://Assets/Sprites/scoreboard/plant_4.png" id="6_hp617"]
+[ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="9_hp617"]
+[ext_resource type="Texture2D" uid="uid://djyt2xkpk5p2y" path="res://Assets/Sprites/enemies/gusanoSpriteSheet.png" id="12_re3hr"]
+
+[node name="Scoreboard" type="Node2D" node_paths=PackedStringArray("missed_text", "meh_text", "good_text", "perfect_text", "moscas_text", "ciempieses_text", "categoria", "plant")]
+script = ExtResource("1_ng0ti")
+missed_text = NodePath("ScoreBoard/Notes/Missed/Label")
+meh_text = NodePath("ScoreBoard/Notes/Meh/Label")
+good_text = NodePath("ScoreBoard/Notes/Good/Label")
+perfect_text = NodePath("ScoreBoard/Notes/Perfect/Label")
+moscas_text = NodePath("ScoreBoard/Enemies/Panel_Mosca/NumKilledMoscas")
+ciempieses_text = NodePath("ScoreBoard/Enemies/Panel_Ciempies/NumKilledCiempies")
+categoria = NodePath("Arbol/Label")
+plant = NodePath("Arbol")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(522.69, 336.759)
+scale = Vector2(0.624677, 0.629184)
+texture = ExtResource("1_k06fr")
+
+[node name="Arbol" type="Sprite2D" parent="."]
+position = Vector2(678.69, 333.759)
+scale = Vector2(0.598634, 0.598634)
+texture = ExtResource("6_hp617")
+script = ExtResource("1_sp15s")
+textures = Array[Texture2D]([ExtResource("2_6xd7b"), ExtResource("3_6qsxc"), ExtResource("4_re3hr"), ExtResource("5_ng0ti"), ExtResource("6_hp617")])
+
+[node name="Sprite2D" type="Sprite2D" parent="Arbol"]
+position = Vector2(451.545, -1.26791)
+scale = Vector2(0.366403, 0.404014)
+texture = ExtResource("2_q1gqq")
+
+[node name="Label" type="RichTextLabel" parent="Arbol"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.745
+offset_top = -1278.38
+offset_right = 337.255
+offset_bottom = -989.383
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.865933, 1, 0.67846, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = -5
+theme_override_fonts/normal_font = ExtResource("9_hp617")
+theme_override_font_sizes/normal_font_size = 71
+text = "CATEGORIA ALTURA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Arbol"]
+offset_left = 295.0
+offset_top = 56.0
+offset_right = 604.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("9_hp617")
+theme_override_font_sizes/font_size = 36
+placeholder_text = "NOMBRE EQUIPO"
+alignment = 1
+max_length = 13
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1021.0
+offset_top = 18.0
+offset_right = 1102.0
+offset_bottom = 96.0
+grow_horizontal = 0
+
+[node name="ScoreBoard" type="Node2D" parent="."]
+position = Vector2(519.69, 337.759)
+scale = Vector2(0.665157, 0.665157)
+
+[node name="Panel" type="Sprite2D" parent="ScoreBoard"]
+position = Vector2(-448.528, 0)
+scale = Vector2(0.346675, 1)
+texture = ExtResource("1_26kal")
+
+[node name="Enemies" type="RichTextLabel" parent="ScoreBoard"]
+offset_left = -656.522
+offset_top = 51.4227
+offset_right = -77.5217
+offset_bottom = 458.423
+theme_override_colors/default_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = -5
+theme_override_fonts/normal_font = ExtResource("9_hp617")
+theme_override_font_sizes/normal_font_size = 76
+text = "ENEMIGOS"
+
+[node name="Panel_Mosca" type="Sprite2D" parent="ScoreBoard/Enemies"]
+position = Vector2(96.5364, 204.853)
+scale = Vector2(0.115721, 0.115721)
+texture = ExtResource("2_q1gqq")
+
+[node name="Mosca" type="Sprite2D" parent="ScoreBoard/Enemies/Panel_Mosca"]
+scale = Vector2(0.812108, 0.808102)
+texture = ExtResource("3_dm2bc")
+
+[node name="NumKilledMoscas" type="Label" parent="ScoreBoard/Enemies/Panel_Mosca"]
+offset_left = -645.309
+offset_top = 181.342
+offset_right = 691.691
+offset_bottom = 1271.34
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_constants/shadow_offset_x = -50
+theme_override_constants/shadow_offset_y = 50
+theme_override_fonts/font = ExtResource("2_26kal")
+theme_override_font_sizes/font_size = 696
+text = "100"
+horizontal_alignment = 1
+
+[node name="Panel_Ciempies" type="Sprite2D" parent="ScoreBoard/Enemies"]
+position = Vector2(322.047, 204.791)
+scale = Vector2(0.115721, 0.115721)
+texture = ExtResource("2_q1gqq")
+
+[node name="NumKilledCiempies" type="Label" parent="ScoreBoard/Enemies/Panel_Ciempies"]
+offset_left = -636.933
+offset_top = 181.343
+offset_right = 700.067
+offset_bottom = 1271.34
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_constants/shadow_offset_x = -50
+theme_override_constants/shadow_offset_y = 50
+theme_override_fonts/font = ExtResource("2_26kal")
+theme_override_font_sizes/font_size = 696
+text = "100"
+horizontal_alignment = 1
+
+[node name="Ciempies" type="Sprite2D" parent="ScoreBoard/Enemies/Panel_Ciempies"]
+position = Vector2(67.1819, -15.1936)
+scale = Vector2(0.749253, 0.745557)
+texture = ExtResource("12_re3hr")
+hframes = 24
+
+[node name="Line2D" type="Line2D" parent="ScoreBoard/Enemies"]
+visible = false
+position = Vector2(0.0741833, 136.906)
+scale = Vector2(1.03611, 1)
+points = PackedVector2Array(1.63098, 0, 355.56, 0)
+width = 6.425
+default_color = Color(0.632387, 0.936745, 0.991177, 0.498)
+
+[node name="Notes" type="RichTextLabel" parent="ScoreBoard"]
+offset_left = -656.522
+offset_top = -414.577
+offset_right = -77.5217
+offset_bottom = 85.4227
+theme_override_colors/default_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = -5
+theme_override_fonts/normal_font = ExtResource("9_hp617")
+theme_override_font_sizes/normal_font_size = 76
+text = "NOTAS"
+
+[node name="Perfect" type="Sprite2D" parent="ScoreBoard/Notes"]
+position = Vector2(124.19, 410.837)
+scale = Vector2(1.08332, 1.08332)
+texture = ExtResource("3_ms1t7")
+
+[node name="Label" type="Label" parent="ScoreBoard/Notes/Perfect"]
+offset_left = 98.4215
+offset_top = -53.6446
+offset_right = 242.421
+offset_bottom = 56.3554
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_26kal")
+theme_override_font_sizes/font_size = 56
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Missed" type="Sprite2D" parent="ScoreBoard/Notes"]
+position = Vector2(124.191, 175.972)
+scale = Vector2(1.08332, 1.08332)
+texture = ExtResource("4_dm2bc")
+
+[node name="Label" type="Label" parent="ScoreBoard/Notes/Missed"]
+offset_left = 97.9993
+offset_top = -54.7241
+offset_right = 241.999
+offset_bottom = 55.2759
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_26kal")
+theme_override_font_sizes/font_size = 56
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Meh" type="Sprite2D" parent="ScoreBoard/Notes"]
+position = Vector2(124.191, 254.26)
+scale = Vector2(1.08332, 1.08332)
+texture = ExtResource("5_sp15s")
+
+[node name="Label" type="Label" parent="ScoreBoard/Notes/Meh"]
+offset_left = 98.4208
+offset_top = -54.8265
+offset_right = 242.421
+offset_bottom = 55.1735
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_26kal")
+theme_override_font_sizes/font_size = 56
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Good" type="Sprite2D" parent="ScoreBoard/Notes"]
+position = Vector2(124.191, 332.549)
+scale = Vector2(1.08332, 1.08332)
+texture = ExtResource("6_86ppk")
+
+[node name="Label" type="Label" parent="ScoreBoard/Notes/Good"]
+offset_left = 98.4208
+offset_top = -57.6858
+offset_right = 242.421
+offset_bottom = 52.3142
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.333333, 0.309804, 0.529412, 1)
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_26kal")
+theme_override_font_sizes/font_size = 56
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="ScoreBoard/Notes"]
+visible = false
+position = Vector2(-1.56732, 136.906)
+scale = Vector2(0.693707, 1)
+points = PackedVector2Array(1.63098, 0, 355.56, 0)
+width = 6.425
+default_color = Color(0.632387, 0.936745, 0.991177, 0.498)
+
+[connection signal="button_up" from="Button" to="." method="BackToLabMenu"]

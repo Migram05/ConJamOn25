@@ -12,7 +12,7 @@ class_name NoteController
 var rail : Rail
 var limit : Node2D
 var speed : float
-var blocked_by_fly : bool
+var blocked_by_fly : bool = false
 var move : bool = true
 
 enum NotePrecision { MISSED = 0, BAD = 1, GOOD = 2, PERFECT = 3 }
@@ -24,9 +24,8 @@ func _process(delta):
 	if move:
 		global_position.y += delta * speed
 	
-	if limit.position.y < position.y:
+	if limit.position.y < position.y && move:
 		delete_note(0)
-		print("webo")
 
 func set_limits(limits : Node2D):
 	limit = limits
@@ -84,7 +83,6 @@ func fade_out(time_to_live):
 	await tween.finished
 	tween.kill()
 	queue_free()
-
 
 func fly_block():
 	blocked_by_fly = true
