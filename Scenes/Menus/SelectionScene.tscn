@@ -188,23 +188,22 @@ texture_normal = ExtResource("7_bxvtr")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="Items/Matamoscas"]
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 30.5556
-offset_top = -31.9444
-offset_right = 170.556
-offset_bottom = 7.05555
-theme_override_fonts/font = ExtResource("4_apbd8")
-theme_override_font_sizes/font_size = 30
-text = "Click here:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Sprite2D" type="Sprite2D" parent="Items/Matamoscas"]
 position = Vector2(90, 89)
 scale = Vector2(0.349609, 0.349609)
 texture = ExtResource("8_yjane")
+
+[node name="Label2" type="Label" parent="Items/Matamoscas/Sprite2D"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -128.33
+offset_top = -347.914
+offset_right = 336.67
+offset_bottom = -220.914
+theme_override_fonts/font = ExtResource("4_apbd8")
+theme_override_font_sizes/font_size = 100
+text = "Click here:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Items/Matamoscas"]
 self_modulate = Color(1, 1, 1, 0)

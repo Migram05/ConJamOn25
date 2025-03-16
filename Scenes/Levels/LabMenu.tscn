@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dl8rdqabkv7s3"]
+[gd_scene load_steps=20 format=3 uid="uid://dl8rdqabkv7s3"]
 
 [ext_resource type="Script" uid="uid://ku0a7675psxn" path="res://Scripts/lab_menu.gd" id="1_is7h6"]
 [ext_resource type="Script" uid="uid://cukdhx8dn5s18" path="res://Scripts/song_loader.gd" id="1_tsnl6"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://br5ln7g8bl3hq" path="res://Songs/Monster2/caracolGalllegoSmall.png" id="7_mtvoj"]
 [ext_resource type="Texture2D" uid="uid://1q0otn7s8m1m" path="res://Songs/Monster2/caracolGalllego.png" id="8_hbtht"]
 [ext_resource type="AudioStream" uid="uid://cape2tknhq54f" path="res://Songs/Monster/Monster.mp3" id="8_nsvov"]
-[ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/Beneath the mask/caracolCatalanSmall.png" id="9_kknh8"]
+[ext_resource type="Texture2D" uid="uid://bvpwmhxhus7vv" path="res://Songs/Megalovania/caracolCatalanSmall.png" id="9_kknh8"]
 [ext_resource type="AudioStream" uid="uid://c1geccs0mh3er" path="res://Songs/Beneath the mask/Beneath The Mask.mp3" id="10_25ioh"]
-[ext_resource type="Texture2D" uid="uid://c6qrc2w4c60g" path="res://Songs/Beneath the mask/caracolCatalan.png" id="11_25ioh"]
+[ext_resource type="Texture2D" uid="uid://c6qrc2w4c60g" path="res://Songs/Megalovania/caracolCatalan.png" id="11_25ioh"]
 [ext_resource type="Texture2D" uid="uid://cjr70umdvi04l" path="res://Songs/Monster/caracolVascoSmall.png" id="11_kknh8"]
 [ext_resource type="Texture2D" uid="uid://c0jcjoghqsfno" path="res://Assets/Sprites/FinalBrurred.png" id="12_mtvoj"]
 [ext_resource type="Texture2D" uid="uid://bym43ujlvvdvt" path="res://Songs/Monster/caracolVasco.png" id="14_b135w"]

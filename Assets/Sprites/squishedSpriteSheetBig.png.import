@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b18h5wl6ir12k"
-path="res://.godot/imported/config.png-3ddcf970bdde650e273da87a6365003b.ctex"
+uid="uid://dxslparf6qpms"
+path="res://.godot/imported/squishedSpriteSheetBig.png-09077e941a96b2b9c53a268abdd0d8aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/config.png"
-dest_files=["res://.godot/imported/config.png-3ddcf970bdde650e273da87a6365003b.ctex"]
+source_file="res://Assets/Sprites/squishedSpriteSheetBig.png"
+dest_files=["res://.godot/imported/squishedSpriteSheetBig.png-09077e941a96b2b9c53a268abdd0d8aa.ctex"]
 
 [params]
 
