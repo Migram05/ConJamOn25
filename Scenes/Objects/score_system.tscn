@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://rbonhs12eaxm"]
+[gd_scene load_steps=3 format=3 uid="uid://3uq5cnx1n256"]
 
-[ext_resource type="Script" uid="uid://dleqlwmp6yci7" path="res://Scripts/score_system.gd" id="1_3n7gw"]
+[ext_resource type="Script" path="res://Scripts/score_system.gd" id="1_3n7gw"]
 [ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="2_3n7gw"]
 
 [node name="ScoreSystem" type="Node2D" node_paths=PackedStringArray("text")]

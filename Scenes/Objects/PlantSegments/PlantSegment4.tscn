@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bui8j0sxwvmbr"]
+
+[ext_resource type="Texture2D" uid="uid://blnjmq5tnij17" path="res://Assets/Sprites/Plantas/Finals_-3-8 (2).png" id="1_5wcg4"]
+[ext_resource type="Script" uid="uid://1381w5s2orvh" path="res://Scenes/Objects/PlantSegments/plant_segment_animator.gd" id="1_cfj2d"]
+[ext_resource type="Texture2D" uid="uid://sk6l1536vf6v" path="res://Assets/Sprites/Plantas/Finals_-3-11.png" id="2_0idxw"]
+[ext_resource type="Texture2D" uid="uid://bse7ofr5hghbb" path="res://Assets/Sprites/Plantas/Finals_-3-12.png" id="3_cfj2d"]
+[ext_resource type="Texture2D" uid="uid://bu6uyltknj18w" path="res://Assets/Sprites/Plantas/Finals_-3-10.png" id="4_0idxw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5pepi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5wcg4")
+}],
+"loop": false,
+"name": &"Damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0idxw")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cfj2d")
+}],
+"loop": false,
+"name": &"Perfect",
+"speed": 5.0
+}]
+
+[node name="PlantSegment2" type="Node2D" node_paths=PackedStringArray("trunc", "glow")]
+script = ExtResource("1_cfj2d")
+trunc = NodePath("AnimatedSprite2D")
+glow = NodePath("Sprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5pepi")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("4_0idxw")

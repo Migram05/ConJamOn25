@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var sprite : Node2D = find_child("Sprite2D");
+@export var sprite : Node2D;
 var levelLenght
 
 @export var fliesToStopGrowth := 5;
@@ -8,7 +8,7 @@ var levelLenght
 @export var perfectGrowth := 1.0;
 @export var goodGrowth := 0.5;
 @export var badGrowth := 0.25;
-@export var upSpeed := 3.0;
+@export var upSpeed := 0.05;
 @export var maxPlantScroll := 50.0;
 
 var targetPosition := 0.0;

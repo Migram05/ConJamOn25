@@ -1,10 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://njqeha6xttwb"]
+[gd_scene load_steps=10 format=3 uid="uid://njqeha6xttwb"]
 
 [ext_resource type="Texture2D" uid="uid://v34084bke216" path="res://Assets/Sprites/plant_final.png" id="1_apipn"]
 [ext_resource type="Script" uid="uid://bfqjr3jkq0c6x" path="res://Scripts/plant_movement.gd" id="1_f6c36"]
+[ext_resource type="Script" uid="uid://d07r52neoa73a" path="res://Scripts/plant_spawner.gd" id="3_gkspe"]
+[ext_resource type="PackedScene" uid="uid://dvmnjug22kwnl" path="res://Scenes/Objects/PlantSegments/PlantSegment1.tscn" id="4_1ge2o"]
+[ext_resource type="PackedScene" uid="uid://b0nw0eqn1hyv5" path="res://Scenes/Objects/PlantSegments/PlantSegment2.tscn" id="5_cuja4"]
+[ext_resource type="PackedScene" uid="uid://bq2yhjidbrxd6" path="res://Scenes/Objects/PlantSegments/PlantSegment3.tscn" id="6_wa48y"]
+[ext_resource type="PackedScene" uid="uid://bui8j0sxwvmbr" path="res://Scenes/Objects/PlantSegments/PlantSegment4.tscn" id="7_wragm"]
+[ext_resource type="PackedScene" uid="uid://byvnllchdv4k6" path="res://Scenes/Objects/PlantSegments/PlantSegment5.tscn" id="8_b1xce"]
+[ext_resource type="PackedScene" uid="uid://t4l32kjbkelj" path="res://Scenes/Objects/PlantSegments/PlantSegment6.tscn" id="9_vmini"]
 
-[node name="Plant" type="Node2D"]
+[node name="Plant" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_f6c36")
+sprite = NodePath("Sprites")
+perfectGrowth = 10.0
+goodGrowth = 5.0
+badGrowth = 1.0
+maxPlantScroll = 5000.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="Sprites"]
 texture = ExtResource("1_apipn")
+
+[node name="Spawner" type="Node2D" parent="Sprites" node_paths=PackedStringArray("pot")]
+script = ExtResource("3_gkspe")
+pot = NodePath("../Base")
+segments = Array[PackedScene]([ExtResource("4_1ge2o"), ExtResource("5_cuja4"), ExtResource("6_wa48y"), ExtResource("7_wragm"), ExtResource("8_b1xce"), ExtResource("9_vmini")])
+offset = 350.0
