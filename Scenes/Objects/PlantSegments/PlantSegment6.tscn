@@ -43,5 +43,6 @@ sprite_frames = SubResource("SpriteFrames_5pepi")
 animation = &"Idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 texture = ExtResource("5_6yiwo")

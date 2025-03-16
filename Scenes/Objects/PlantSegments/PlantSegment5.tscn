@@ -46,5 +46,6 @@ script = ExtResource("4_q3fgb")
 trunc = NodePath(".")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 texture = ExtResource("5_srprv")
