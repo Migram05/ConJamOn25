@@ -43,6 +43,11 @@ func updateRandomAmplitude():
 
 var total_speed : Vector2
 
+func _ready():
+	var forward_speed := Vector2.RIGHT.rotated(self.rotation) * forwardSpeed;
+	var perpendicular_speed = Vector2.UP.rotated(self.rotation) * amplitude * sin(totalTime * oscilationFrequency) * amplitudeRandomization;
+	total_speed = (forward_speed + perpendicular_speed);
+
 func _process(delta):
 	if (paused):
 		return;
