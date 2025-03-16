@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dq5j3pfp1lb76"]
+[gd_scene load_steps=22 format=3 uid="uid://dq5j3pfp1lb76"]
 
 [ext_resource type="Texture2D" uid="uid://ctyj66tlojkni" path="res://Assets/Sprites/scoreboard/solidPanel.png" id="1_26kal"]
 [ext_resource type="Texture2D" uid="uid://bfqh7rdtfh5tr" path="res://Assets/Sprites/note_feedback/results_bg.png" id="1_k06fr"]
 [ext_resource type="Script" uid="uid://d2mxelbr4u3bc" path="res://Scripts/scoreboard.gd" id="1_ng0ti"]
-[ext_resource type="Script" path="res://Scripts/plant_scoreboard.gd" id="1_sp15s"]
+[ext_resource type="Script" uid="uid://go2sne2hxu3v" path="res://Scripts/plant_scoreboard.gd" id="1_sp15s"]
 [ext_resource type="Texture2D" uid="uid://c3ph3ufmjamf3" path="res://Assets/Sprites/scoreboard/plant_0.png" id="2_6xd7b"]
 [ext_resource type="FontFile" uid="uid://ptfxu2lfjvg7" path="res://Assets/Fonts/Grinched 2.0 DEMO.otf" id="2_26kal"]
 [ext_resource type="Texture2D" uid="uid://dik1rfoa4l72q" path="res://Assets/Sprites/note_feedback/panel_fade.png" id="2_q1gqq"]
@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://c1h6vfg3rjgyd" path="res://Assets/Sprites/scoreboard/plant_4.png" id="6_hp617"]
 [ext_resource type="FontFile" uid="uid://dunk0bkpmek8u" path="res://Assets/Fonts/chalkboard-se-regular.ttf" id="9_hp617"]
 [ext_resource type="Texture2D" uid="uid://dxtwy670bml58" path="res://Assets/Sprites/Arrow.png" id="11_toont"]
+[ext_resource type="Texture2D" uid="uid://cqb42ylfqrcqx" path="res://Assets/Sprites/ArrowPress.png" id="12_0q0lv"]
 [ext_resource type="Texture2D" uid="uid://djyt2xkpk5p2y" path="res://Assets/Sprites/enemies/gusanoSpriteSheet.png" id="12_re3hr"]
+[ext_resource type="Texture2D" uid="uid://ct3fqhmkyevmg" path="res://Assets/Sprites/ArroeOver.png" id="13_llnie"]
 
 [node name="Scoreboard" type="Node2D" node_paths=PackedStringArray("missed_text", "meh_text", "good_text", "perfect_text", "moscas_text", "ciempieses_text", "categoria", "plant", "team_name_input")]
 script = ExtResource("1_ng0ti")
@@ -80,18 +82,17 @@ placeholder_text = "NOMBRE EQUIPO"
 alignment = 1
 max_length = 13
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 1896.0
-offset_top = 151.0
-offset_right = 2479.0
-offset_bottom = 416.0
-grow_horizontal = 0
-rotation = -3.14159
-scale = Vector2(0.55049, 0.482788)
-icon = ExtResource("11_toont")
+[node name="Button" type="TextureButton" parent="."]
+offset_left = 1884.0
+offset_top = 23.0
+offset_right = 2165.0
+offset_bottom = 155.0
+scale = Vector2(-0.984685, 1.0044)
+texture_normal = ExtResource("11_toont")
+texture_pressed = ExtResource("12_0q0lv")
+texture_hover = ExtResource("13_llnie")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="ScoreBoard" type="Node2D" parent="."]
 position = Vector2(958, 543)
