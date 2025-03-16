@@ -76,4 +76,4 @@ func Play() -> void:
 func Player2Ready() -> void:
 	$Items/Matamoscas/Sprite2D.visible=false
 	player2Ready=true
-	$Items/Matamoscas/Label2.text = "READY!"
+	$Items/Matamoscas/Sprite2D/Label2.text = "READY!"
